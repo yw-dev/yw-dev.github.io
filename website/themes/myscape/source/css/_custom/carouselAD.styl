@@ -1,0 +1,545 @@
+/**
+*
+*/
+ul,li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}  
+div {
+    box-sizing: border-box;
+} 
+/**************************************
+*     slide panel css define
+**************************************/
+.adcontent
+    position:relative
+    display: block
+    width: 100%
+    top: 0;
+    left: 0;
+    
+
+.slider-pane-content
+    height: 100%;
+    position:relative
+
+ 
+/*css public start*/
+.floatfix {
+    *zoom: 1;
+}
+.floatfix:after {
+    display: table;
+    clear: both;
+}
+/*css public end*/
+    
+/*slider start*/
+.slider-contaner{
+    height:100%;
+    position:relative;
+}
+.slider-item + .slider-item{
+    opacity:0;
+}
+.slider-item{
+    width:100%;
+    position:absolute;
+    animation-timing-function: linear;
+    animation-name:fade;
+    animation-iteration-count: infinite;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.focus-container{
+    position:absolute;
+    z-index:7;
+    margin:0;
+    left:0;
+    right:0;
+}
+.focus-container li{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    float:left;
+    margin-right:10px;
+    background:#fff;
+}
+.focus-item{
+    width:100%;
+    height:100%;
+    border-radius:inherit;
+    animation-timing-function: linear;
+    animation-name:fade;
+    animation-iteration-count: infinite;
+}
+.focus-item2,.focus-item3,.focus-item4,.focus-item5{
+    opacity:0;
+}
+.focus-container ul{
+    margin-left:46%;
+}
+/*设置轮播焦点的位置*/
+.focus-container{
+    bottom:2%;
+}
+/*设置当前图片焦点的颜色*/
+.focus-item{
+    background:#51B1D9;
+}
+/*设置动画，请根据实际需要修改秒数*/
+.slider-item,.focus-item{
+    animation-duration: 20s;
+}
+.slider-item1,.focus-item1{
+    animation-delay: -1s;
+}
+.slider-item2,.focus-item2{
+    animation-delay: 3s;
+}
+.slider-item3,.focus-item3{
+    animation-delay: 7s;
+}
+.slider-item4,.focus-item4{
+    animation-delay: 11s;
+}
+.slider-item5,.focus-item5{
+    animation-delay: 15s;
+}
+@keyframes fade{
+    0%{
+          opacity:0;
+          z-index:2;
+    }
+    5%{
+          opacity:1;
+          z-index: 1;
+    }
+    20%{
+          opacity:1;
+          z-index:1;
+    }
+    25%{
+          opacity:0;
+          z-index:0;
+    }
+    100%{
+          opacity:0;
+          z-index:0;
+    }
+}
+.slider-item1{
+    background-image:url(/css/images/carousel/sub-bg-8.jpg);
+}
+.slider-item2{
+    background-image:url(/css/images/carousel/sub-bg-7.jpg);
+}
+.slider-item3{
+    background-image:url(/css/images/carousel/sub-bg-6.jpg);
+}
+.slider-item4{
+    background-image:url(/css/images/carousel/sub-bg-5.jpg);
+}
+.slider-item5{
+    background-image:url(/css/images/carousel/sub-bg-2.jpg);
+}
+/*设置图片的高度，请根据具体需要修改百分比，响应式及时修改此值*/
+.slider,.slider-item{
+    padding-bottom:40%;
+}
+
+
+/**************************************
+*     panel subinfo css define
+**************************************/
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.Pane{
+    position: relative;
+    padding: 20px;
+}
+.Pane::before {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+}
+.Pane::after{
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+}
+.Pane--full{
+    padding: 0;
+}
+.Pane-BackgroundPane::before {
+    content: '';
+    box-sizing: border-box;
+    position: relative;
+    height: 1px;
+    margin-bottom: -1px;
+    border-top: solid 1px rgba(0, 174, 255, 0.3);
+    pointer-events: none;
+    z-index: 1;
+}
+.Pane-BackgroundPane::after{    
+    content: '';
+    box-sizing: border-box;
+    position: relative;
+    height: 1px;
+    margin-top: -1px;
+    border-bottom: solid 1px rgba(0, 174, 255, 0.3);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.Pane-BackgroundContainer{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(5em);
+}
+.Pane-Background{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.Pane-content, .pane-work{
+    position: relative;
+}
+.Pane-container{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.Pane--adaptiveBeforeSpace{
+    padding-top: 30px;
+}
+.Pane--adaptiveAfterSpace{
+    padding-bottom: 30px;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.Pane-workheader{
+    font-family: "Blizzard", Helvetica, Arial, sans-serif;
+    font-size: 22.784px;
+    font-weight: 400;
+    line-height: 1.4;
+    padding: 0;
+    margin: 0;
+    margin-left: -0.05em;
+    font-weight: 300;
+}
+.work-sectionHead {
+    font-family: "Blizzard", Helvetica, Arial, sans-serif;
+    font-size: 22.784px;
+    font-weight: 400;
+    line-height: 1.4;
+    padding: 0;
+    margin: 0;
+    margin-left: -0.05em;
+    font-weight: 300;
+}
+.workheaderlink{
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.link, a {
+    color: #00aeffdc;
+    text-decoration: none;
+    transition: color .2s;
+    cursor: pointer;
+}
+.work-sectionHeadText {
+    color: #ffffff;
+}
+.work-sectionHeadLinikText{
+    position: relative;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 12.8px;
+    font-weight: 400;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    margin-left: 0;
+    margin-left: 1rem;
+    bottom: -0.25rem;
+}
+.work-grid-container{
+    position: relative;
+}
+.workGrid{
+    display: table;
+    table-layout: fixed;
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+.workGridRow{
+    display: table-row;
+    font-size: 0;
+}
+.workgridRowCell{
+    display: table-cell;
+    position: relative;
+    transform: translateZ(0);
+}
+.workGridRowTitle{
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 27px;
+    color: #00aeff85;
+}
+
+.Gallery{
+    position: relative;
+    max-width: 2540px;
+    margin: 0 auto;
+}
+.Gallery:after, .Gallery:before {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+}
+.Gallery-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+.Gallery-wrapper--marginless {
+    margin-left: 0;
+    margin-right: 0;
+}
+.workGridcontainer{
+    position: relative;
+    font-size: 0;
+    white-space: nowrap;
+    padding: 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+.workGrid-inner{
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+}
+.Home-gameGridTileContainer {
+    display: inline-block;
+    position: relative;
+    width: 167px;
+    height: 200px;
+    cursor: auto;
+}
+.workGridItemLink{
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.workgridCell{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-position: bottom center;
+    background-size: cover;
+    box-shadow: 0 8px 17px rgba(0, 0, 0, 0.1);
+}
+.workgridCell::after{
+    content: ' ';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: solid 1px rgba(255, 255, 255, 0.15);
+    transition: color 200ms, background-color 200ms, border-color 200ms;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.Gallery-scroll {
+    display: none;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background-color: #0e86ca;
+    border: solid 1px #00aeff;
+    color: #fff;
+    opacity: 1;
+    transition: opacity 250ms,color .2s;
+    height: 80px;
+    width: 30px;
+    font-size: 1.5rem;
+    z-index: 1;
+    cursor: pointer;
+}
+.GalleryCard {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    margin-right: 20px;
+    vertical-align: top;
+    cursor: pointer;
+}
+.GalleryCard:first-child{
+    margin-left: 20px;
+}
+.Home-gameGridGallery {
+    margin: -20px 0;
+}
+.Home-gameGridGalleryItem {
+    padding: 20px 0;
+    margin-left: 20px;
+    margin-right: 0;
+}
+.Home-gameGridGalleryItem:first-child{
+    margin-left: 0px;
+}
+
+.Gallery.is-hg .Gallery-left{left:60px}
+.Gallery.is-hg .Gallery-right{right:60px}
+.Gallery.is-lg .Gallery-left,.Gallery.is-sm .Gallery-left{
+    left:20px
+}
+.Gallery.is-lg .Gallery-right,.Gallery.is-sm .Gallery-right{
+    right:20px
+}
+.Gallery.is-xs .Gallery-left {
+    left: 10px;
+}
+.Gallery--lowProfile .Gallery-left {
+    left: -20px;
+}
+
+.Gallery--lowProfile.is-leftMax .Gallery-left,.Gallery--lowProfile.is-rightMax .Gallery-right{
+    display:none
+}
+.Gallery.is-leftMax .Gallery-left, .Gallery.is-rightMax .Gallery-right {
+    display: none!important;
+}
+
+.Gallery-left {
+    left: 0;
+}
+.Gallery.is-xs .Gallery-right {
+    right: 10px;
+}
+
+.Gallery.is-constrained .Gallery-scroll {
+    display: block;
+}
+.Gallery--lowProfile .Gallery-left{left:-20px}
+.Gallery--lowProfile .Gallery-right {
+    right: -20px;
+}
+.Gallery--lowProfile .Gallery-scroll {
+    height: 70px;
+    width: 30px;
+    font-size: 20.26px;
+}
+
+.Gallery-right {
+    right: 0;
+}
+.Gallery-scroll:hover {
+    background-color: #00aeff;
+    border: solid 1px #00aeff;
+    color: #fff;
+}
+.Gallery-scroll:active {
+    background-color: #072635;
+    border: solid 1px #00aeff;
+    color: #fff;
+}
+.text-highlight-disable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.Icon {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.Gallery-scrollIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+/*****************
+*   CSS hacks
+*****************/
+@media (min-width: 480px){
+    .Pane-container{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media (min-width: 768px){
+    .Pane-container{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (min-width: 992px){
+    .Pane--adaptiveBeforeSpace{
+        padding-top: 40px;
+    }
+    .Pane--adaptiveAfterSpace{
+        padding-bottom: 40px;
+    }
+}

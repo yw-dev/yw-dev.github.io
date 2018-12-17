@@ -4,6 +4,19 @@
     <%- partial('post/category') %>
   </div>
   <div class="article-inner">
+  <%# -Carousel Panel- %>
+  <% if (post.layout == 'worksite') {%>
+    <% if (theme.Carousel.enabled) {%>
+      <%- partial('_custom/carousel', null, {cache: !config.relative_link}) %>
+    <% } %>
+  <% } else if (post.layout == 'worksite'){ %>
+  <% } else if (post.layout == 'designsite'){ %>
+  <% } else if (post.layout == 'learnsite'){ %>
+  <% } else if (post.layout == 'statistical'){ %>
+  <% } else if (post.layout == 'gamesite'){ %>
+  <% } else if (post.layout == 'videosite'){ %>
+  <% } %>
+  <%# -Carousel Panel End- %>
     <%- partial('post/gallery') %>
     <% if (post.link || post.title){ %>
       <header class="article-header">
@@ -11,6 +24,12 @@
       </header>
     <% } %>
     <div class="article-entry" itemprop="articleBody">
+    
+    <%# -Carousel Panel- %>
+    <% if (theme.Carousel.enabled) {%>
+      <%- partial('_custom/carousel', null, {cache: !config.relative_link}) %>
+    <% } %>
+    <%# -Carousel Panel End- %>
       <% if (post.excerpt && index){ %>
         <%- post.excerpt %>
         <% if (theme.excerpt_link){ %>

@@ -1,0 +1,359 @@
+/**
+*   carousel component stylus define
+*/
+.Pane
+    position: relative
+    padding: 20px
+    &:before 
+        content: ''
+        display: block
+        clear: both
+        height: 0
+    &:after
+        content: ''
+        display: block
+        clear: both
+        height: 0
+
+.Pane--full 
+    padding: 0
+
+.Home-gameBackgroundPane
+    &:before 
+        content: ''
+        box-sizing: border-box
+        position: relative
+        height: 1px
+        margin-bottom: -1px
+        border-top: solid 1px rgba(255, 255, 255, 0.2)
+        pointer-events: none
+        z-index: 1
+
+.Pane-backgroundContainer 
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-position: center
+    background-repeat: no-repeat
+
+.Pane-background 
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    filter: blur(0px)
+
+.slider-pane-content
+    height: 100%;
+    position:relative
+
+.Pane-container
+    padding-left: 40px
+    padding-right: 40px
+
+.Pane--adaptiveBeforeSpace
+    padding-top: 30px;
+
+.Pane--adaptiveAfterSpace
+    padding-bottom: 30px
+
+h2 
+    display: block;
+    font-size: 1.5em
+    margin-block-start: 0.83em
+    margin-block-end: 0.83em
+    margin-inline-start: 0px
+    margin-inline-end: 0px
+    font-weight: bold
+
+.Pane-workheader
+    font-family: "Blizzard", Helvetica, Arial, sans-serif
+    font-size: 22.784px
+    font-weight: 400
+    line-height: 1.4
+    padding: 0
+    margin: 0
+    margin-left: -0.05em
+    font-weight: 300
+
+.work-sectionHead 
+    font-family: "Blizzard", Helvetica, Arial, sans-serif
+    font-size: 22.784px
+    font-weight: 400
+    line-height: 1.4
+    padding: 0
+    margin: 0
+    margin-left: -0.05em
+    font-weight: 300
+
+.headerlink
+    display: -ms-inline-flexbox
+    display: inline-flex
+    -ms-flex-align: center
+    align-items: center
+
+.link, a 
+    color: #00aeffdc
+    text-decoration: none
+    transition: color .2s
+    cursor: pointer
+
+.sectionHeadText 
+    color: #ffffff
+    z-index: 1
+
+.sectionHeadLinikText
+    position: relative
+    font-family: "Open Sans", Helvetica, Arial, sans-serif
+    font-size: 12.8px
+    font-weight: 400
+    line-height: 1.6
+    padding: 0
+    margin: 0
+    margin-right: 2px
+    margin-left: 1rem
+    bottom: -0.25rem
+
+.sectionHeadLinikIcon    
+    position: relative
+    font-family: "Open Sans", Helvetica, Arial, sans-serif
+    font-size: 12px
+    font-weight: 400
+    line-height: 1.2
+    padding: 0
+    margin: 0
+    margin-left: 2px
+    bottom: -0.25rem
+
+.slide-grid-container
+    position: relative
+
+.slideGrid
+    display: table
+    table-layout: fixed
+    position: relative
+    width: 100%
+    margin-top: 20px
+
+.slideGridRow
+    display: table-row
+    font-size: 0
+
+.slidegridRowCell
+    display: table-cell
+    position: relative
+    transform: translateZ(0)
+
+.slideGridRowTitle
+    font-family: "Open Sans", Helvetica, Arial, sans-serif
+    font-size: 16px
+    font-weight: 400
+    line-height: 1.7
+    min-height: 27px
+    color: #00aeff85
+
+
+.gallery
+    position: relative
+    max-width: 2540px
+    margin: 0 auto
+
+.gallery:after, .gallery:before 
+    content: ''
+    display: block
+    clear: both
+    height: 0
+
+.gallery-wrapper 
+    position: relative
+    overflow: hidden
+
+.gallery-wrapper--marginless 
+    margin-left: 0
+    margin-right: 0
+
+.slideGridcontainer
+    position: relative
+    font-size: 0
+    white-space: nowrap
+    padding: 0
+    overflow-x: scroll
+    overflow-y: hidden
+    -webkit-overflow-scrolling: touch
+
+.slideGrid-inner
+    display: -ms-inline-flexbox
+    display: inline-flex
+    -ms-flex-flow: row nowrap
+    flex-flow: row nowrap
+    -ms-flex-pack: start
+    justify-content: flex-start
+    -ms-flex-align: center
+    align-items: center
+    -ms-flex-line-pack: center
+    align-content: center
+
+.slideGridTileContainer 
+    display: inline-block
+    position: relative
+    width: 167px
+    height: 200px
+    cursor: auto
+
+.slideGridItemLink
+    display: block
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+
+.slidegridCell
+    position: absolute
+    overflow: hidden
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-position: bottom center
+    background-size: cover
+    box-shadow: 0 8px 17px rgba(0, 0, 0, 0.1)
+    &:after
+        content: ' '
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        border: solid 1px rgba(255, 255, 255, 0.15)
+        transition: color 200ms, background-color 200ms, border-color 200ms
+        pointer-events: none
+        z-index: 1
+
+.slidegridCell img
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.gallery-scroll 
+    display: none
+    position: absolute
+    top: 50%
+    -ms-transform: translateY(-50%)
+    transform: translateY(-50%)
+    opacity: 0.75
+    color: rgba(255, 255, 255, 0.15);
+    transition: opacity 250ms,color .2s
+    font-size: 1.5rem
+    z-index: 1
+    cursor: pointer
+    
+.gallery-scroll i
+    border-radius: 2em
+    &:hover 
+        background-color: #072635;
+        color: #fff;
+    &:active 
+        background-color: #fff;
+        border: solid 1px #fff;
+        opacity: 0.85
+        color: #072635;
+
+.galleryCard {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    margin-right: 20px;
+    vertical-align: top;
+    cursor: pointer;
+}
+.galleryCard:first-child{
+    margin-left: 20px;
+}
+.slideGridGalleryItem {
+    padding: 20px 0;
+    margin-left: 20px;
+    margin-right: 0;
+}
+.slideGridGalleryItem:first-child{
+    margin-left: 0px;
+}
+
+.gallery.is-hg .gallery-left{
+    left:60px
+}
+.gallery.is-hg .gallery-right{
+    right:60px
+}
+.gallery.is-lg .gallery-left,.gallery.is-sm .gallery-left{
+    left:20px
+}
+.gallery.is-lg .gallery-right,.gallery.is-sm .gallery-right{
+    right:20px
+}
+.gallery.is-xs .gallery-left {
+    left: 10px;
+}
+.gallery--lowProfile .gallery-left {
+    left: -20px;
+}
+
+.gallery--lowProfile.is-leftMax .gallery-left,.gallery--lowProfile.is-rightMax .gallery-right{
+    display:block;
+}
+.gallery.is-leftMax .gallery-left, .gallery.is-rightMax .gallery-right {
+    //display: none!important;
+}
+
+.gallery-left {
+    left: 0;
+}
+.gallery.is-xs .gallery-right {
+    right: 10px;
+}
+
+.gallery.is-constrained .gallery-scroll {
+    display: block;
+}
+.gallery--lowProfile .gallery-left{
+    left:-20px
+}
+.gallery--lowProfile .gallery-right {
+    right: -20px;
+}
+.gallery--lowProfile .gallery-scroll {
+    height: 40px;
+    width: 40px;
+    font-size: 20.26px;
+}
+
+.gallery-right 
+    right: 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

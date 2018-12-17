@@ -1,3 +1,11 @@
+
+home: 首页
+worksite: 工作站
+designsite: 设计站
+learnsite: 学习站
+gamesite: 游戏站
+videosite: 视频站
+statistical: 统计
 categories: 分类
 search: 搜索
 tags: 标签
@@ -17,3 +25,4 @@ powered_by: Powered by
 rss_feed: RSS Feed
 category: Category
 tag: Tag
+

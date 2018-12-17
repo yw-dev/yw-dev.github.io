@@ -1,1 +1,4 @@
-<%- partial('_partial/article', {post: page, index: false}) %>
+
+<% if (post.layout == 'categories') {%>
+    <%- partial('_custom/article', {post: page, index: false}) %>
+<% } %>

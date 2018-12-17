@@ -22,22 +22,31 @@ input, button
        url(font-icon-path + ".ttf?v=#" + font-icon-version) format("truetype"),
        url(font-icon-path + ".svg#fontawesomeregular?v=#" + font-icon-version) format("svg")
 
-html, body, #container
+html, body, .container
   height: 100%
 
 body
   margin: 0
   padding: 0
+  box-sizing: border-box;
   background: color-background
   font: font-size font-sans
   -webkit-text-size-adjust: 100%
+  @media mq-mobile
+    font-size: 16px;
+  @media mq-tablet
+    font-size: 16px;
+  @media mq-normal
+    font-size: 16px;
+  @media mq-large
+    font-size: 18px;
 
-.outer
+.outer 
   clearfix()
-  //max-width: (column-width + gutter-width) * columns + gutter-width
-  width: 100%;
-  margin: 0 auto
-  padding: 0 gutter-width
+  //max-width: (column-width + gutter-width) * columns + gutter-width    
+  margin: 0
+  padding: 0
+  position: relative;
 
 .inner
   column(columns)
@@ -51,13 +60,15 @@ body
 .clear
   clear: both
 
-#container
+.container
+  margin: 0
+  padding: 0
   position: relative
 
 .mobile-nav-on
   overflow: hidden
 
-#wrap
+.wrap
   height: 100%
   width: 100%
   position: absolute
@@ -69,15 +80,19 @@ body
   .mobile-nav-on &
     left: mobile-nav-width
 
-if sidebar and sidebar isnt bottom
-  #main
-    @media mq-normal
-      column(main-column)
+#main
+  width: 100%
+  height: auto
 
-if sidebar is left
-  @media mq-normal
-    #main
-      float: right
+//if sidebar and sidebar isnt bottom
+//  #main
+//    @media mq-normal
+//      column(main-column)
+
+//if sidebar is left
+//  @media mq-normal
+//    #main
+//      float: right
 
 @import "_extend"
 @import "_partial/header"
@@ -87,6 +102,8 @@ if sidebar is left
 @import "_partial/footer"
 @import "_partial/highlight"
 @import "_partial/mobile"
+@import "_custom/carousel"
+@import "_custom/carouselAD"
 
 if sidebar
   @import "_partial/sidebar"
