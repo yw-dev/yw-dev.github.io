@@ -1,152 +1,38 @@
-<p align="center">
-  <a href="https://github.com/justinformentin/gatsby-v2-tutorial-starter">
-    <img
-      src="https://i.imgur.com/mW3HLrn.png"
-      height="80"
-      alt="gatsby-v2-tutorial-starter"
-      title="Gatsby v2 Tutorial Starter"
-    />
-  </a>
-</p>
+## Welcome to GitHub Pages
 
-<p align="center">
-  <a href="https://circleci.com/gh/justinformentin/gatsby-v2-tutorial-starter">
-    <img
-      src="https://circleci.com/gh/justinformentin/gatsby-v2-tutorial-starter.svg?style=svg"
-      alt="CircleCI"
-    />
-  </a>
-  <a href="https://codeclimate.com/github/justinformentin/gatsby-v2-tutorial-starter">
-    <img
-      src="https://codeclimate.com/github/justinformentin/gatsby-v2-tutorial-starter/badges/gpa.svg"
-      alt="Maintainability"
-    />
-  </a>
-  <a href="https://codeclimate.com/github/justinformentin/gatsby-v2-tutorial-starter">
-    <img
-      src="https://codeclimate.com/github/justinformentin/gatsby-v2-tutorial-starter/badges/issue_count.svg"
-      alt="Issues"
-    />
-  </a>
-  <a href="https://www.codacy.com/app/justinformentin/gatsby-v2-tutorial-starter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=justinformentin/gatsby-v2-tutorial-starter&amp;utm_campaign=Badge_Grade">
-    <img
-      src="https://api.codacy.com/project/badge/Grade/c910ab2b18a24dde80cfc05b73c908aa"
-      alt="Code Quality"
-    />
-  </a>
-  <a href="https://david-dm.org/justinformentin/gatsby-v2-tutorial-starter">
-    <img
-      src="https://img.shields.io/david/justinformentin/gatsby-v2-tutorial-starter.svg"
-      alt="Dependencies"
-    />
-  </a>
-  <a href="https://github.com/prettier/prettier">
-    <img
-      src="https://img.shields.io/badge/styled_with-prettier-ff69b4.svg"
-      alt="styled with prettier"
-    />
-  </a>
-  <a href="https://www.netlify.com">
-    <img
-      src="https://img.shields.io/badge/deploys%20by-netlify-00c7b7.svg"
-      alt="deploys by netlify"
-    />
-  </a>
-</p>
+You can use the [editor on GitHub](https://github.com/yw-dev/yw-dev.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-<p align="center">
-  <strong>
-    View the demo at <a href="https://gatsby-tutorial-starter.netlify.com">gatsby-tutorial-starter.netlify.com</a>.
-  </strong>
-</p>
+Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-<p align="center">
-  <strong>
-    Read the full step by step guide: <a href="https://justinformentin.com/guide-to-building-a-gatsby-site">Guide to Build a Gatsby Site with Perfect Pagespeed Scores</a></a>.
-  </strong>
-</p>
+### Markdown
 
-## Features
+Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-- Gatsby v2
-- Emotion for styling
-- Code syntax highlighting
-- Tags
-- SEO
-  - Sitemap generation
-  - Schema.org JSON-LD for Google Rich Snippets
-  - Twitter Tags
-  - OpenGraph Tags for Facebook/Google+/Pinterest
-  - robots.txt
-- Typography.js
-- Typefaces for faster font loading
-- Offline Support
-- Manifest Support
-- Gatsby Image
-  - Responsive images
-  - Traced SVG Loading with Lazy-Loading
-  - WebP Support
-- Development tools
-  - ESLint for linting
-  - Prettier for code style
-  - CircleCI support
-  - Google Lighthouse Optimization
+```markdown
+Syntax highlighted code block
 
-# Lighthouse Audit
+# Header 1
+## Header 2
+### Header 3
 
-<p align="center">
-  <a href="https://github.com/justinformentin/gatsby-v2-tutorial-starter">
-    <img
-      src="https://i.imgur.com/YOVC76X.png"
-      alt="Google Lighthouse Audit"
-      title="Google Lighthouse Audit"
-    />
-  </a>
-</p>
+- Bulleted
+- List
 
-# Usage
+1. Numbered
+2. List
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/justinformentin/gatsby-v2-tutorial-starter)
+**Bold** and _Italic_ and `Code` text
 
-```bash
-Download project
-# With `gatsby-cli`
-gatsby new my-site https://github.com/justinformentin/gatsby-v2-tutorial-starter
 
-OR
-
-# Cloning
-git clone my-site https://github.com/justinformentin/gatsby-v2-tutorial-starter.git
-cd my-site
-
-THEN
-
-# Install dependencies
-npm i
-
-# Start dev server
-gatsby develop
-
-# Build for production
-gatsby build
-
-# Format with Prettier
-npm format
-
+[Link](url) and ![Image](src)
 ```
 
-## Folder structure
-```bash
-├──.circleci # Circleci integration
-├── config # Theme and site metadata
-├── content # Post markdown and images
-├── src
-│   ├── components
-│   ├── layouts
-│   ├── pages
-│   ├── style
-│   └── templates # For Post and Tag page generation
-├── static # Images for logo and favicon, and robots.txt
-├── gatsby-config.js # Plugin loading and configuration
-└── gatsby-node.js # Generate posts/tags and modify webpack
-```
+For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+
+### Jekyll Themes
+
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/yw-dev/yw-dev.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+
+### Support or Contact
+
+Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
