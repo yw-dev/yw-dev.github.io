@@ -4,8 +4,6 @@ import styled from '@emotion/styled';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import { CardHeader } from 'components';
-import logo from '../../static/logo/header.png';
-import sub1 from '../../static/logo/sub-bg-2.jpg';
 
 const Container = styled.div`
   width: 100%;

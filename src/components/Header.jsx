@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import logo from '../../static/logo/header.png';
-import sub1 from '../../static/logo/sub-bg-2.jpg';
 
 const Wrapper = styled.header`
   -webkit-clip-path: polygon(100% 0, 0 0, 0 70%, 50% 100%, 100% 70%);
@@ -51,8 +50,6 @@ const SlideBar = styled.slide`
     float:left;
     width:100%;
     height: 23rem;
-    background:#000;
-    background-image: url(${sub1});
   }
 
   .carousel-focus {
