@@ -7,11 +7,73 @@ import { Layout, Container, Content } from 'layouts';
 import { TagsBlock, Header, SEO, ContentHeader, ContentNav } from 'components';
 import config from '../../config/site';
 import '../styles/prism';
+import { 
+  SlideBar, 
+  Archive, 
+  GuessLike, 
+  CardHeader, 
+} from 'components';
+
+const ContentWrapper = styled.div`
+  margin: 1rem 9rem 1rem 9rem;
+  width: auto;
+  @media (max-width: ${props => props.theme.breakpoints.l}) {
+    margin: 2rem 6rem 2rem 6rem;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.hd}) {
+    margin: 1rem 4rem 1rem 4rem;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    margin: 1rem 2rem 1rem 2rem;
+  }
+  @media (max-width:  ${props => props.theme.breakpoints.s}) {
+    margin:  1rem;
+  }
+`;
+
+const ContentContainer = styled.div`
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    flex-wrap: wrap;
+  }
+`; 
+
+const ContentPost = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-right: 1rem;
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    padding-right: 0rem;
+  }
+  .list{
+    margin:0;
+    padding:0;
+    @media (max-width: ${props => props.theme.breakpoints.m}) {
+      margin: 0 0 1rem 0;
+    }
+  }
+`;
+
+const AsideWrapper = styled.div`
+  width: calc(99.9% * 1 / 3 - 1rem);
+  display: flex;
+  flex-direction: column;
+  @media (max-width: ${props => props.theme.breakpoints.vl}) {
+    width: calc(99.9% * 1 / 2 - 1rem);
+  }
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    width: 100%;
+  }
+`;
 
 const SuggestionBar = styled.div`
   display: flex;
   flex-wrap: nowrap;
-  margin: 0rem 6rem;
+  margin: 0rem 2rem;
   justify-content: space-between;
   //background: ${props => props.theme.colors.white.light};
   //box-shadow: ${props => props.theme.shadow.suggestion};
@@ -83,33 +145,43 @@ const Post = ({ data, pageContext }) => {
         article
       />
       <Header title={`${config.siteTitle}`} ></Header>
-      <Container>
-        <ContentNav path={spath} title="文章" keyword={title}></ContentNav>
-        <Excerpt>
-          <HeadTitle>
-            <h2>{title}</h2>
-          </HeadTitle>
-          <ContentHeader tags={post.frontmatter.tags} path={post.frontmatter.path} stype={post.frontmatter.type}></ContentHeader>
-          <Content input={html} />
-          <TagsBlock spath={post.frontmatter.type}  list={post.frontmatter.tags || []} />
-        </Excerpt>
-      </Container>
-      <SuggestionBar>
-        <PostSuggestion>
-          {prev && (
-            <Link className="Suggestion-up" to={prev.frontmatter.path}>
-                <h4>{prev.frontmatter.title}</h4>
-            </Link>
-          )}
-        </PostSuggestion>
-        <PostSuggestion>
-          {next && (
-            <Link className="Suggestion-next" to={next.frontmatter.path}>
-                <h4>{next.frontmatter.title}</h4>
-            </Link>
-          )}
-        </PostSuggestion>
-      </SuggestionBar>
+      <ContentWrapper>
+        <ContentContainer>
+          <ContentPost>
+            <Container className="list">
+              <ContentNav path={spath} title="文章" keyword={title}></ContentNav>
+              <Excerpt>
+                <HeadTitle>
+                  <h2>{title}</h2>
+                </HeadTitle>
+                <ContentHeader tags={post.frontmatter.tags} path={post.frontmatter.path} stype={post.frontmatter.type}></ContentHeader>
+                <Content input={html} />
+                <TagsBlock spath={post.frontmatter.type}  list={post.frontmatter.tags || []} />
+              </Excerpt>
+            </Container>
+            <SuggestionBar>
+              <PostSuggestion>
+                {prev && (
+                  <Link className="Suggestion-up" to={prev.frontmatter.path}>
+                      <h4>{prev.frontmatter.title}</h4>
+                  </Link>
+                )}
+              </PostSuggestion>
+              <PostSuggestion>
+                {next && (
+                  <Link className="Suggestion-next" to={next.frontmatter.path}>
+                      <h4>{next.frontmatter.title}</h4>
+                  </Link>
+                )}
+              </PostSuggestion>
+            </SuggestionBar>
+          </ContentPost>
+          <AsideWrapper>
+            <Archive />
+            <GuessLike />
+          </AsideWrapper>
+        </ContentContainer>      
+      </ContentWrapper>
     </Layout>
   );
 };

@@ -6,6 +6,70 @@ import Helmet from 'react-helmet';
 import { Layout, Container } from 'layouts';
 import { Header, TagsBlock, ContentNav, ContentHeader } from 'components';
 import config from '../../config/site';
+import { 
+  SlideBar, 
+  Archive, 
+  GuessLike, 
+  CardHeader, 
+  TagCloud,
+} from 'components';
+
+const ContentWrapper = styled.div`
+  margin: 1rem 9rem 1rem 9rem;
+  width: auto;
+  @media (max-width: ${props => props.theme.breakpoints.l}) {
+    margin: 2rem 6rem 2rem 6rem;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.hd}) {
+    margin: 1rem 4rem 1rem 4rem;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    margin: 1rem 2rem 1rem 2rem;
+  }
+  @media (max-width:  ${props => props.theme.breakpoints.s}) {
+    margin:  1rem;
+  }
+`;
+
+const ContentContainer = styled.div`
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    flex-wrap: wrap;
+  }
+`; 
+
+const ContentPost = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-right: 1rem;
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    padding-right: 0rem;
+  }
+  .list{
+    margin:0;
+    padding:0;
+    @media (max-width: ${props => props.theme.breakpoints.m}) {
+      margin: 0 0 1rem 0;
+    }
+  }
+`;
+
+const AsideWrapper = styled.div`
+  width: calc(99.9% * 1 / 3 - 1rem);
+  display: flex;
+  flex-direction: column;
+  @media (max-width: ${props => props.theme.breakpoints.vl}) {
+    width: calc(99.9% * 1 / 2 - 1rem);
+  }
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    width: 100%;
+  }
+`;
+
 
 const Wrapper = styled.article`
   width:100%;
@@ -111,23 +175,34 @@ const Category = ({ pageContext }) => {
       <Header title={tagName}>
         <StyledLink to="/category">分类</StyledLink>
       </Header>
-      <Container>
-        <ContentNav path={spath} title="分类" keyword={tagName}></ContentNav>
-        {list.map(post => (
-          <Wrapper key={post.id}>
-            <Information>
-              <HeadTitle>
-                <Link className="title" to={post.frontmatter.path}>
-                  <h3>{post.frontmatter.title}</h3>
-                </Link>
-              </HeadTitle>
-              <ContentHeader name={tagName} tags={post.frontmatter.tags} path={post.frontmatter.path} stype={post.frontmatter.type}></ContentHeader>
-              {post.excerpt}
-              <TagsBlock spath={post.frontmatter.type} list={post.frontmatter.tags} />
-            </Information>
-          </Wrapper>
-        ))}
-      </Container>
+      <ContentWrapper>
+        <ContentContainer>
+          <ContentPost>
+            <Container className="list">
+              <ContentNav path={spath} title="分类" keyword={tagName}></ContentNav>
+              {list.map(post => (
+                <Wrapper key={post.id}>
+                  <Information>
+                    <HeadTitle>
+                      <Link className="title" to={post.frontmatter.path}>
+                        <h3>{post.frontmatter.title}</h3>
+                      </Link>
+                    </HeadTitle>
+                    <ContentHeader name={tagName} tags={post.frontmatter.tags} path={post.frontmatter.path} stype={post.frontmatter.type}></ContentHeader>
+                    {post.excerpt}
+                    <TagsBlock spath={post.frontmatter.type} list={post.frontmatter.tags} />
+                  </Information>
+                </Wrapper>
+              ))}
+            </Container>
+          </ContentPost>
+          <AsideWrapper>
+            <TagCloud />
+            <Archive />
+            <GuessLike />
+          </AsideWrapper>
+        </ContentContainer>      
+      </ContentWrapper>
     </Layout>
   )};
 
