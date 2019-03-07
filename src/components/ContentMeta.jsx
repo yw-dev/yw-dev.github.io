@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import config from '../../config/site';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ContentHead = styled.div`
     display: block;
@@ -36,24 +37,24 @@ const ContentMeta = ({ name, tags, date, path, stype, title, blog }) => {
     return(  
     <ContentHead>
         <HeadMeta>
-            <i className="far fa-file-code fa-fw" aria-hidden="true">&nbsp;</i>
+            <FontAwesomeIcon icon={['far', 'file-code']}/>
             {tags && tags.map((tag, index) => (
-                <span key={index} className="label">{tag}&nbsp;&nbsp;</span>
+                <span key={index} className="label">&nbsp;{tag}&nbsp;&nbsp;</span>
             ))}
             <span className="item">
-                <i className="far fa-user" aria-hidden="true"></i>
+                <FontAwesomeIcon icon={['far', 'file-user']}/>
                 <span className="label">&nbsp;{`${config.author}`}</span>
             </span>
             <span className="item">
-                <i className="far fa-clock" aria-hidden="true"></i>
+                <FontAwesomeIcon icon={['far', 'file-clock']}/>
                 <span className="label">&nbsp;{date}</span>
             </span>
             <span className="item">
-                <i className="far fa-eye" aria-hidden="true"></i>
+                <FontAwesomeIcon icon={['far', 'file-eye']}/>
                 <span className="label">&nbsp;0浏览</span>
             </span>
             <span className="item">
-                <i className="far fa-eye" aria-hidden="true"></i>
+                <FontAwesomeIcon icon={['far', 'comment-dots']}/>
                 <span className="label">&nbsp;0评论</span>
             </span>
         </HeadMeta>

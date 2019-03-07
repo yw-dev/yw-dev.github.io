@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 const ContentHead = styled.div`
@@ -37,7 +38,8 @@ return (
     <ContentHead>
         <HeadNav>
             <Link className="title" to="/">
-                <i className="fa fa-home fa-fw" aria-hidden="true"></i><i className="fa fa-angle-right fa-fw" aria-hidden="true">&nbsp;</i>
+                <FontAwesomeIcon icon={['fas', 'home']}/>
+                <FontAwesomeIcon icon={['fas', 'angle-righ']}/>
             </Link>
             {uri && uri.map((ur, index) => {
                 if(ur){
@@ -48,7 +50,7 @@ return (
                         )
                     } else {
                         return (
-                            <Link key={index} className="title"  to={str}>{ur}<i className="fa fa-angle-right fa-fw" aria-hidden="true">&nbsp;</i></Link>
+                            <Link key={index} className="title"  to={str}>&nbsp;{ur}<FontAwesomeIcon icon={['fas', 'angle-right']}/>&nbsp;</Link>
                         )
                     }}
                 }

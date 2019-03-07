@@ -6,6 +6,7 @@ import Img from 'gatsby-image';
 import { CardHeader } from 'components';
 import config from '../../config/site';
 import theme from '../../config/theme';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Container = styled.div`
   width: 100%;
@@ -69,7 +70,7 @@ const Item = styled.div`
     text-align:left;
     width: calc(99.9% * 1 / 2 - 1rem);
   }
-  i, .label-num{
+  svg, .label-num{
     color: ${props => props.theme.colors.hot.light};
   }
 `;
@@ -87,7 +88,7 @@ const HotTopic = ({ data }) => {
                   <Item>
                     <div><span className={`label l-${++index}`}>{++index}</span></div>
                     <div className="title">&nbsp;{node.frontmatter.title}</div>
-                    <div><i className="fa fa-heart fa-fw" aria-hidden="true"></i>&nbsp;
+                    <div><FontAwesomeIcon icon={['far', 'heart']}/>&nbsp;
                     <span className="label-num">22233</span></div>
                   </Item>
                 </StyledLink>

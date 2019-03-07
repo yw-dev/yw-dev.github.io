@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import config from '../../config/site';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const ContentHead = styled.div`
     display: block;
     align-items: center;
@@ -38,26 +38,26 @@ const ContentHeader = ({ name, tags, date, path, stype, title, blog }) => {
     return(  
     <ContentHead>
         <HeadMeta>
-            <i className="far fa-file-code fa-fw" aria-hidden="true">&nbsp;</i>
+            <FontAwesomeIcon icon={['far', 'file-code']}/>
             {tags && tags.map((tag, index) => (
                 <span key={index}>
-                    <Link className="label" to={`${stype}/${tag}`}>{tag}&nbsp;&nbsp;</Link>
+                    <Link className="label" to={`${stype}/${tag}`}>&nbsp;{tag}&nbsp;</Link>
                 </span>
             ))}
             <span className="item">
-                <i className="far fa-user" aria-hidden="true"></i>
+            <FontAwesomeIcon icon={['far', 'user']}/>
                 <Link className="label" to={path}>&nbsp;{`${config.author}`}</Link>
             </span>
             <span className="item">
-                <i className="far fa-clock" aria-hidden="true"></i>
+                <FontAwesomeIcon icon={['far', 'clock']}/>
                 <Link className="label" to={path}>&nbsp;{date}</Link>
             </span>
             <span className="item">
-                <i className="far fa-eye" aria-hidden="true"></i>
+                <FontAwesomeIcon icon={['far', 'eye']}/>
                 <Link className="label" to={path}>&nbsp;0浏览</Link>
             </span>
             <span className="item">
-                <i className="far fa-eye" aria-hidden="true"></i>
+                <FontAwesomeIcon icon={['far', 'comment-dots']}/>
                 <Link className="label" to={path}>&nbsp;0评论</Link>
             </span>
         </HeadMeta>

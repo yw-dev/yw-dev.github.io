@@ -4,8 +4,8 @@ export const colors = {
     light: '#FFFFFF',
     grey: '#cecece',
     dark: '#a0afd7',
-    backlight: '#F8FAFC',
-    backgrey: '#EEEEEE',
+    blackgrey: '#8C8C8C',
+    backgrey: '#EEEfff',
   },
   black: {
     base: '#333438',
