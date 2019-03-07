@@ -8,7 +8,7 @@ import config from '../../config/site';
 
 const Container = styled.div`
   width: 100%;
-  font-size: 16px;
+  font-size: 14px;
   margin: 0rem 0rem 1rem 0rem;
 `;
 
@@ -32,7 +32,7 @@ const StyledLink = styled(Link)`
   display: flex;
   flex-direction: row;
   padding: 0 1rem 0 1rem;
-  background: ${props => props.theme.colors.white.light};
+  background: ${props => props.theme.colors.background.light};
   transition: ${props => props.theme.transitions.boom.transition};
   box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   &:hover{

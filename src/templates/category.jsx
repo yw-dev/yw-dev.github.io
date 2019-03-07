@@ -11,6 +11,7 @@ const Wrapper = styled.article`
   width:100%;
   margin: 0;
   padding: 1rem 3rem;
+  font-size: 14px;
   box-shadow: ${props => props.theme.shadow.feature.title.bottom};
 `;
 
@@ -76,7 +77,6 @@ const StyledLink = styled(Link)`
 
 const Information = styled.div`
     h1 {
-      font-size: 2rem;
       display: inline-block;
       transition: all ${props => props.theme.transitions.default.duration};
       &:hover {

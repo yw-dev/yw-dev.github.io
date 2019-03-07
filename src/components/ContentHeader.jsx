@@ -20,7 +20,7 @@ const ContentHead = styled.div`
 const HeadMeta = styled.div`
     display: flex;
     align-items: center;
-    font-size: 15px;
+    font-size: 14px;
     padding: 0.25rem 0rem;
     color: ${props => props.theme.colors.black.base};
     .item{
@@ -38,26 +38,26 @@ const ContentHeader = ({ name, tags, date, path, stype, title, blog }) => {
     return(  
     <ContentHead>
         <HeadMeta>
-            <FontAwesomeIcon icon={['far', 'file-code']}/>
+            <FontAwesomeIcon icon={['far', 'file-code']} size="1x" />
             {tags && tags.map((tag, index) => (
                 <span key={index}>
                     <Link className="label" to={`${stype}/${tag}`}>&nbsp;{tag}&nbsp;</Link>
                 </span>
             ))}
             <span className="item">
-            <FontAwesomeIcon icon={['far', 'user']}/>
+            <FontAwesomeIcon icon={['far', 'user']} size="1x" />
                 <Link className="label" to={path}>&nbsp;{`${config.author}`}</Link>
             </span>
             <span className="item">
-                <FontAwesomeIcon icon={['far', 'clock']}/>
-                <Link className="label" to={path}>&nbsp;{date}</Link>
+                <FontAwesomeIcon icon={['far', 'clock']} size="1x" />
+                &nbsp;{date}
             </span>
             <span className="item">
-                <FontAwesomeIcon icon={['far', 'eye']}/>
-                <Link className="label" to={path}>&nbsp;0浏览</Link>
+                <FontAwesomeIcon icon={['far', 'eye']} size="1x" />
+                &nbsp;0浏览
             </span>
             <span className="item">
-                <FontAwesomeIcon icon={['far', 'comment-dots']}/>
+                <FontAwesomeIcon icon={['far', 'comment-dots']} size="1x" />
                 <Link className="label" to={path}>&nbsp;0评论</Link>
             </span>
         </HeadMeta>

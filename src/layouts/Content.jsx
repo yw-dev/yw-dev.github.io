@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import prism from '../styles/prism';
 
 const Wrapper = styled.div`
-  font-size: 16px;
+  font-size: 14px;
   ${prism};
   *{
     color: ${props => props.theme.colors.black.base};
@@ -14,7 +14,6 @@ const Wrapper = styled.div`
     letter-spacing: -0.003em;
     --baseline-multiplier: 0.179;
     --x-height-multiplier: 0.35;
-    font-size: 16px;
     line-height: 2;
     code {
       padding: 0.2rem 0.5rem;

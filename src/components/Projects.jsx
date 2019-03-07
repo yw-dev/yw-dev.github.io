@@ -33,7 +33,7 @@ const StyledLink = styled(Link)`
   width: 100%;
   display: flex;
   padding: 0 1rem 0 1rem;
-  background: ${props => props.theme.colors.white.light};
+  background: ${props => props.theme.colors.background.light};
   transition: ${props => props.theme.transitions.boom.transition};
   box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   &:hover{
@@ -76,7 +76,7 @@ const Projects = ({ data }) => {
                 <Item>
                     <div><span className="label">{++index}</span></div>
                     <div className="title">&nbsp;{node.frontmatter.title}</div>
-                    <div><FontAwesomeIcon icon={['far', 'heart']}/>&nbsp;
+                    <div><FontAwesomeIcon icon={['far', 'heart']} size="1x"/>&nbsp;
                     <span className="label-num">22233</span></div>
                 </Item>
               </StyledLink>

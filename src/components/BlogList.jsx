@@ -10,7 +10,7 @@ const Wrapper = styled.article`
   width:100%;
   margin: 0;
   padding: 1rem 3rem;
-  font-size:16px;
+  font-size: 14px;
   box-shadow: ${props => props.theme.shadow.feature.title.bottom};
 `;
 
@@ -65,7 +65,6 @@ const Image = styled.div`
 
 const Information = styled.div`
 h1,h2,h3,h4,h5,h6 {
-  font-size: 2rem;
   display: inline-block;
   transition: all ${props => props.theme.transitions.default.duration};
   &:hover {
@@ -86,7 +85,7 @@ border-bottom: ${props => props.theme.border.posts};
 
 const HeadTitle = styled.div`
     display: flex;
-    padding: 1.5rem;
+    padding: 1rem;
     flex-direction: column;
     border-bottom: ${props => props.theme.border.posts};
 `;
@@ -100,7 +99,7 @@ const BlogList = ({ stype, path, cover, title, date, excerpt, tags }) => (
       </Image>
       <Information>
         <HeadTitle>
-          <Link className="title" to={path}>
+          <Link to={path}>
             <h3>{title}</h3>
           </Link>
         </HeadTitle>

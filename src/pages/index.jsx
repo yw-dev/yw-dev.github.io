@@ -178,9 +178,9 @@ const Index = ({ data }) => {
               </TopWrapper>
             </ContentHeader>       
             <PostWrapper>
-            <Specials />  
+              <Specials />  
             </PostWrapper>
-                <PostList />
+            <PostList />
           </ContentPost>
           <AsideWrapper>
             <SlideBar />

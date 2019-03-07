@@ -5,8 +5,9 @@ import PropTypes from 'prop-types';
 const Wrapper = styled.section`
   margin: 1rem 6rem;
   text-align: ${props => (props.center ? 'center' : '')};
-  min-height: 20rem;
+  min-height: 22rem;
   color: ${props => props.theme.colors.black.base};
+  background: ${props => props.theme.colors.background.light};
   box-shadow: ${props => props.theme.shadow.feature.small.little};
   max-width: ${props => props.theme.layout[props.type]};
   flex: 1;

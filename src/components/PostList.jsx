@@ -33,7 +33,7 @@ const StyledLink = styled(Link)`
   flex-direction: column;
   margin-top: 5px;
   padding: 0 1rem;
-  background: ${props => props.theme.colors.white.light};
+  background: ${props => props.theme.colors.background.light};
   transition: ${props => props.theme.transitions.boom.transition};
   box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   &:hover{
@@ -69,7 +69,7 @@ const InfoDessc = styled.div`
 `;
 
 const Photos = styled.div`
-  width: 35%;
+  width: 40%;
   .gatsby-image-wrapper {
     height: 100%;
   }
@@ -92,7 +92,7 @@ const PostList = ({ data }) => {
                 </Photos>
                 <InfoDessc>
                   <InfoHeader>
-                    <h3>{node.frontmatter.title}</h3>
+                    <h4>{node.frontmatter.title}</h4>
                   </InfoHeader>
                   <p>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</p>
                   <ContentMeta 

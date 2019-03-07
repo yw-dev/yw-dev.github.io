@@ -16,6 +16,7 @@ const headroom = css`
     width: 100%;
     padding:0 2.5rem;
     svg {
+      width: auto;
       height: auto;
       g {
         fill: ${theme.colors.white.base};
@@ -54,6 +55,7 @@ const headroom = css`
       }
     }
     svg {
+      width: auto;
       height: auto;
       g {
         fill: ${theme.colors.black.base};

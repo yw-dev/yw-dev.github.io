@@ -17,7 +17,7 @@ const ContentHead = styled.div`
 const HeadNav = styled.div`
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
     padding: 0.5rem 0rem;
     box-shadow: ${props => props.theme.shadow.feature.title.bottom};
     .title{
@@ -38,19 +38,19 @@ return (
     <ContentHead>
         <HeadNav>
             <Link className="title" to="/">
-                <FontAwesomeIcon icon={['fas', 'home']}/>
-                <FontAwesomeIcon icon={['fas', 'angle-righ']}/>
+                <FontAwesomeIcon icon={['fas', 'home']} size="1x"/>&nbsp;
+                <FontAwesomeIcon icon={['fas', 'angle-right']} size="1x"/>
             </Link>
             {uri && uri.map((ur, index) => {
                 if(ur){
-                    str += "/"+ur;  
-                    if(++index == uri.length){                    
+                    str += "/"+ur;
+                    if(++index == uri.length){         
                         return (
-                            <span>{keyword}</span>
+                            <span>&nbsp;{keyword}</span>
                         )
                     } else {
                         return (
-                            <Link key={index} className="title"  to={str}>&nbsp;{ur}<FontAwesomeIcon icon={['fas', 'angle-right']}/>&nbsp;</Link>
+                            <Link key={index} className="title" to={str}>&nbsp;&nbsp;{ur}&nbsp;<FontAwesomeIcon icon={['fas', 'angle-right']} size="1x"/>&nbsp;</Link>
                         )
                     }}
                 }

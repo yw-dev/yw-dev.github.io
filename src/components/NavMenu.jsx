@@ -12,7 +12,7 @@ const Nav = styled.nav`
   justify-content: flex-end;
   font-family: ${props => props.theme.fontFamily.body};
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
   align-items: center;
   ul{
     margin: 0;
@@ -155,8 +155,8 @@ const NavMenu = ({ data}) => {
   return (
   <Nav>
     <ul>
-        <li><Link className="nav-ul-li-a" to="/"><FontAwesomeIcon icon={['fas', 'home']}/>&nbsp;首页</Link></li>
-        <li><Link to="/self">个人随笔&nbsp;<FontAwesomeIcon icon={['fas', 'angle-down']}/></Link>
+        <li><Link className="nav-ul-li-a" to="/"><FontAwesomeIcon icon={['fas', 'home']} size="1x" />&nbsp;首页</Link></li>
+        <li><Link to="/self">个人随笔&nbsp;<FontAwesomeIcon icon={['fas', 'angle-down']} size="1x" /></Link>
         <ul>
             {selfCategores && selfCategores.map((cat, index) => {
                 const upperCat = cat.charAt(0).toUpperCase() + cat.slice(1);
@@ -166,7 +166,7 @@ const NavMenu = ({ data}) => {
             })}
         </ul>
         </li>
-        <li><Link to="/dev">技术杂谈&nbsp;<FontAwesomeIcon icon={['fas', 'angle-down']}/></Link>
+        <li><Link to="/dev">技术杂谈&nbsp;<FontAwesomeIcon icon={['fas', 'angle-down']} size="1x" /></Link>
         <ul>
             {devTags && devTags.map((tag, index) => {
                 const upperTag = tag.charAt(0).toUpperCase() + tag.slice(1);
@@ -176,7 +176,7 @@ const NavMenu = ({ data}) => {
             })}
         </ul>
         </li>
-        <li><Link to="/resource">资源&nbsp;<FontAwesomeIcon icon={['fas', 'angle-down']} /></Link>
+        <li><Link to="/resource">资源&nbsp;<FontAwesomeIcon icon={['fas', 'angle-down']}  size="1x" /></Link>
         <ul>
             {resourceCategores &&
             resourceCategores.map((cat, index) => {
@@ -189,7 +189,7 @@ const NavMenu = ({ data}) => {
         </li>
         <li><Link to="/about">关于</Link></li>
         <li><div className="line"></div></li>
-        <li><Link to="/about"><FontAwesomeIcon icon={['fas', 'user']}/></Link></li>
+        <li><Link to="/about"><FontAwesomeIcon icon={['fas', 'user']} size="1x" /></Link></li>
     </ul>
   </Nav>
 )};

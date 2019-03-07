@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 const Topic = styled.div`
   padding: 1rem;
   font-size: 14px;
-  background: ${props => props.theme.colors.white.light};
+  background: ${props => props.theme.colors.background.light};
 `;
 
 const Wrapper = styled.div`

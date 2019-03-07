@@ -24,7 +24,8 @@ export const colors = {
     dark: '#284187',
   },
   background: {
-    light: '#3e5fbc',
+    light: '#FFFFFF',
+    white: '#EEEEEE',
     dark: '#284187',
   },
   card: {

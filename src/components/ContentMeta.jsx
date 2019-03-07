@@ -37,24 +37,24 @@ const ContentMeta = ({ name, tags, date, path, stype, title, blog }) => {
     return(  
     <ContentHead>
         <HeadMeta>
-            <FontAwesomeIcon icon={['far', 'file-code']}/>
+            <FontAwesomeIcon icon={['far', 'file-code']} size="1x" />
             {tags && tags.map((tag, index) => (
                 <span key={index} className="label">&nbsp;{tag}&nbsp;&nbsp;</span>
             ))}
             <span className="item">
-                <FontAwesomeIcon icon={['far', 'file-user']}/>
+                <FontAwesomeIcon icon={['far', 'file-user']} size="1x" />
                 <span className="label">&nbsp;{`${config.author}`}</span>
             </span>
             <span className="item">
-                <FontAwesomeIcon icon={['far', 'file-clock']}/>
+                <FontAwesomeIcon icon={['far', 'file-clock']} size="1x" />
                 <span className="label">&nbsp;{date}</span>
             </span>
             <span className="item">
-                <FontAwesomeIcon icon={['far', 'file-eye']}/>
+                <FontAwesomeIcon icon={['far', 'file-eye']} size="1x" />
                 <span className="label">&nbsp;0浏览</span>
             </span>
             <span className="item">
-                <FontAwesomeIcon icon={['far', 'comment-dots']}/>
+                <FontAwesomeIcon icon={['far', 'comment-dots']} size="1x" />
                 <span className="label">&nbsp;0评论</span>
             </span>
         </HeadMeta>

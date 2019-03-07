@@ -15,133 +15,15 @@ const Wrapper = styled.header`
   background-image: url(${logo});
   background-size: cover;
   background-position: center;
-  height: 40rem;
+  height: 33rem;
   @media (max-width: ${props => props.theme.breakpoints.l}) {
-    height: 40rem;
-  }
-  @media (max-width: ${props => props.theme.breakpoints.hd}) {
-    height: 30rem;
+    height: 28rem;
   }
   @media (max-width: ${props => props.theme.breakpoints.m}) {
-    height: 25rem;
+    height: 24rem;
   }
   position: relative;
   overflow: hidden;
-`;
-
-const SlideBar = styled.slide`
-  margin: 4rem 0;
-  position:absolute;
-  width:100%;
-  height:23rem;
-  overflow:hidden;
-
-  .carousel-photos {
-    position:absolute;
-    width:calc(100% * 4);
-    cursor: pointer;
-    animation: slide 20s ease-out infinite alternate;
-    &:hover{
-      animation-play-state: paused;
-    }
-  }
-
-  .carousel-photos .gatsby-image-wrapper {
-    float:left;
-    width:100%;
-    height: 23rem;
-  }
-
-  .carousel-focus {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    align-item: center;
-  }
-
-  .carousel-pro {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    width: 100%;
-    opacity:0.35;
-  }
-
-  .carousel-pro .carousel-item {
-    margin: 0.5rem;
-    width: 5rem;
-    height: 1rem;
-    float: left;
-    text-align:center;
-    border-radius: 10px;
-    background: #000;
-    list-style: none;
-    list-style-type: none;
-  }
-
-  .carousel-item{
-    height: 100%;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-
-  .carousel-progress{
-    display: block;
-    position:relative;
-    height:100%;
-    border-radius: 10px;
-    &:hover{
-      animation-play-state: paused;
-      background: ${props => props.theme.colors.white.base};
-    }
-    &:active {
-      background: red;
-      -webkit-animation-name:progressbar;
-      -moz-animation:progressbar 10s; /* Firefox */
-      -webkit-animation:progressbar 10s; /* Safari and Chrome */
-      -o-animation:progressbar 10s; /* Opera */
-    }
-  }
-  .active{
-    background: red;
-    -webkit-animation-name:progressbar;
-    -moz-animation:progressbar 10s; /* Firefox */
-    -webkit-animation:progressbar 10s; /* Safari and Chrome */
-    -o-animation:progressbar 10s; /* Opera */
-  }
-  
-  @-webkit-keyframes progressbar { 
-    from { 
-      width:0 
-    } 
-    to { 
-      width:100% 
-    } 
-  }
-  @keyframes progressbar { 
-    from { 
-      width:0 
-    } 
-    to { 
-      width:100% 
-    } 
-  } 
-  
-  @keyframes slide {
-    0%, 25% {
-      margin-left:0px;
-    }
-    30%,50% {
-      margin-left:-100%;
-    }
-    55%,75% {
-      margin-left:-200%;
-    }
-    80%,100% {
-      margin-left:-300%;
-    }
-  }
 `;
 
 const Carousel = styled.div`
@@ -193,12 +75,12 @@ const Carousel = styled.div`
   .csslider > ul {
     position: relative;
     width: 100%;
-    height: 40rem;
-    @media (max-width: ${props => props.theme.breakpoints.hd}) {
-      height: 30rem;
+    height: 33rem;
+    @media (max-width: ${props => props.theme.breakpoints.l}) {
+      height: 28rem;
     }
     @media (max-width: ${props => props.theme.breakpoints.m}) {
-      height: 25rem;
+      height: 24rem;
     }
     z-index: 1;
     margin:0;
