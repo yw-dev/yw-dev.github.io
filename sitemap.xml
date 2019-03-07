@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://myexample.netlify.com/Fan/2018-10</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://myexample.netlify.com/Fan/2018-11</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://myexample.netlify.com/Fan/2018-12</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://myexample.netlify.com/Fan/2019-01</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://myexample.netlify.com/Fan/2019-02</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://myexample.netlify.com/Fan/2019-03</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://myexample.netlify.com/Fan/category</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://myexample.netlify.com/Fan/dev</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://myexample.netlify.com/Fan/dev/C++</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -73,6 +79,7 @@
 <url> <loc>https://myexample.netlify.com/Fan/post-12-One</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://myexample.netlify.com/Fan/post-03-One</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://myexample.netlify.com/Fan/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://myexample.netlify.com/Fan/archives/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://myexample.netlify.com/Fan/blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://myexample.netlify.com/Fan/categories/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://myexample.netlify.com/Fan/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
