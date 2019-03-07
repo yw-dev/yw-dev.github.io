@@ -12,13 +12,7 @@ const Wrapper = styled.section`
   max-width: ${props => props.theme.layout[props.type]};
   flex: 1;
   @media (max-width: ${props => props.theme.breakpoints.m}) {
-    margin: 1rem 3rem;
-    width: 90%;
-  }
-
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
-    margin: 1rem 1rem;
-    width: 95%;
+    margin: 0 0 1rem 0;
   }
 `;
 

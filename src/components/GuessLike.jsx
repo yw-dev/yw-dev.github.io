@@ -3,15 +3,15 @@ import { StaticQuery, graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import Img from 'gatsby-image';
-import { CardHeader } from 'components';
+import { CardHeader, GuessLikeMeta } from 'components';
 import config from '../../config/site';
 import theme from '../../config/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Container = styled.div`
   width: 100%;
-  width: 100%;
   font-size: 14px;
+  margin: 0rem 0rem 1rem 0rem;
 `;
 
 const Wrapper = styled.div`
@@ -29,35 +29,56 @@ const List = styled.div`
 const StyledLink = styled(Link)`
   width: 100%;
   display: flex;
-  z-index: 3;
-  padding: 0 1rem 0 1rem;
+  flex-direction: column;
+  margin-top: 1px;
+  padding: 0 0.5rem;
   background: ${props => props.theme.colors.background.light};
   transition: ${props => props.theme.transitions.boom.transition};
   box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   &:hover{
-    transform: scale(1.02);
-    box-shadow: ${props => props.theme.shadow.feature.small.little};
+      transform: scale(1.02);
+      box-shadow: ${props => props.theme.shadow.feature.small.little};
   }
 `;
 
 const Item = styled.div`
-  position: relative;
+position: relative;
+width: 100%;
+padding: 0.5rem 0;
+display: flex;
+flex-direction: row;
+p{
+  margin:0;
+  padding:0;
+}
+`;
+
+const InfoHeader = styled.div`
+  width: auto;
+  h1,h2,h3,h4,h5,h6{
+    margin-bottom: 5px;
+  }
+`;
+
+const InfoDessc = styled.div`
   width: 100%;
-  padding: 1rem 0;
+  padding: 0 0.5rem;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  .label{
-    padding: 5px 10px;
-    color: ${props => props.theme.colors.white.light};
-    background-color: ${props => props.theme.colors.hot.red};
+  flex-direction: column;
+`;
+const Image = styled.div`
+  width: 45%;
+  box-shadow: ${props => props.theme.shadow.feature.small.hover};
+  border-radius: ${props => props.theme.borderRadius.default};
+  img {
+    border-radius: ${props => props.theme.borderRadius.default};
   }
-  .title{
-    text-align:left;
-    width: calc(99.9% * 1 / 2 - 1rem);
+  &:hover {
+    box-shadow: ${props => props.theme.shadow.feature.small.default};
+    transform: scale(1.02);
   }
-  svg, .label-num{
-    color: ${props => props.theme.colors.hot.light};
+  .gatsby-image-wrapper {
+    height: 100%;
   }
 `;
 
@@ -69,16 +90,25 @@ const GuessLike = ({ data }) => {
       <Wrapper>
         <CardHeader title="猜你喜欢" other="换一批" path="/blog"></CardHeader>
         <List>
-            {edges.map(({ node }, index) => (
-                <StyledLink key={node.id} to={`/${node.frontmatter.path}`}>
-                  <Item>
-                    <div><span className="label">{++index}</span></div>
-                    <div className="title">&nbsp;{node.frontmatter.title}</div>
-                    <div><FontAwesomeIcon icon={['far', 'heart']} size="1x"/>&nbsp;
-                    <span className="label-num">22233</span></div>
-                  </Item>
-                </StyledLink>
-            ))}
+        {edges.map(({ node }) => (
+          <StyledLink key={node.id} to={`/${node.frontmatter.type}${node.frontmatter.path}`}>
+            <Item>
+                <Image>
+                  <Img fluid={node.frontmatter.cover.childImageSharp.fluid || {} || [] || ''} />
+                </Image>
+                <InfoDessc>
+                  <InfoHeader>
+                    <h4>{node.frontmatter.title}</h4>
+                  </InfoHeader>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</p>
+                  <GuessLikeMeta 
+                    date={node.frontmatter.date} 
+                    path={node.frontmatter.path}>
+                  </GuessLikeMeta>
+                </InfoDessc>
+            </Item>
+          </StyledLink>
+      ))}
         </List>
       </Wrapper>
     </Container>
@@ -96,13 +126,14 @@ export default props => (
           edges {
             node {
               id
-              excerpt(pruneLength: 100)
+              excerpt(pruneLength: 35)
               frontmatter {
                 title
                 path
                 tags
+                type
                 categores
-                date(formatString: "YYYY-MM-DD")
+                date(formatString: "YY-MM-DD")
                 cover {
                   childImageSharp {
                     fluid(

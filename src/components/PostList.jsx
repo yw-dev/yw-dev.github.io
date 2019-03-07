@@ -68,8 +68,16 @@ const InfoDessc = styled.div`
   flex-direction: column;
 `;
 
-const Photos = styled.div`
+const Image = styled.div`
   width: 40%;
+  border-radius: ${props => props.theme.borderRadius.default};
+  img {
+    border-radius: ${props => props.theme.borderRadius.default};
+  }
+  &:hover {
+    box-shadow: ${props => props.theme.shadow.feature.small.hover};
+    transform: scale(1.02);
+  }
   .gatsby-image-wrapper {
     height: 100%;
   }
@@ -87,9 +95,9 @@ const PostList = ({ data }) => {
       {edges.map(({ node }) => (
           <StyledLink key={node.id} to={node.frontmatter.path}>
             <Item>
-                <Photos>
+                <Image>
                   <Img fluid={node.frontmatter.cover.childImageSharp.fluid || {} || [] || ''} />
-                </Photos>
+                </Image>
                 <InfoDessc>
                   <InfoHeader>
                     <h4>{node.frontmatter.title}</h4>

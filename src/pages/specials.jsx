@@ -13,7 +13,7 @@ const Specials = ({ pageContext }) => {
       <Helmet title={`专题 | ${config.siteTitle}`} />
       <Header title={`${config.siteTitle}`}></Header>
       <Container>
-        <ContentNav path="specials" title="专题" blog="全部专题"></ContentNav>
+        <ContentNav path="specials" title="专题" keyword="全部专题"></ContentNav>
         <SpecialsList list={specials} />
       </Container>
     </Layout>

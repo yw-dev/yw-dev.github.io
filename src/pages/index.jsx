@@ -185,12 +185,8 @@ const Index = ({ data }) => {
           <AsideWrapper>
             <SlideBar />
             <Archive />
-            <TopWrapper>
-                <GuessLike />
-            </TopWrapper>
-            <TopWrapper>
-                <TagCloud />
-            </TopWrapper>
+            <GuessLike />
+            <TagCloud />
           </AsideWrapper>
         </ContentContainer>        
       </ContentWrapper>

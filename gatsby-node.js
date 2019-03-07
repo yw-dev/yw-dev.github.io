@@ -9,6 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
     const categorPosts = path.resolve('src/templates/category.jsx');
     const specialPosts = path.resolve('src/templates/special.jsx');
     const specialPage = path.resolve('src/pages/Specials.jsx');
+    const archivePage = path.resolve('src/pages/archives.jsx');
 
     resolve(
       graphql(
@@ -23,7 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
                   excerpt(pruneLength: 200)
                   html
                   frontmatter {
-                    date(formatString: "MMMM DD, YYYY")
+                    date(formatString: "YYYY-MM-DD")
                     path
                     title
                     tags
@@ -47,8 +48,16 @@ exports.createPages = ({ graphql, actions }) => {
         const postsBySpecial = {};
         const postsByCategory = {};
         const postsByType = {};
+        const archives = {};
         // create tags page
         posts.forEach(({ node }) => {
+          if (node.frontmatter.date) {
+            var dates = node.frontmatter.date.split('-');
+            if (!archives[dates[0]+'-'+dates[1]]) {
+              archives[dates[0]+'-'+dates[1]] = [];
+            }
+            archives[dates[0]+'-'+dates[1]].push(node);
+          }
           if (node.frontmatter.type) {
             if (!postsByType[node.frontmatter.type]) {
               postsByType[node.frontmatter.type] = [];
@@ -89,6 +98,9 @@ exports.createPages = ({ graphql, actions }) => {
         const allSpecials = Object.keys(postsBySpecial).sort((m, n) => {  
           return m.localeCompare(n);
         });
+        const allArchives = Object.keys(archives).sort((m, n) => {  
+          return m.localeCompare(n);
+        });
 
         const typesTags = {};
         const typesCategores = {};
@@ -111,6 +123,19 @@ exports.createPages = ({ graphql, actions }) => {
             }
           });
         });
+
+        //create archive list
+        allArchives.forEach(archive => {
+            const list = archives[archive];  
+            createPage({
+              path: `/${archive}`,
+              component: archivePage,
+              context: {
+                spath: `${archive}`,
+                archive,
+              },
+            });
+          });
 
         //create category list
         createPage({

@@ -30,8 +30,8 @@ const Wrapper = styled.article`
   margin: 0 1rem 0 0;
   position: relative;
   z-index: 100;
-  //border-radius: ${props => props.theme.borderRadius.default};
-  //border: ${props => props.theme.border.lowlight};
+  border-radius: ${props => props.theme.borderRadius.default};
+  border: ${props => props.theme.border.lowlight};
   box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   transition: ${props => props.theme.transitions.boom.transition};
   width:100%;
@@ -79,7 +79,7 @@ const StyledLink = styled(Link)`
   justify-content: space-between;
   padding: 1rem;
   z-index: 3;
-  //border-radius: ${props => props.theme.borderRadius.default};
+  border-radius: ${props => props.theme.borderRadius.default};
   &:after {
     content: '';
     position: absolute;
@@ -98,7 +98,8 @@ const StyledLink = styled(Link)`
       rgba(0, 0, 0, 0.8) 100%
     );
     z-index: -10;
-    //border-radius: ${theme.borderRadius.default};
+    color: ${props => props.theme.colors.white.grey};
+    border-radius: ${theme.borderRadius.default};
     transition: opacity ${theme.transitions.default.duration};
   }
 `;
@@ -112,9 +113,10 @@ const Image = styled.div`
   bottom: 0;
   z-index: 1;
   object-fit: cover;
-  //border-radius: ${props => props.theme.borderRadius.default};
+  border-radius: ${props => props.theme.borderRadius.default};
+  box-shadow: ${props => props.theme.shadow.feature.small.default};
   img {
-    //border-radius: ${props => props.theme.borderRadius.default};
+    box-shadow: ${props => props.theme.shadow.feature.small.hover};
   }
   > div {
     position: static !important;
@@ -129,8 +131,9 @@ const Info = styled.div`
   padding: 1rem;
   position: absolute;
   display: block;
-  bottom: 1rem;
+  bottom: 0;
   left: 0;
+  color: ${props => props.theme.colors.white.grey};
   h1,h2,h3,h4,h5,h6{
     color: ${props => props.theme.colors.white.grey};
   }
@@ -162,9 +165,13 @@ const Specials = ({ data }) => {
     {subtitles.map((subtitle, index) => {
       return(
         <Wrapper key={index}>
+          <Image>
+            <Img fluid={postsBySpecial[subtitle][0].frontmatter.cover.childImageSharp.fluid} />
+          </Image>
           <StyledLink to={`/specials/${subtitle}`}>
             <Info>
               <Title>{subtitle}</Title>
+              <span>{postsBySpecial[subtitle][0].excerpt}</span>
             </Info>
           </StyledLink>
         </Wrapper>  
@@ -184,7 +191,7 @@ export default props => (
           edges {
             node {
               id
-              excerpt(pruneLength: 200)
+              excerpt(pruneLength: 100)
               html
               frontmatter {
                 title

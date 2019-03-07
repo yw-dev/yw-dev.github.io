@@ -12,6 +12,7 @@ import SlideBar from './SlideBar';
 import ContentNav from './ContentNav';
 import ContentHeader from './ContentHeader';
 import ContentMeta from './ContentMeta';
+import GuessLikeMeta from './GuessLikeMeta';
 import Archive from './Archive';
 import Projects from './Projects';
 import GuessLike from './GuessLike';
@@ -32,6 +33,7 @@ export {
     ContentNav, 
     ContentHeader, 
     ContentMeta,
+    GuessLikeMeta,
     Archive, 
     Projects, 
     GuessLike, 

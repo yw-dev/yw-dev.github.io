@@ -46,7 +46,7 @@ return (
                     str += "/"+ur;
                     if(++index == uri.length){         
                         return (
-                            <span>&nbsp;{keyword}</span>
+                            <span key={index}>&nbsp;{keyword}</span>
                         )
                     } else {
                         return (
