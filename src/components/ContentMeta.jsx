@@ -71,5 +71,5 @@ ContentMeta.propTypes = {
     blog: PropTypes.string,
     date: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
-    stype: PropTypes.string.isRequired,
+    stype: PropTypes.string,
   };

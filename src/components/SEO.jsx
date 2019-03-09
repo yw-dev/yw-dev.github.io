@@ -15,6 +15,7 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
           shortName,
           author,
           siteLanguage,
+          siteCache,
           logo,
           siteUrl,
           pathPrefix,
@@ -140,6 +141,7 @@ const query = graphql`
         shortName
         author
         siteLanguage
+        siteCache
         logo
         siteUrl: url
         pathPrefix

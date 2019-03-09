@@ -7,6 +7,7 @@ module.exports = {
   url: 'https://myexample.netlify.com', // Domain of your site. No trailing slash!
   siteUrl: 'https://myexample.netlify.com', // url + pathPrefix
   siteLanguage: 'en', // Language Tag on <html> element
+  siteCache: 'app.appcache',  //HTML5 Cache Manifest
   logo: 'static/logo/jijian.png', // Used for SEO
   banner: 'static/logo/jijian.png',
   // JSONLD / Manifest

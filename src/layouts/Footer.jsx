@@ -18,12 +18,12 @@ const Wrapper = styled.footer`
 
 const Copyright = styled.div`
   margin: 0;
-  padding: 3px;
   display: flex;
   flex-direction: row;
-  line-height:14px;
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    flex-direction: column;
+  }
   justify-content: center;
-  text-align: center;
   color: ${props => props.theme.colors.white.blackgrey};
   a {
     color: ${props => props.theme.colors.white.blackgrey};
@@ -42,31 +42,45 @@ const Copyright = styled.div`
   }
 `;
 
+const Item = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 4px;
+
+`;
+
 const Footer = () => (
   <Wrapper>
     <Copyright>
-      <span><Link to="/">{`${config.siteTitle}`}&nbsp;&nbsp;</Link>版权所有</span>
-      <div className="line"></div>
-      <span>基于<a href="https://www.gatsbyjs.org/">&nbsp;&nbsp;Gatsby&nbsp;&nbsp;</a>构建&nbsp;&nbsp;©&nbsp;2019</span>
-      <div className="line"></div>
-      <span>托管于<a href="https://www.netlify.com/">&nbsp;&nbsp;Netlify&nbsp;</a></span>
-      <div className="line"></div>
-      <span>&nbsp;备案[待定] &nbsp;&nbsp;</span>
+      <Item>
+        <span><Link to="/">{`${config.siteTitle}`}&nbsp;&nbsp;</Link>版权所有</span>
+        <div className="line"></div>
+        <span>基于<a href="https://www.gatsbyjs.org/">&nbsp;&nbsp;Gatsby&nbsp;&nbsp;</a>构建&nbsp;&nbsp;©&nbsp;2019</span>
+      </Item>      
+      <Item>
+        <span>托管于<a href="https://www.netlify.com/">&nbsp;&nbsp;Netlify&nbsp;</a></span>      
+        <div className="line"></div>
+        <span>&nbsp;备案[待定] &nbsp;&nbsp;</span>
+      </Item>
     </Copyright>
     <Copyright>
-      <span>站长统计</span>
-      <div className="line"></div>
-      <span>今日IP[{`123 `}]</span>
-      <div className="line"></div>
-      <span>今日PV[{` 123`}]</span>
-      <div className="line"></div>
-      <span>今日UV[{` 222`}]</span>
-      <div className="line"></div>
-      <span>昨日IP[{`232 `}]</span>
-      <div className="line"></div>
-      <span>昨日PV[{`456 `}]</span>
-      <div className="line"></div>
-      <span>昨日UV[{` 233`}]</span>
+      <Item>
+        <span>站长统计</span>
+        <div className="line"></div>
+        <span>今日IP[{`123 `}]</span>
+        <div className="line"></div>
+        <span>今日PV[{` 123`}]</span>
+        <div className="line"></div>
+        <span>今日UV[{` 222`}]</span>
+      </Item>
+      <Item>
+        <span>昨日IP[{`232 `}]</span>
+        <div className="line"></div>
+        <span>昨日PV[{`456 `}]</span>
+        <div className="line"></div>
+        <span>昨日UV[{` 233`}]</span>
+      </Item>
     </Copyright>
   </Wrapper>
 );

@@ -103,7 +103,7 @@ const Nav = styled.nav`
   }
 `;
 
-const NavMenu = ({ data}) => {
+const AppNav = ({ data}) => {
   const postsByType = {};
   data.allMarkdownRemark.edges.map(({ node }) => {  
     if (node.frontmatter.typeID) {
@@ -194,12 +194,12 @@ export default props => (
         }
       }
     `}
-    render={data => <NavMenu data={data} {...props} />}
+    render={data => <AppNav data={data} {...props} />}
   />
 )
 
 
-NavMenu.propTypes = {
+AppNav.propTypes = {
     data: PropTypes.shape({
         allMarkdownRemark: PropTypes.shape({
           edges: PropTypes.arrayOf(

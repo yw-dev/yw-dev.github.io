@@ -9,6 +9,7 @@ import Specials from './Specials';
 import CardHeader from './CardHeader';
 import Card from './Card';
 import NavMenu from './NavMenu';
+import AppNav from './AppNav';
 import SlideBar from './SlideBar';
 import ContentNav from './ContentNav';
 import ContentHeader from './ContentHeader';
@@ -27,6 +28,7 @@ export {
     SEO, 
     Card,
     TagsBlock, 
+    AppNav,
     NavMenu, 
     SlideBar, 
     HotTopic, 

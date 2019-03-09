@@ -69,7 +69,7 @@ const Projects = ({ data }) => {
   return (
     <Container>
       <Wrapper>
-        <CardHeader title="案例资源" other="更多" path="/blog"></CardHeader>
+        <CardHeader title="资源" other="更多" path="/blog"></CardHeader>
         <List>
             {edges.map(({ node }, index) => (
               <StyledLink key={node.id} to={`/${node.frontmatter.path}`}>

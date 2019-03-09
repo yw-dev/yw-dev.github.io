@@ -27,10 +27,10 @@ import {
 } from 'components';
 
 const ContentWrapper = styled.div`
-  margin: 1rem 9rem 1rem 9rem;
+  margin: 2rem 8rem 2rem 8rem;
   width: auto;
   @media (max-width: ${props => props.theme.breakpoints.l}) {
-    margin: 2rem 6rem 2rem 6rem;
+    margin: 1rem 6rem 1rem 6rem;
   }
   @media (max-width: ${props => props.theme.breakpoints.hd}) {
     margin: 1rem 4rem 1rem 4rem;
