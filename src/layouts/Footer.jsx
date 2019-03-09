@@ -4,6 +4,8 @@ import styled from '@emotion/styled';
 import config from '../../config/site';
 
 const Wrapper = styled.footer`
+  margin:0;
+  padding:0;
   position: relative;
   display: flex;
   flex-direction: column;
