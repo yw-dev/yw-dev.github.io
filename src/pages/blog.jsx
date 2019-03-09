@@ -150,7 +150,7 @@ export const query = graphql`
             typeID
             typeTitle
             categores
-            date(formatString: "MM.DD.YYYY")
+            date(formatString: "YYYY-MM-DD")
             cover {
               childImageSharp {
                 fluid(
