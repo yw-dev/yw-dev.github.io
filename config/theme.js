@@ -15,6 +15,7 @@ export const colors = {
   label:{
     green: '#00a67c',
     yellow: '#ffa94d',
+    blackYellow: '#8B6914',
     orange: '#FF7256',
     blue: '#037EE2',
   },
@@ -41,6 +42,9 @@ export const colors = {
     yellow: '#ffa94d',
     blue: '#7EC0EE',
     orange: '#FF7256',
+  },
+  opcity:{
+    navbarbg: 'rgba(30,37,47, 0.7)',
   },
   linearColor:{
     navbarbg: 'linear-gradient(to bottom,#1D2936,#20232A)',

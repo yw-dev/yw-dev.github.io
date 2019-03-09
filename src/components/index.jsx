@@ -8,6 +8,7 @@ import SearchBar from './SearchBar';
 import Specials from './Specials';
 import CardHeader from './CardHeader';
 import Card from './Card';
+import ImgTag from './ImgTag';
 import NavMenu from './NavMenu';
 import AppNav from './AppNav';
 import SlideBar from './SlideBar';
@@ -27,6 +28,7 @@ export {
     PostList, 
     SEO, 
     Card,
+    ImgTag,
     TagsBlock, 
     AppNav,
     NavMenu, 

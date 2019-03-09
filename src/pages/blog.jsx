@@ -92,6 +92,7 @@ const Blog = ({ data }) => {
                   title={node.frontmatter.title}
                   date={node.frontmatter.date}
                   tags={node.frontmatter.tags}
+                  category = {node.frontmatter.categores}
                   excerpt={node.excerpt}
                 />
               ))}

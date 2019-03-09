@@ -20,6 +20,8 @@ const Layout = ({ children }) => (
             box-sizing: inherit;
           }
           html {
+            margin: 0;
+            padding: 0;
             text-rendering: optimizeLegibility;
             overflow-x: hidden;
             box-sizing: border-box;

@@ -100,6 +100,7 @@ const Archives = ({ pageContext, data }) => {
                   path={node.frontmatter.path}
                   title={node.frontmatter.title}
                   date={node.frontmatter.date}
+                  category = {node.frontmatter.categores}
                   tags={node.frontmatter.tags}
                   excerpt={node.excerpt}
                 />
