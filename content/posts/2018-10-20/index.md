@@ -5,8 +5,10 @@ date: "2018-10-20"
 title: "Post Number Six"
 published: true
 type: "self"
+typeID: "1"
+typeTitle: "个人随笔"
 special: ""
-categores: '个人日记'
+categores: "个人日记"
 tags: ['C++']
 ---
 

@@ -6,8 +6,10 @@ title: "Post 12 28"
 published: true
 subtitle: "Architecture"
 type: "dev"
+typeID: "2"
+typeTitle: "技术杂谈"
 special: "Unreal Engine 4系列"
-categores: 'DirectX 12'
+categores: "DirectX 12"
 tags: ['DirectX 12', 'C++']
 ---
 

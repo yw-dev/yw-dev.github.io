@@ -6,9 +6,11 @@ title: "Post Number Nine"
 published: true
 subtitle: "Configuration"
 type: "dev"
+typeID: "2"
+typeTitle: "技术杂谈"
 special: "JavaWeb开发系列"
-categores: 'Java'
-tags: ['JavaScript', 'Java']
+categores: "JavaScript"
+tags: ['JavaScript', 'React']
 ---
 
 也许应用中最常用到的组件就是Link，可见其重要性。其实Link组件几乎与<a>标签完全一样，除了一点：Link组件可以感知到被激活的路由。我们称当前在界面上显示的路由为被激活的路由。

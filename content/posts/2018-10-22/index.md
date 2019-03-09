@@ -6,6 +6,8 @@ title: "Post Number Eight"
 published: true
 subtitle: "Getting Start"
 type: "dev"
+typeID: "2"
+typeTitle: "技术杂谈"
 special: "Unreal Engine 4系列"
 categores: "C++"
 tags: ['C++', 'Unreal Engine 4']

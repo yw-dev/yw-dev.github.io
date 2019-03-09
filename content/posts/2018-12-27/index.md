@@ -6,8 +6,10 @@ title: "Post 12 27"
 published: true
 subtitle: ""
 type: "resource"
+typeID: "3"
+typeTitle: "资源"
 special: ""
-categores: '游戏'
+categores: "游戏"
 tags: ['DirectX 12', 'C++']
 ---
 

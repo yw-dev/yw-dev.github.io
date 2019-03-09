@@ -72,6 +72,7 @@ const AsideWrapper = styled.div`
 const Archives = ({ pageContext, data }) => {
   const { spath, archive } = pageContext;  
   const archives = {};
+  var keyword = [...archive];
   data.allMarkdownRemark.edges.map(({ node }) => {
     if (node.frontmatter.date) {
       var dates = node.frontmatter.date.split('-');
@@ -90,7 +91,7 @@ const Archives = ({ pageContext, data }) => {
         <ContentContainer>
           <ContentPost>
             <Container className="list">
-              <ContentNav path="blog" title="归档" keyword={archive}></ContentNav>
+              <ContentNav path="blog" title="归档" keyword={keyword}></ContentNav>
               {posts && posts.map(node => (
                 <BlogList
                   key={node.id}
@@ -132,7 +133,9 @@ Archives.propTypes = {
               cover: PropTypes.object.isRequired,
               path: PropTypes.string.isRequired,
               title: PropTypes.string.isRequired,
-              type: PropTypes.string,
+              type: PropTypes.string.isRequired,
+              typeID: PropTypes.string.isRequired,
+              typeTitle: PropTypes.string.isRequired,
               date: PropTypes.string.isRequired,
               tags: PropTypes.array,
               categores: PropTypes.string.isRequired,
@@ -156,6 +159,8 @@ export const query = graphql`
           frontmatter {
             title
             type
+            typeID
+            typeTitle
             path
             tags
             categores

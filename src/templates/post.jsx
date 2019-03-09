@@ -135,6 +135,7 @@ const Post = ({ data, pageContext }) => {
   const title = post.frontmatter.title;
   const date = post.frontmatter.date;
   const html = post.html;
+  var keyword = [...title];
   return (
     <Layout>
       <SEO
@@ -149,7 +150,7 @@ const Post = ({ data, pageContext }) => {
         <ContentContainer>
           <ContentPost>
             <Container className="list">
-              <ContentNav path={spath} title="文章" keyword={title}></ContentNav>
+              <ContentNav path={spath} title="文章" keyword={keyword}></ContentNav>
               <Excerpt>
                 <HeadTitle>
                   <h2>{title}</h2>

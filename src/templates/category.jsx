@@ -1,17 +1,17 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { Layout, Container } from 'layouts';
-import { Header, TagsBlock, ContentNav, ContentHeader } from 'components';
 import config from '../../config/site';
 import { 
-  SlideBar, 
+  Header, 
   Archive, 
   GuessLike, 
-  CardHeader, 
-  TagCloud,
+  Card,
+  BlogList, 
+  ContentNav,
 } from 'components';
 
 const ContentWrapper = styled.div`
@@ -166,8 +166,77 @@ const HeadTitle = styled.div`
     color: ${props => props.theme.colors.white.light};
 `;
 
-const Category = ({ pageContext }) => {
-  const { list, spath, tagName } = pageContext;
+const Category = ({ pageContext, data }) => {
+  const { spath, tagName } = pageContext;
+  const postsByType = {};
+  const postsByCategory = {};
+  const postsByTag = {};
+  var title = [];
+  var categories = [];
+  var posts = [];
+  var keyword = [];
+  data.allMarkdownRemark.edges.map(({ node }) => {  
+    if (node.frontmatter.type) {
+      if (!postsByType[node.frontmatter.type]) {
+        postsByType[node.frontmatter.type] = [];
+      }
+      if (!postsByType[node.frontmatter.type][node.frontmatter.typeTitle]) {
+        postsByType[node.frontmatter.type][node.frontmatter.typeTitle] = [];
+      }
+      postsByType[node.frontmatter.type][node.frontmatter.typeTitle].push(node);
+    }
+  });
+  const typeList = Object.keys(postsByType);
+  typeList.map(type => {
+    postsByType[type][Object.keys(postsByType[type])].map(node => {
+      if(type){
+        if (!postsByCategory[type]) {
+          postsByCategory[type] = [];
+        }
+        if (node.frontmatter.categores) {
+          if (!postsByCategory[type][node.frontmatter.categores]) {
+            postsByCategory[type][node.frontmatter.categores] = [];
+          }
+          postsByCategory[type][node.frontmatter.categores].push(node);
+        }
+        if (!postsByTag[type]) {
+          postsByTag[type] = [];
+        }
+        if (node.frontmatter.tags) {
+          node.frontmatter.tags.forEach(tag => {
+            if (!postsByTag[type][tag]) {
+              postsByTag[type][tag] = [];
+            }
+            postsByTag[type][tag].push(node);
+          });
+        }
+      }
+    })
+  });
+  var uri = spath.split("/");
+  switch (uri.length) {
+    case 2:
+      if(postsByType[uri[0]]){
+        keyword.push(Object.keys(postsByType[uri[0]]));
+        keyword.push(tagName);
+        title = [(uri[0]), Object.keys(postsByType[uri[0]])+" · 标签"];
+        posts = postsByCategory[uri[0]][uri[1]]?postsByCategory[uri[0]][uri[1]]:postsByTag[uri[0]][uri[1]];
+        categories = Object.keys(postsByTag[uri[0]]);
+      }
+      break;
+    case 3:
+      //title = [uri[0], Object.keys(postsByType[uri[0]])];
+      //categories = Object.keys(postsByCategory[uri[0]][uri[1]][uri[2]]);
+      break;
+    default:
+      if(postsByType[uri[0]]){
+        keyword.push(Object.keys(postsByType[uri[0]]));
+        title = [uri[0], Object.keys(postsByType[uri[0]])+" · 分类"];
+        posts = postsByType[uri[0]][Object.keys(postsByType[uri[0]])];
+        categories = Object.keys(postsByCategory[uri[0]]);
+      }
+      break;
+  }
   //const upperTag = tagName.charAt(0).toUpperCase() + tagName.slice(1);
   return (
     <Layout>
@@ -179,25 +248,27 @@ const Category = ({ pageContext }) => {
         <ContentContainer>
           <ContentPost>
             <Container className="list">
-              <ContentNav path={spath} title="分类" keyword={tagName}></ContentNav>
-              {list.map(post => (
-                <Wrapper key={post.id}>
-                  <Information>
-                    <HeadTitle>
-                      <Link className="title" to={post.frontmatter.path}>
-                        <h3>{post.frontmatter.title}</h3>
-                      </Link>
-                    </HeadTitle>
-                    <ContentHeader name={tagName} tags={post.frontmatter.tags} path={post.frontmatter.path} stype={post.frontmatter.type}></ContentHeader>
-                    {post.excerpt}
-                    <TagsBlock spath={post.frontmatter.type} list={post.frontmatter.tags} />
-                  </Information>
-                </Wrapper>
+              <ContentNav path={spath} title="分类" keyword={keyword}></ContentNav>
+              {posts && posts.map(node => (
+                <BlogList
+                  key={node.id}
+                  cover={node.frontmatter.cover.childImageSharp.fluid}
+                  stype={node.frontmatter.type}
+                  path={node.frontmatter.path}
+                  title={node.frontmatter.title}
+                  date={node.frontmatter.date}
+                  tags={node.frontmatter.tags}
+                  excerpt={node.excerpt}
+                />
               ))}
             </Container>
           </ContentPost>
           <AsideWrapper>
-            <TagCloud />
+            <Card 
+              title={title[1]} 
+              other="" 
+              path={title[0]}
+              list={categories}/>
             <Archive />
             <GuessLike />
           </AsideWrapper>
@@ -210,8 +281,63 @@ export default Category;
 
 Category.propTypes = {
   pageContext: PropTypes.shape({
-    list: PropTypes.array,
     spath: PropTypes.string,
     tagname: PropTypes.string,
   }),
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            excerpt: PropTypes.string,
+            frontmatter: PropTypes.shape({
+              cover: PropTypes.object.isRequired,
+              path: PropTypes.string.isRequired,
+              title: PropTypes.string.isRequired,
+              date: PropTypes.string.isRequired,
+              tags: PropTypes.array,
+              categores: PropTypes.string.isRequired,
+              type: PropTypes.string.isRequired,
+              typeID: PropTypes.string.isRequired,
+              typeTitle: PropTypes.string.isRequired,
+            }),
+          }),
+        }).isRequired
+      ),
+    }),
+  }),
 };
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 200)
+          frontmatter {
+            title
+            path
+            tags
+            type
+            typeID
+            typeTitle
+            categores
+            date(formatString: "MM.DD.YYYY")
+            cover {
+              childImageSharp {
+                fluid(
+                  maxWidth: 1000
+                  quality: 90
+                  traceSVG: { color: "#2B2B2F" }
+                ) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

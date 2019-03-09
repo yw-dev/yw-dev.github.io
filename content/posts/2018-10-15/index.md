@@ -6,8 +6,10 @@ subtitle: ""
 title: "Post Number One"
 published: true
 type: "resource"
+typeID: "3"
+typeTitle: "资源"
 special: ""
-categores: '游戏'
+categores: "游戏"
 tags: ['C++', '设计模式']
 ---
 

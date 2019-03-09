@@ -197,6 +197,8 @@ export default props => (
                 title
                 subtitle
                 type
+                typeID
+                typeTitle
                 path
                 tags
                 categores
@@ -235,7 +237,9 @@ Specials.propTypes = {
               path: PropTypes.string.isRequired,
               title: PropTypes.string.isRequired,
               subtitle: PropTypes.string,
-              type: PropTypes.string,
+              type: PropTypes.string.isRequired,
+              typeID: PropTypes.string.isRequired,
+              typeTitle: PropTypes.string.isRequired,
               date: PropTypes.string.isRequired,
               categores: PropTypes.string.isRequired,
               special: PropTypes.string.isRequired,

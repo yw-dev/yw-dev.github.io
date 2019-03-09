@@ -7,6 +7,7 @@ import HotTopic from './HotTopic';
 import SearchBar from './SearchBar';
 import Specials from './Specials';
 import CardHeader from './CardHeader';
+import Card from './Card';
 import NavMenu from './NavMenu';
 import SlideBar from './SlideBar';
 import ContentNav from './ContentNav';
@@ -24,6 +25,7 @@ export {
     Header, 
     PostList, 
     SEO, 
+    Card,
     TagsBlock, 
     NavMenu, 
     SlideBar, 

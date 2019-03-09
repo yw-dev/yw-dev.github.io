@@ -6,8 +6,10 @@ title: "Post Number Ten"
 published: true
 subtitle: "Architecture"
 type: "dev"
+typeID: "2"
+typeTitle: "技术杂谈"
 special: "Unreal Engine 4系列"
-categores: '游戏'
+categores: "游戏"
 tags: ['DirectX 12', 'C++']
 ---
 

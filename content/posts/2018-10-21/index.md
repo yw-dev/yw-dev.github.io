@@ -6,8 +6,10 @@ title: "Post Number Seven"
 published: true
 subtitle: "Getting Start"
 type: "dev"
+typeID: "2"
+typeTitle: "技术杂谈"
 special: "Unreal Engine 4系列"
-categores: 'Unreal Engine 4'
+categores: "Unreal Engine 4"
 tags: ['Unreal Engine 4', 'C++']
 ---
 

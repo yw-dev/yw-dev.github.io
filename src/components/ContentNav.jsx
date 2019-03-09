@@ -44,13 +44,13 @@ return (
             {uri && uri.map((ur, index) => {
                 if(ur){
                     str += "/"+ur;
-                    if(++index == uri.length){         
+                    if(index == uri.length-1){
                         return (
-                            <span key={index}>&nbsp;{keyword}</span>
+                            <span key={index}>&nbsp;{keyword[index]}</span>
                         )
                     } else {
                         return (
-                            <Link key={index} className="title" to={str}>&nbsp;&nbsp;{ur}&nbsp;<FontAwesomeIcon icon={['fas', 'angle-right']} size="1x"/>&nbsp;</Link>
+                            <Link key={index} className="title" to={str}>&nbsp;&nbsp;{keyword[index]}&nbsp;<FontAwesomeIcon icon={['fas', 'angle-right']} size="1x"/>&nbsp;</Link>
                         )
                     }}
                 }
@@ -63,6 +63,6 @@ export default ContentNav;
 
 ContentNav.propTypes = {
     title: PropTypes.string.isRequired,
-    keyword: PropTypes.string.isRequired,
+    keyword: PropTypes.array,
     path: PropTypes.string,
   };

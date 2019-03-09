@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { locale } from 'core-js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons';
+library.add(fas, fab, far)
 
 const Nav = styled.nav`
   margin: 0px;
@@ -100,93 +105,55 @@ const Nav = styled.nav`
 `;
 
 const NavMenu = ({ data}) => {
-  const { edges } = data.allMarkdownRemark;
   const postsByType = {};
-
-  {edges.forEach(({ node }) => {    
-    if (node.frontmatter.type) {
-      if (!postsByType[node.frontmatter.type]) {
-        postsByType[node.frontmatter.type] = [];
+  data.allMarkdownRemark.edges.map(({ node }) => {  
+    if (node.frontmatter.typeID) {
+      if (!postsByType[node.frontmatter.typeID]) {
+        postsByType[node.frontmatter.typeID] = [];
       }
-      postsByType[node.frontmatter.type].push(node);
-    }
-  })};
-
-  const devs = {};
-  const selfs = {};
-  const resources = {};
-  postsByType['dev'].forEach(node => {
-    if (node.frontmatter.tags) {
-      node.frontmatter.tags.forEach(tag => {
-        if (!devs[tag]) {
-          devs[tag] = [];
+      if (!postsByType[node.frontmatter.typeID][node.frontmatter.type]) {
+        postsByType[node.frontmatter.typeID][node.frontmatter.type] = [];
+      }
+      if (!postsByType[node.frontmatter.typeID][node.frontmatter.type][node.frontmatter.typeTitle]) {
+        postsByType[node.frontmatter.typeID][node.frontmatter.type][node.frontmatter.typeTitle] = [];
+      }
+      postsByType[node.frontmatter.typeID][node.frontmatter.type][node.frontmatter.typeTitle].push(node);
+    }  
+  });
+  const typeList = Object.keys(postsByType).sort();
+  const postsByCategory = {};
+  typeList.map(type => {
+    postsByType[type][Object.keys(postsByType[type])][Object.keys(postsByType[type][Object.keys(postsByType[type])])].map(node => {
+      if(type){
+        if (!postsByCategory[type]) {
+          postsByCategory[type] = [];
         }
-        devs[tag].push(tag);
-      });
-    }
-  });
-  postsByType['self'].forEach(node => {
-    if (node.frontmatter.categores) {
-        if (!selfs[node.frontmatter.categores]) {
-          selfs[node.frontmatter.categores] = [];
+        if (node.frontmatter.categores) {
+          if (!postsByCategory[type][node.frontmatter.categores]) {
+            postsByCategory[type][node.frontmatter.categores] = [];
+          }
+          postsByCategory[type][node.frontmatter.categores].push(node);
         }
-        selfs[node.frontmatter.categores].push(node.frontmatter.categores);
-    }
+      }
+    })
   });
-  postsByType['resource'].forEach(node => {
-    if (node.frontmatter.categores) {
-        if (!resources[node.frontmatter.categores]) {
-          resources[node.frontmatter.categores] = [];
-        }
-        resources[node.frontmatter.categores].push(node.frontmatter.categores);
-    }
-  });
-
-  const devTags = Object.keys(devs).sort((m, n) => {
-    return m.localeCompare(n);
-  });
-  const selfCategores = Object.keys(selfs).sort((m, n) => {
-    return m.localeCompare(n);
-  });
-  const resourceCategores = Object.keys(resources).sort((m, n) => {
-    return m.localeCompare(n);
-  });
-
   return (
   <Nav>
     <ul>
         <li><Link className="nav-ul-li-a" to="/"><FontAwesomeIcon icon={['fas', 'home']} size="1x" />&nbsp;首页</Link></li>
-        <li><Link to="/self">个人随笔&nbsp;<FontAwesomeIcon icon={['fas', 'angle-down']} size="1x" /></Link>
-        <ul>
-            {selfCategores && selfCategores.map((cat, index) => {
-                const upperCat = cat.charAt(0).toUpperCase() + cat.slice(1);
-                return (
-                  <li key={index*100000+1}><Link to={`/self/${cat}`}>{upperCat}</Link></li>
-                );
-            })}
-        </ul>
-        </li>
-        <li><Link to="/dev">技术杂谈&nbsp;<FontAwesomeIcon icon={['fas', 'angle-down']} size="1x" /></Link>
-        <ul>
-            {devTags && devTags.map((tag, index) => {
-                const upperTag = tag.charAt(0).toUpperCase() + tag.slice(1);
-                return (
-                  <li key={index*10000+1}><Link to={`/dev/${tag}`}>{upperTag}</Link></li>
-                );
-            })}
-        </ul>
-        </li>
-        <li><Link to="/resource">资源&nbsp;<FontAwesomeIcon icon={['fas', 'angle-down']}  size="1x" /></Link>
-        <ul>
-            {resourceCategores &&
-            resourceCategores.map((cat, index) => {
-                const upperCat = cat.charAt(0).toUpperCase() + cat.slice(1);
-                return (
-                    <li key={index*1000+1}><Link to={`/resource/${cat}`}>{upperCat}</Link></li>
-                );
-            })}
-        </ul>
-        </li>
+        {typeList && typeList.map(stype=>{  
+            return(
+              <li key={stype}><Link to={`/${Object.keys(postsByType[stype])}`}>{Object.keys(postsByType[stype][Object.keys(postsByType[stype])])}&nbsp;<FontAwesomeIcon icon={['fas', 'angle-down']} size="1x" /></Link>
+                <ul>
+                {postsByCategory && (Object.keys(postsByCategory[stype])).map((category, index)=> {
+                    return (
+                      <li key={index*1000+1}><Link to={`/${Object.keys(postsByType[stype])}/${category}`}>{category}</Link></li>
+                    );
+                })}
+                </ul>
+              </li>
+            )
+        })};
         <li><Link to="/about">关于</Link></li>
         <li><div className="line"></div></li>
         <li><Link to="/about"><FontAwesomeIcon icon={['fas', 'user']} size="1x" /></Link></li>
@@ -208,6 +175,8 @@ export default props => (
                 path
                 tags
                 type
+                typeID
+                typeTitle
                 categores
                 cover {
                   childImageSharp {
@@ -240,6 +209,8 @@ NavMenu.propTypes = {
                 frontmatter: PropTypes.shape({
                   cover: PropTypes.object.isRequired,
                   type: PropTypes.string.isRequired,
+                  typeID: PropTypes.string.isRequired,
+                  typeTitle: PropTypes.string.isRequired,
                   path: PropTypes.string.isRequired,
                   tags: PropTypes.array,
                   categores: PropTypes.string.isRequired,

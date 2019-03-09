@@ -5,14 +5,14 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
 import { Layout, Container, Content } from 'layouts';
-import { Header, SpecialsList, ContentNav, ContentHeader } from 'components';
+import { Header, TagsBlock, SpecialsList, ContentNav, ContentHeader } from 'components';
 import config from '../../config/site';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  margin: 1rem 0rem;
+  margin: 0;
   font-size: 16px;
   @media (max-width: ${props => props.theme.breakpoints.vl}) {
     flex-wrap: wrap;
@@ -93,7 +93,8 @@ const Nav =  styled.nav`
 const Excerpt = styled.div`
   width: 75%;
   max-width: 90%;
-  padding: 0 3rem;
+  padding: 0 3rem 1rem 3rem;
+
 `;
 
 const PostWrapper = styled.div`
@@ -161,6 +162,7 @@ const Special = ({data, pageContext }) => {
   const postsBySpecial = {};
   const specialPosts = {};
   var posts = {};
+  var keyword=  [...upperSpecial];
   // create tags page
   edges.forEach(({ node }) => {
     if (node.frontmatter.special) {
@@ -188,7 +190,7 @@ const Special = ({data, pageContext }) => {
         <StyledLink to="/specials">专题</StyledLink>
       </Header>
       <Container>
-        <ContentNav path="specials" title="专题" keyword={upperSpecial}/>
+        <ContentNav path="specials" title="专题" keyword={keyword}/>
         <Wrapper>
           <Nav>
             <ul className="tree">
@@ -218,6 +220,7 @@ const Special = ({data, pageContext }) => {
               </ContentTitle>
               <ContentHeader name={specialName} tags={posts.frontmatter.tags} stype={posts.frontmatter.type} date={posts.frontmatter.date} path={posts.frontmatter.path}></ContentHeader>
               <Content input={posts.html} />
+              <TagsBlock spath={posts.frontmatter.type}  list={posts.frontmatter.tags || []} />
             </Information>
           </Excerpt>
         </Wrapper>

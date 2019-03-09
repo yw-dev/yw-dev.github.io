@@ -6,8 +6,10 @@ title: "Post Number Four"
 published: true
 subtitle: "Getting Start"
 type: "dev"
+typeID: "2"
+typeTitle: "技术杂谈"
 special: "JavaWeb开发系列"
-categores: '游戏'
+categores: "游戏"
 tags: ['Html5']
 ---
 

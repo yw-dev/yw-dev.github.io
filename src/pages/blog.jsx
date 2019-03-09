@@ -2,15 +2,16 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
+
 import styled from '@emotion/styled';
-import { Header, BlogList, ContentNav } from 'components';
 import { Layout, Container } from 'layouts';
 import config from '../../config/site';
 import { 
-  SlideBar, 
+  Header, 
   Archive, 
   GuessLike, 
-  CardHeader, 
+  BlogList, 
+  ContentNav,
 } from 'components';
 
 const ContentWrapper = styled.div`
@@ -72,6 +73,7 @@ const AsideWrapper = styled.div`
 
 const Blog = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
+  var keyword = [..."全部文章"];
   return (
     <Layout>
       <Helmet title={`文章 | ${config.siteTitle}`} />
@@ -80,7 +82,7 @@ const Blog = ({ data }) => {
         <ContentContainer>
           <ContentPost>
             <Container className="list">
-              <ContentNav path="blog" title="文章" keyword="全部文章"></ContentNav>
+              <ContentNav path="blog" title="文章" keyword={keyword}></ContentNav>
               {edges.map(({ node }) => (
                 <BlogList
                   key={node.id}
@@ -122,6 +124,8 @@ Blog.propTypes = {
               tags: PropTypes.array,
               categores: PropTypes.string.isRequired,
               type: PropTypes.string.isRequired,
+              typeID: PropTypes.string.isRequired,
+              typeTitle: PropTypes.string.isRequired,
             }),
           }),
         }).isRequired
@@ -142,6 +146,8 @@ export const query = graphql`
             path
             tags
             type
+            typeID
+            typeTitle
             categores
             date(formatString: "MM.DD.YYYY")
             cover {

@@ -6,8 +6,10 @@ title: "Post Number Two"
 published: true
 subtitle: ""
 type: "resource"
+typeID: "3"
+typeTitle: "资源"
 special: ""
-categores: 'Web'
+categores: "Web"
 tags: ['JavaScript', 'Html5']
 ---
 

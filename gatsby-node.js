@@ -29,6 +29,8 @@ exports.createPages = ({ graphql, actions }) => {
                     title
                     tags
                     type
+                    typeID
+                    typeTitle
                     categores
                     special
                   }
@@ -104,6 +106,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         const typesTags = {};
         const typesCategores = {};
+        const categoryTags = {};
         
         allTypes.forEach(stype => {
           postsByType[stype].map(node => {
@@ -115,11 +118,14 @@ exports.createPages = ({ graphql, actions }) => {
                 typesTags[tag].push(node);
               });
             }
+            if (!typesCategores[stype]) {
+              typesCategores[stype] = [];
+            }
             if (node.frontmatter.categores) {
-              if (!typesCategores[node.frontmatter.categores]) {
-                typesCategores[node.frontmatter.categores] = [];
+              if (!typesCategores[stype][node.frontmatter.categores]) {
+                typesCategores[stype][node.frontmatter.categores] = [];
               }
-              typesCategores[node.frontmatter.categores].push(node);
+              typesCategores[stype][node.frontmatter.categores].push(node);
             }
           });
         });
@@ -148,8 +154,9 @@ exports.createPages = ({ graphql, actions }) => {
           },
         });
 
-        allTypes.forEach(stype => {   
+        allTypes.forEach(stype => {
           const list = postsByType[stype];
+          
           //create tags list
           createPage({
             path: '/' + stype,
@@ -175,10 +182,37 @@ exports.createPages = ({ graphql, actions }) => {
               },
             });
           });
+
+          const categories = Object.keys(typesCategores[stype]);
+          //create blog list by dev
+          categories.forEach(catName => {
+            const list = typesCategores[stype][catName];
+            if (!categoryTags[catName]) {
+              categoryTags[catName] = [];
+            }
+            list.forEach(node => {
+              node.frontmatter.tags.forEach(tagName => {
+                if (!categoryTags[catName][tagName]) {
+                  categoryTags[catName][tagName] = [];
+                }
+                categoryTags[catName][tagName].push(node);
+
+                createPage({
+                  path: `/${stype}/${catName}/${tagName}`,
+                  component: categorPosts,
+                  context: {
+                    spath: `${stype}/${catName}/${tagName}`,
+                    list,
+                    tagName,
+                  },
+                });
+              });
+            });
+          });
+
           //create blog list by dev
           allCategores.forEach(tagName => {
             const list = postsByCategory[tagName];
-  
             createPage({
               path: `/${stype}/${tagName}`,
               component: categorPosts,

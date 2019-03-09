@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
@@ -14,12 +15,14 @@ const Wrapper = styled.div`
   box-shadow: ${props => props.theme.shadow.feature.title.bottom};
 `;
 
-const About = ({center, data})=> (
+const About = ({center, data})=> {
+  var keyword = ["关于"];
+  return(
   <Layout data={data}>
     <Helmet title={`关于 | ${config.siteTitle}`} />
     <Header title={`${config.siteTitle}`}></Header>
     <Container center={center}>
-      <ContentNav path="/about" title="关于" blog={`关于`}></ContentNav>
+      <ContentNav path="about" title="关于" keyword={keyword}></ContentNav>
       <Wrapper>
         <h3>
           If you would like to build this site completely from scratch, you can
@@ -29,7 +32,7 @@ const About = ({center, data})=> (
       </Wrapper>
     </Container>
   </Layout>
-);
+)};
 
 export default About;
 

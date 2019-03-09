@@ -91,7 +91,7 @@ const GuessLike = ({ data }) => {
         <CardHeader title="猜你喜欢" other="换一批" path="/blog"></CardHeader>
         <List>
         {edges.map(({ node }) => (
-          <StyledLink key={node.id} to={`/${node.frontmatter.type}${node.frontmatter.path}`}>
+          <StyledLink key={node.id} to={`/${node.frontmatter.path}`}>
             <Item>
                 <Image>
                   <Img fluid={node.frontmatter.cover.childImageSharp.fluid || {} || [] || ''} />

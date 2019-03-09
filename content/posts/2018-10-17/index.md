@@ -6,8 +6,10 @@ title: "Post Number Three"
 published: true
 subtitle: ""
 type: "self"
+typeID: "1"
+typeTitle: "个人随笔"
 special: ""
-categores: '个人日记'
+categores: "个人日记"
 tags: ['Html5', 'WebGL']
 ---
 

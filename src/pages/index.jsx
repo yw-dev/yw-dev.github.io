@@ -207,7 +207,9 @@ Index.propTypes = {
               cover: PropTypes.object.isRequired,
               path: PropTypes.string.isRequired,
               title: PropTypes.string.isRequired,
-              type: PropTypes.string,
+              type: PropTypes.string.isRequired,
+              typeID: PropTypes.string.isRequired,
+              typeTitle: PropTypes.string.isRequired,
               date: PropTypes.string.isRequired,
               tags: PropTypes.array,
               categores: PropTypes.string.isRequired,
@@ -231,6 +233,8 @@ export const query = graphql`
           frontmatter {
             title
             type
+            typeID
+            typeTitle
             path
             tags
             categores

@@ -6,8 +6,10 @@ title: "Post 01 One"
 published: true
 subtitle: "Configuration"
 type: "dev"
+typeID: "2"
+typeTitle: "技术杂谈"
 special: "Unreal Engine 4系列"
-categores: 'C++'
+categores: "C++"
 tags: ['DirectX 12', 'C++']
 ---
 

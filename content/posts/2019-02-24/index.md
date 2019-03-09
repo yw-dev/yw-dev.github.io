@@ -5,8 +5,10 @@ date: "2019-02-24"
 title: "Post 12 One"
 published: true
 type: "self"
+typeID: "1"
+typeTitle: "个人随笔"
 special: ""
-categores: '生活随记'
+categores: "生活随记"
 tags: ['DirectX 12', 'C++']
 ---
 

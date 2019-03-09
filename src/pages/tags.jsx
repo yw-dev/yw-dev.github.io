@@ -6,16 +6,18 @@ import { Header, TagsBlock, ContentNav } from 'components';
 import config from '../../config/site';
 
 const Tags = ({ pageContext }) => {
-  const { tags, categores } = pageContext;
+  const { spath, tags, categores } = pageContext;
+  var tag = [..."全部标签"];
+  var category = [..."全部分类"];
   return (
     <Layout>
       <Helmet title={`分类 | ${config.siteTitle}`} />
       <Header title={`${config.siteTitle}`}>Tags Page</Header>
       <Container>
-        <ContentNav path="/category" title="分类" blog="全部分类"></ContentNav>
-        <TagsBlock list={categores} />
-        <ContentNav path="/category" title="分类" blog="全部分类"></ContentNav>
-        <TagsBlock list={tags} />
+        <ContentNav path={spath} title="分类" keyword={category}></ContentNav>
+        <TagsBlock spath={spath} list={categores} />
+        <ContentNav path={spath} title="标签" keyword={tag}></ContentNav>
+        <TagsBlock spath={spath} list={tags} />
       </Container>
     </Layout>
   )};
@@ -24,6 +26,7 @@ export default Tags;
 
 Tags.propTypes = {
   pageContext: PropTypes.shape({
+    spath: PropTypes.string,
     tags: PropTypes.array,
     categores: PropTypes.array,
   }),

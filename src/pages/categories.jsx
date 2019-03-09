@@ -7,14 +7,16 @@ import config from '../../config/site';
 
 const Categories = ({ pageContext }) => {
   const { spath, tags, categores } = pageContext;
+  var tag = [..."全部标签"];
+  var category = [..."全部分类"];
   return (
     <Layout>
       <Helmet title={`分类 | ${config.siteTitle}`} />
       <Header title={`${config.siteTitle}`}></Header>
       <Container>
-        <ContentNav path={spath} title="分类" keyword="全部分类"></ContentNav>
+        <ContentNav path={spath} title="分类" keyword={category}></ContentNav>
         <TagsBlock spath={spath} list={categores} />
-        <ContentNav path={spath} title="标签" keyword="全部标签"></ContentNav>
+        <ContentNav path={spath} title="标签" keyword={tag}></ContentNav>
         <TagsBlock spath={spath} list={tags} />
       </Container>
     </Layout>
