@@ -28,6 +28,7 @@ const Copyright = styled.div`
   justify-content: center;
   color: ${props => props.theme.colors.white.blackgrey};
   a {
+    cursor: pointer;
     color: ${props => props.theme.colors.white.blackgrey};
     &:hover{
       color: ${props => props.theme.colors.white.grey};
@@ -56,7 +57,7 @@ const Footer = () => (
   <Wrapper>
     <Copyright>
       <Item>
-        <span><Link to="/">{`${config.siteTitle}`}&nbsp;&nbsp;</Link>版权所有</span>
+        <span><a href={`${config.siteUrl}`} >{`${config.siteTitle}`}&nbsp;&nbsp;</a>版权所有</span>
         <div className="line"></div>
         <span>基于<a href="https://www.gatsbyjs.org/">&nbsp;&nbsp;Gatsby&nbsp;&nbsp;</a>构建&nbsp;&nbsp;©&nbsp;2019</span>
       </Item>      

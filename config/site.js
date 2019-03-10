@@ -4,8 +4,8 @@ module.exports = {
   title: '扬帆', // Navigation and Site Title
   titleAlt: '扬帆', // Title for JSONLD
   description: 'My Gatsby-React Blog Site.',
-  url: 'https://myexample.netlify.com', // Domain of your site. No trailing slash!
-  siteUrl: 'https://myexample.netlify.com', // url + pathPrefix
+  url: 'https://yf.netlify.com/', // Domain of your site. No trailing slash!
+  siteUrl: 'https://yf.netlify.com/', // url + pathPrefix
   siteLanguage: 'en', // Language Tag on <html> element
   siteCache: 'app.appcache',  //HTML5 Cache Manifest
   logo: 'static/logo/jijian.png', // Used for SEO
