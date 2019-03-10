@@ -8,7 +8,7 @@ exports.createPages = ({ graphql, actions }) => {
     const categorPage = path.resolve('src/pages/categories.jsx');
     const categorPosts = path.resolve('src/templates/category.jsx');
     const specialPosts = path.resolve('src/templates/special.jsx');
-    const specialPage = path.resolve('src/pages/Specials.jsx');
+    const specialPage = path.resolve('src/pages/specials.jsx');
     const archivePage = path.resolve('src/pages/archives.jsx');
 
     resolve(
@@ -225,34 +225,34 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });       
 
-          //create blog list for all tags
-          allTags.forEach(tagName => {
-            const list = postsByTag[tagName];
-  
-            createPage({
-              path: `/${tagName}`,
-              component: categorPosts,
-              context: {
-                spath: tagName,
-                list,
-                tagName,
-              },
-            });
+        //create blog list for all tags
+        allTags.forEach(tagName => {
+          const list = postsByTag[tagName];
+
+          createPage({
+            path: `/${tagName}`,
+            component: categorPosts,
+            context: {
+              spath: tagName,
+              list,
+              tagName,
+            },
           });
-          //create blog list by dev
-          allCategores.forEach(tagName => {
-            const list = postsByCategory[tagName];
-  
-            createPage({
-              path: `/${tagName}`,
-              component: categorPosts,
-              context: {
-                spath: tagName,
-                list,
-                tagName,
-              },
-            });
+        });
+        //create blog list by dev
+        allCategores.forEach(tagName => {
+          const list = postsByCategory[tagName];
+
+          createPage({
+            path: `/${tagName}`,
+            component: categorPosts,
+            context: {
+              spath: tagName,
+              list,
+              tagName,
+            },
           });
+        });
 
         //create Specials list
         createPage({
