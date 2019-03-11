@@ -67,7 +67,7 @@ export const shadow = {
     small: {
       default: '0 10px 15px rgba(0, 0, 0, 0.25)',
       hover: '0 40px 45px rgba(0, 0, 0, 0.1)',
-      little: '0 0 5px rgba(0,0,0, 0.1), 0 5px 20px -8px rgba(0,0,0, 0.1)',
+      little: '0 0 5px rgba(0,0,0, 0.1), 0 1px 5px -5px rgba(0,0,0, 0.1)',
       l_little: '0 0 5px rgba(0,0,0, 0.06), 0 1px 5px -5px rgba(0,0,0, 0.06)',
     },
     title: {

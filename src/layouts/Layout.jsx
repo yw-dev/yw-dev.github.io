@@ -62,7 +62,7 @@ const Layout = ({ children }) => (
             color: ${theme.colors.black.base};
             font-family: ${theme.fontFamily.heading};
           }
-              
+                  
           ${headroom}
         `}
       />

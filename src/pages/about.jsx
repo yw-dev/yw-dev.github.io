@@ -7,11 +7,14 @@ import { Header } from 'components';
 import { Layout, Container } from 'layouts';
 import { ContentNav } from 'components';
 import config from '../../config/site';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Wrapper = styled.div`
   width:100%;
   margin: 0;
   padding: 1rem 3rem;
+  item-align:center;
+  text-align:center;
   box-shadow: ${props => props.theme.shadow.feature.title.bottom};
 `;
 
@@ -24,11 +27,9 @@ const About = ({center, data})=> {
     <Container center={center}>
       <ContentNav path="about" title="关于" keyword={keyword}></ContentNav>
       <Wrapper>
-        <h3>
-          If you would like to build this site completely from scratch, you can
-          read the guide{' '}
-          <a href="https://justinformentin.com/gatsby-v2-guide">here.</a>
-        </h3>
+        <p>
+          等待施工中&nbsp;<FontAwesomeIcon  icon={['fas', 'spinner']} size="1x" spin />          
+        </p>
       </Wrapper>
     </Container>
   </Layout>

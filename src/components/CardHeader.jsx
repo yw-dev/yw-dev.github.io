@@ -7,6 +7,7 @@ const Topic = styled.div`
   padding: 1rem;
   font-size: 14px;
   background: ${props => props.theme.colors.background.light};
+  box-shadow: ${props => props.theme.shadow.feature.small.little};
 `;
 
 const Wrapper = styled.div`

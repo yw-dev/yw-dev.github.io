@@ -26,8 +26,8 @@ export default React.createClass({
       <div>
         <h1>明星特区</h1>
         <ul role="nav">
-          <li><Link to="/boys">男神</Link></li>
-          <li><Link to="/girls">女神</Link></li>
+          <li><Link to="/boys">男神</li>
+          <li><Link to="/girls">女神</li>
         </ul>
       </div>
     )

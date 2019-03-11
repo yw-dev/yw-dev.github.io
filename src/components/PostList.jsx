@@ -66,6 +66,7 @@ const InfoDessc = styled.div`
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 `;
 
 const Image = styled.div`
