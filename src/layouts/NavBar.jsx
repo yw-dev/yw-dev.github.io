@@ -32,7 +32,8 @@ const Desktop = styled.div`
 
 const AppMenu = styled.div`
   width: 100%;
-  padding:0 1rem;
+  margin:0;
+  padding:0;
   display: none;
   justify-content: space-between;
   @media (max-width: ${props => props.theme.breakpoints.md}) {
@@ -66,7 +67,6 @@ const Nav = styled.div`
 const Login = styled.div`
   padding: 1rem;
   text-align: center;
-  text-decoration: none;
 `;
 
 
@@ -79,7 +79,7 @@ const NavBar = () => (
         <NavMenu />
       </Desktop>
       <AppMenu>
-        <Nav><Link to="/"><FontAwesomeIcon icon={['fas', 'bars']} size="2x" /></Link></Nav>
+        <AppNav></AppNav>
         <StyledLink to="/">
           <img src={logo} alt="Logo" />
         </StyledLink>

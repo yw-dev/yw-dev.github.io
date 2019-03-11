@@ -62,13 +62,14 @@ const Layout = ({ children }) => (
             color: ${theme.colors.black.base};
             font-family: ${theme.fontFamily.heading};
           }
+              
           ${headroom}
         `}
       />
       <SEO />
-      <NavBar/>
-      {children}
-      <Footer />
+            <NavBar/>
+            {children}
+            <Footer />
     </Fragment>
   </ThemeProvider>
 );

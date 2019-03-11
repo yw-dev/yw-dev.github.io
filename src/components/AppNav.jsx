@@ -10,14 +10,21 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons';
 library.add(fas, fab, far)
 
-const Nav = styled.nav`
+const Menu = styled.div`
   margin: 0px;
-  width: 100%;
+  width: auto;
   display: flex;
   justify-content: flex-end;
   font-family: ${props => props.theme.fontFamily.body};
   font-weight: 500;
   align-items: center;
+  .menus{
+    padding: 1rem;
+    text-align: center;
+  }
+  input{
+    display: none;
+  }
   ul{
     margin: 0;
     padding:0;
@@ -36,6 +43,7 @@ const Nav = styled.nav`
     padding: 0;
     list-style: none;
     list-style-type: none;
+    color: ${props => props.theme.colors.white.grey};
   }
   ul ul{
     margin: 0;
@@ -45,9 +53,12 @@ const Nav = styled.nav`
   }
   ul li a{
     display: block;
-    padding: 1.3rem;
-    text-align: center;
+    padding: 1rem 2rem;
+    text-align: left;
     text-decoration: none;
+  }
+  ul li a span{
+    padding-left: 1rem;
   }
   ul li:hover > ul{
     display: block;
@@ -79,10 +90,10 @@ const Nav = styled.nav`
      background: #4b545f;
   }
   ul ul ul{
-    width:100%;
+    width: 100%;
     position:absolute;
-    left:100%;
-    top:50%;
+    left: 100%;
+    top: auto;
   }
   a {
     color: ${props => props.theme.colors.white.grey};
@@ -101,6 +112,10 @@ const Nav = styled.nav`
     margin: 25px 0px;
     border-left:1px solid #575f6a;
   }
+`;
+
+const Menus = styled.div`
+  display: block;
 `;
 
 const AppNav = ({ data}) => {
@@ -137,27 +152,47 @@ const AppNav = ({ data}) => {
     })
   });
   return (
-  <Nav>
-    <ul>
-        <li><Link className="nav-ul-li-a" to="/"><FontAwesomeIcon icon={['fas', 'home']} size="1x" />&nbsp;首页</Link></li>
-        {typeList && typeList.map(stype=>{  
-            return(
-              <li key={stype}><Link to={`/${Object.keys(postsByType[stype])}`}>{Object.keys(postsByType[stype][Object.keys(postsByType[stype])])}&nbsp;<FontAwesomeIcon icon={['fas', 'angle-down']} size="1x" /></Link>
-                <ul>
-                {postsByCategory && (Object.keys(postsByCategory[stype])).map((category, index)=> {
-                    return (
-                      <li key={index*1000+1}><Link to={`/${Object.keys(postsByType[stype])}/${category}`}>{category}</Link></li>
-                    );
-                })}
-                </ul>
-              </li>
-            )
-        })};
-        <li><Link to="/about">关于</Link></li>
-        <li><div className="line"></div></li>
-        <li><Link to="/about"><FontAwesomeIcon icon={['fas', 'user']} size="1x" /></Link></li>
-    </ul>
-  </Nav>
+  <Menu>
+      <ul>
+        <li><div className="menus"><FontAwesomeIcon icon={['fas', 'bars']} size="2x" /></div>
+          <ul className="tree">
+            <li><Link className="nav-ul-li-a" to="/"><FontAwesomeIcon icon={['fas', 'home']} size="1x" /><span>首页</span></Link></li>
+              {typeList && typeList.map((stype, index)=>{              
+                var icon = "edit";
+                icon = index>1?"code":"edit";
+                  return (
+                    <li key={stype}><label htmlFor={`item-${index}`}>
+                        <Link to={`/${Object.keys(postsByType[stype])}`}>
+                        <FontAwesomeIcon icon={['fas', `${icon}`]} size="1x" ></FontAwesomeIcon>                      
+                        <span>
+                          {Object.keys(postsByType[stype][Object.keys(postsByType[stype])])}&nbsp;&nbsp;
+                          <FontAwesomeIcon icon={['fas', 'angle-down']} size="1x" />
+                        </span>
+                        </Link>
+                      </label>
+                      <input type="checkbox" id={`item-${index}`}/>
+                      <ul>
+                        {postsByCategory && (Object.keys(postsByCategory[stype])).map((category, index)=> {
+                            return (
+                              <li key={index*1000+1} className="file">
+                                <Link className="title" to={`/${Object.keys(postsByType[stype])}/${category}`}>{category}</Link>
+                              </li>
+                            );
+                        })}
+                      </ul>
+                    </li>
+                  )
+              })}
+            <li>
+              <Link to="/about">
+                <FontAwesomeIcon icon={['fas', 'address-card']} size="1x" />
+                <span>关于</span>
+              </Link>
+            </li>
+          </ul>
+        </li>
+      </ul>
+  </Menu>
 )};
 
 export default props => (

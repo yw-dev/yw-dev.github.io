@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import logo from '../../static/logo/header.png';
 
 const Wrapper = styled.header`
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   -webkit-clip-path: polygon(100% 0, 0 0, 0 70%, 50% 100%, 100% 70%);
   clip-path: polygon(100% 0, 0 0, 0 95%, 50% 100%, 100% 95%);
   @media (max-width: ${props => props.theme.breakpoints.s}) {
