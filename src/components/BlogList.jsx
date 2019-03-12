@@ -64,12 +64,8 @@ const Image = styled.div`
 `;
 
 const Information = styled.div`
-h1,h2,h3,h4,h5,h6 {
-  display: inline-block;
-  transition: all ${props => props.theme.transitions.default.duration};
-  &:hover {
-    color: ${props => props.theme.colors.hot.red};
-  }
+p:hover {
+  color: ${props => props.theme.colors.black.base};
 }
 text-align: center;
 flex-basis: 100%;
