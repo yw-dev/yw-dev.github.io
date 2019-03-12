@@ -8,17 +8,17 @@ import theme from '../../config/theme';
 
 const Container = styled.div`
   width: 100%;
-  margin: 0 0 1rem 0;
+  margin: 0;
   font-size: 14px;
   @media (max-width: ${props => props.theme.breakpoints.vl}) {
-    margin: 0rem 0rem 1rem 0rem;
+    margin: 0rem 0rem 0.75rem 0rem;
   }
 `;
 const Content = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   @media (max-width:  ${props => props.theme.breakpoints.l}) {
     margin: 0;
     justify-content: space-between;
@@ -27,7 +27,7 @@ const Content = styled.div`
 
 
 const Wrapper = styled.article`
-  margin: 0 1rem 0 0;
+  margin: 0 1rem  0.75rem 0;
   position: relative;
   z-index: 100;
   border-radius: ${props => props.theme.borderRadius.default};
@@ -57,7 +57,7 @@ const Wrapper = styled.article`
     max-width: calc(99.9% * 1 / 2 - 1rem);
     width: calc(99.9% * 1 / 2 - 1rem);
     height: 18rem;
-    margin: 0.5rem 0 0 0;
+    margin: 0.75rem 0 0 0;
   }
 
   @media (max-width:  ${props => props.theme.breakpoints.m}) {
