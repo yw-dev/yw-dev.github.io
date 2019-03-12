@@ -9,6 +9,7 @@ const ContentHead = styled.div`
     display: block;
     align-items: center;
     .label{
+      padding: 3px;
       color:  ${props => props.theme.colors.label.green};
       &:hover {
         color: ${props => props.theme.colors.hot.red};
@@ -19,12 +20,17 @@ const ContentHead = styled.div`
 const HeadMeta = styled.div`
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     font-size: 15px;
     padding: 0.25rem 0rem;
     color: ${props => props.theme.colors.black.base};
-    .item{
-      padding: 0rem 0rem 0rem 1rem;
-    }
+`;
+
+const Item = styled.div`
+    padding: 0 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 `;
 
 const GuessLikeMeta = ({ name, tags, date, path, stype, title, blog }) => {
@@ -32,14 +38,18 @@ const GuessLikeMeta = ({ name, tags, date, path, stype, title, blog }) => {
     return(  
     <ContentHead>
         <HeadMeta>
-            <span className="item">
-                <FontAwesomeIcon icon={['far', 'clock']} size="1x" />
-                <span className="label">&nbsp;{date}</span>
-            </span>
-            <span className="item">
-                <FontAwesomeIcon icon={['far', 'comment-dots']} size="1x" />
-                <span className="label">&nbsp;0评论</span>
-            </span>
+            <Item>
+                <span>
+                    <FontAwesomeIcon icon={['far', 'clock']} size="1x" />
+                    <span className="label">&nbsp;{date}</span>
+                </span>
+            </Item>
+            <Item>
+                <span>
+                    <FontAwesomeIcon icon={['far', 'comment-dots']} size="1x" />
+                    <span className="label">&nbsp;0评论</span>
+                </span>
+            </Item>
         </HeadMeta>
     </ContentHead>
     )
