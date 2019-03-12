@@ -29,6 +29,10 @@ const ContentWrapper = styled.div`
   @media (max-width:  ${props => props.theme.breakpoints.s}) {
     margin:  1rem;
   }
+  .list{
+    margin:0;
+    padding:0;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -42,28 +46,27 @@ const ContentContainer = styled.div`
 `; 
 
 const ContentPost = styled.div`
-  width: 100%;
+  width: 75%;
+  @media (max-width: ${props => props.theme.breakpoints.vl}) {
+    width: 65%;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    width: 100%;
+  }
   display: flex;
   flex-direction: column;
   padding-right: 1rem;
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     padding-right: 0rem;
   }
-  .list{
-    margin:0;
-    padding:0;
-    @media (max-width: ${props => props.theme.breakpoints.m}) {
-      margin: 0 0 1rem 0;
-    }
-  }
 `;
 
 const AsideWrapper = styled.div`
-  width: calc(99.9% * 1 / 3 - 1rem);
+  width: calc(99.9% * 1 / 4 - 1rem);
   display: flex;
   flex-direction: column;
   @media (max-width: ${props => props.theme.breakpoints.vl}) {
-    width: calc(99.9% * 1 / 2 - 1rem);
+    width: calc(99.9% * 1 / 3 - 1rem);
   }
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     width: 100%;

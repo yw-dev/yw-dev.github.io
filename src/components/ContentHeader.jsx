@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import config from '../../config/site';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const ContentHead = styled.div`
+    width:100%;
     display: block;
     align-items: center;
     margin: 0.5rem 0;
@@ -19,6 +20,7 @@ const ContentHead = styled.div`
 
 const HeadMeta = styled.div`
     display: flex;
+    flex-direction: row;
     align-items: center;
     font-size: 14px;
     padding: 0.25rem 0rem;
@@ -26,6 +28,12 @@ const HeadMeta = styled.div`
     .item{
       padding: 0rem 0rem 0rem 1rem;
     }
+`;
+
+const Item = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 `;
 
 const ContentHeader = ({ name, tags, date, path, stype, title, blog }) => {
@@ -38,28 +46,38 @@ const ContentHeader = ({ name, tags, date, path, stype, title, blog }) => {
     return(  
     <ContentHead>
         <HeadMeta>
+            <Item>
             <FontAwesomeIcon icon={['far', 'file-code']} size="1x" />
             {tags && tags.map((tag, index) => (
                 <span key={index}>
                     <Link className="label" to={`${stype}/${tag}`}>&nbsp;{tag}&nbsp;</Link>
                 </span>
             ))}
+            </Item>
+            <Item>
             <span className="item">
             <FontAwesomeIcon icon={['far', 'user']} size="1x" />
                 <Link className="label" to={path}>&nbsp;{`${config.author}`}</Link>
             </span>
+            </Item>
+            <Item>
             <span className="item">
                 <FontAwesomeIcon icon={['far', 'clock']} size="1x" />
                 &nbsp;{date}
             </span>
+            </Item>
+            <Item>
             <span className="item">
                 <FontAwesomeIcon icon={['far', 'eye']} size="1x" />
                 &nbsp;0浏览
             </span>
+            </Item>
+            <Item>
             <span className="item">
                 <FontAwesomeIcon icon={['far', 'comment-dots']} size="1x" />
                 <Link className="label" to={path}>&nbsp;0评论</Link>
             </span>
+            </Item>
         </HeadMeta>
     </ContentHead>
     )

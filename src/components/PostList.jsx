@@ -123,8 +123,11 @@ export default props => (
     query={graphql`
       query {
         allMarkdownRemark(
+          limit: 5
+          skip: 6
           sort: { order: DESC, fields: [frontmatter___date] }
         ) {
+          totalCount
           edges {
             node {
               id
@@ -159,7 +162,8 @@ export default props => (
 
 PostList.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({      
+      totalCount: PropTypes.number,
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           node: PropTypes.shape({
