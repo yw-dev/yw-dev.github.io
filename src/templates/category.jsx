@@ -240,8 +240,8 @@ const Category = ({ pageContext, data }) => {
   //const upperTag = tagName.charAt(0).toUpperCase() + tagName.slice(1);
   return (
     <Layout>
-      <Helmet title={`${tagName} | ${config.siteTitle}`} />
-      <Header title={tagName}>
+      <Helmet title={`${keyword[keyword.length-1]} | ${config.siteTitle}`} />
+      <Header title={keyword[keyword.length-1]}>
         <StyledLink to="/category">分类</StyledLink>
       </Header>
       <ContentWrapper>
