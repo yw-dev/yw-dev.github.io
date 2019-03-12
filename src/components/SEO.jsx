@@ -90,7 +90,7 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
             <script type="application/ld+json">
               {JSON.stringify(schemaOrgJSONLD)}
             </script>
-
+            
             {/* OpenGraph  */}
             <meta property="og:url" content={seo.url} />
             <meta property="og:type" content={article ? 'article' : null} />
