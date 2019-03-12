@@ -1,10 +1,10 @@
 ---
-path: "/WebGL01"
+path: "/WebGL-01"
 cover: "../2019-03-13/20190312223238.jpg"
 date: "2019-03-13"
 title: "WebGL基础(一)"
 published: true
-subtitle: ""
+subtitle: "OverView"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"

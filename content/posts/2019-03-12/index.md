@@ -1,14 +1,14 @@
 ---
-path: "/JavaScript01"
+path: "/JavaScript-01"
 cover: "../2019-03-12/20190312144533.jpg"
 date: "2019-03-12"
 title: "JavaScript基础(一)"
 published: true
-subtitle: ""
+subtitle: "OverView"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"
-special: "JavaScript专题"
+special: "JavaScript系列"
 categores: "JavaScript"
 tags: ['JavaScript', 'Java']
 ---

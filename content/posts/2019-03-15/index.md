@@ -1,10 +1,10 @@
 ---
-path: "/Nginx01"
+path: "/Nginx-01"
 cover: "../2019-03-15/20190225003545.jpg"
 date: "2019-03-15"
 title: "Nginx基础(一)"
 published: true
-subtitle: ""
+subtitle: "OverView"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"
