@@ -25,6 +25,7 @@ const HeadMeta = styled.div`
     align-items: center;
     font-size: 14px;
     padding: 0.25rem 0rem;
+    flex-wrap: wrap;
     color: ${props => props.theme.colors.black.base};
 `;
 

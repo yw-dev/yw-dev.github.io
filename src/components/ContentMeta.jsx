@@ -22,10 +22,8 @@ const HeadMeta = styled.div`
     flex-direction: row;
     font-size: 14px;
     padding: 0.25rem 0rem;
+    flex-wrap: wrap;
     color: ${props => props.theme.colors.black.base};
-    @media (max-width: ${props => props.theme.breakpoints.vl}) {        
-        flex-wrap: wrap;
-    }
 `;
 
 const Item = styled.div`
