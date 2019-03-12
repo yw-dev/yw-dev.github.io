@@ -16,9 +16,7 @@
 <url> <loc>https://yf.netlify.com//Fan/dev/Unreal Engine 4</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/dev/WebGL</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/dev/设计模式</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://yf.netlify.com//Fan/dev/游戏/Html5</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://yf.netlify.com//Fan/dev/游戏/DirectX 12</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://yf.netlify.com//Fan/dev/游戏/C++</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://yf.netlify.com//Fan/dev/Nginx/Html5</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/dev/Web/Html5</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/dev/Web/JavaScript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/dev/Web/WebGL</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -31,8 +29,11 @@
 <url> <loc>https://yf.netlify.com//Fan/dev/C++/DirectX 12</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/dev/JavaScript/JavaScript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/dev/JavaScript/React</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://yf.netlify.com//Fan/dev/游戏/DirectX 12</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://yf.netlify.com//Fan/dev/游戏/C++</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/dev/DirectX 12/DirectX 12</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/dev/DirectX 12/C++</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://yf.netlify.com//Fan/dev/Nginx</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/dev/Web</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/dev/个人日记</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/dev/游戏</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -51,6 +52,7 @@
 <url> <loc>https://yf.netlify.com//Fan/resource/游戏/DirectX 12</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/resource/Web/JavaScript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/resource/Web/Html5</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://yf.netlify.com//Fan/resource/Nginx</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/resource/Web</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/resource/个人日记</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/resource/游戏</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -69,6 +71,7 @@
 <url> <loc>https://yf.netlify.com//Fan/self/个人日记/C++</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/self/生活随记/DirectX 12</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/self/生活随记/C++</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://yf.netlify.com//Fan/self/Nginx</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/self/Web</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/self/个人日记</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/self/游戏</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -81,6 +84,7 @@
 <url> <loc>https://yf.netlify.com//Fan/Unreal Engine 4</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/WebGL</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/设计模式</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://yf.netlify.com//Fan/Nginx</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/Web</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/个人日记</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://yf.netlify.com//Fan/游戏</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
