@@ -101,7 +101,7 @@ const PostList = ({ data }) => {
                 </Image>
                 <InfoDessc>
                   <InfoHeader>
-                    <h4>{node.frontmatter.title}</h4>
+                    <h5>{node.frontmatter.title}</h5>
                   </InfoHeader>
                   <p>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</p>
                   <ContentMeta 
@@ -124,7 +124,7 @@ export default props => (
       query {
         allMarkdownRemark(
           limit: 5
-          skip: 6
+          skip: 0
           sort: { order: DESC, fields: [frontmatter___date] }
         ) {
           totalCount

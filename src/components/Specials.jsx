@@ -10,24 +10,24 @@ const Container = styled.div`
   width: 100%;
   margin: 0;
   font-size: 14px;
-  @media (max-width: ${props => props.theme.breakpoints.vl}) {
-    margin: 0rem 0rem 0.75rem 0rem;
+  @media (max-width: ${props => props.theme.breakpoints.l}) {
+    margin: 0rem 0rem 10px 0rem;
   }
 `;
 const Content = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-top: 0.75rem;
+  margin-top: 10px;
+  justify-content: space-between;
   @media (max-width:  ${props => props.theme.breakpoints.l}) {
     margin: 0;
-    justify-content: space-between;
   }
 `;
 
 
 const Wrapper = styled.article`
-  margin: 0 1rem  0.75rem 0;
+  margin: 0 0 10px 0;
   position: relative;
   z-index: 100;
   border-radius: ${props => props.theme.borderRadius.default};
@@ -35,10 +35,10 @@ const Wrapper = styled.article`
   box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   transition: ${props => props.theme.transitions.boom.transition};
   width:100%;
-  height: 17rem;
-  flex-basis: calc(99.9% * 1 / 4 - 1rem);
-  max-width: calc(99.9% * 1 / 4 - 1rem);
-  width: calc(99.9% * 1 / 4 - 1rem);
+  height: 15rem;
+  flex-basis: calc(99.9% * 1 / 4 - 7px);
+  max-width: calc(99.9% * 1 / 4 - 7px);
+  width: calc(99.9% * 1 / 4 - 7px);
 
   &:hover {
     box-shadow: ${props => props.theme.shadow.feature.small.little};
@@ -46,18 +46,18 @@ const Wrapper = styled.article`
   }
 
   @media (max-width:  ${props => props.theme.breakpoints.vl}) {
-    flex-basis: calc(99.9% * 1 / 3 - 1rem);
-    max-width: calc(99.9% * 1 / 3 - 1rem);
-    width: calc(99.9% * 1 / 3 - 1rem);
-    height: 18rem;
+    flex-basis: calc(99.9% * 1 / 3 - 7px);
+    max-width: calc(99.9% * 1 / 3 - 7px);
+    width: calc(99.9% * 1 / 3 - 7px);
+    height: 14rem;
   }
 
   @media (max-width:  ${props => props.theme.breakpoints.l}) {
-    flex-basis: calc(99.9% * 1 / 2 - 1rem);
-    max-width: calc(99.9% * 1 / 2 - 1rem);
-    width: calc(99.9% * 1 / 2 - 1rem);
-    height: 18rem;
-    margin: 0.75rem 0 0 0;
+    flex-basis: calc(99.9% * 1 / 2 - 7px);
+    max-width: calc(99.9% * 1 / 2 - 7px);
+    width: calc(99.9% * 1 / 2 - 7px);
+    height: 17rem;
+    margin: 10px 0 0 0;
   }
 
   @media (max-width:  ${props => props.theme.breakpoints.m}) {
@@ -140,7 +140,7 @@ const Info = styled.div`
 `;
 
 const Title = styled.h4`
-  line-height:2rem;
+  line-height:1.5rem;
 `;
 
 const Specials = ({ data }) => {
@@ -160,10 +160,10 @@ const Specials = ({ data }) => {
   
   return (
   <Container>
-    <CardHeader title="专题" other="更多" path="/specials"></CardHeader>  
+    <CardHeader title="专题" other="更多" path="/specials"></CardHeader>
     <Content>
     {subtitles.map((subtitle, index) => {
-      return(
+      return (
         <Wrapper key={index}>
           <Image>
             <Img fluid={postsBySpecial[subtitle][0].frontmatter.cover.childImageSharp.fluid} />

@@ -98,7 +98,7 @@ const GuessLike = ({ data }) => {
                 </Image>
                 <InfoDessc>
                   <InfoHeader>
-                    <h4>{node.frontmatter.title}</h4>
+                    <h6>{node.frontmatter.title}</h6>
                   </InfoHeader>
                   <p>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</p>
                   <GuessLikeMeta 

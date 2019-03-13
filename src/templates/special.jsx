@@ -215,7 +215,7 @@ const Special = ({data, pageContext }) => {
             <Information key={posts.id}>
               <ContentTitle>
                 <Link className="title" to={posts.frontmatter.path}>
-                  <h3>{posts.frontmatter.title}</h3>
+                  <h4>{posts.frontmatter.title}</h4>
                 </Link>
               </ContentTitle>
               <ContentHeader name={specialName} tags={posts.frontmatter.tags} stype={posts.frontmatter.type} date={posts.frontmatter.date} path={posts.frontmatter.path}></ContentHeader>
