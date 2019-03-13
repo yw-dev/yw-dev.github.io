@@ -36,7 +36,8 @@ export const colors = {
     dark: '#20232A',
   },
   hot:{
-    red: '#EE4000',
+    red: '#037EE2',
+    hotred: '#EE4000',
     light: '#D9534F',
     green: '#71C671',
     yellow: '#ffa94d',

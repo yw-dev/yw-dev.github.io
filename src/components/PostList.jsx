@@ -67,6 +67,7 @@ const InfoDessc = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  color: ${props => props.theme.colors.black.base};
 `;
 
 const Image = styled.div`
@@ -103,7 +104,7 @@ const PostList = ({ data }) => {
                   <InfoHeader>
                     <h5>{node.frontmatter.title}</h5>
                   </InfoHeader>
-                  <p>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</p>
+                  <span>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</span>
                   <ContentMeta 
                     tags={node.frontmatter.tags} 
                     date={node.frontmatter.date} 

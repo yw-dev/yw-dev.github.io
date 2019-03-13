@@ -52,7 +52,7 @@ const Item = styled.div`
     color: ${props => props.theme.colors.white.light};
   }
   .l-1{
-    background-color: ${props => props.theme.colors.hot.red};
+    background-color: ${props => props.theme.colors.hot.hotred};
   }
   .l-2{
     background-color: ${props => props.theme.colors.hot.green};

@@ -65,6 +65,7 @@ const InfoDessc = styled.div`
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
+  color: ${props => props.theme.colors.black.base};
 `;
 const Image = styled.div`
   width: 45%;
@@ -100,7 +101,7 @@ const GuessLike = ({ data }) => {
                   <InfoHeader>
                     <h6>{node.frontmatter.title}</h6>
                   </InfoHeader>
-                  <p>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</p>
+                  <span>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</span>
                   <GuessLikeMeta 
                     date={node.frontmatter.date} 
                     path={node.frontmatter.path}>
