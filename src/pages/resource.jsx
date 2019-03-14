@@ -246,7 +246,7 @@ const Resource = ({ pageContext, data }) => {
     <Layout>
       <Helmet title={`${keyword[keyword.length-1]} | ${config.siteTitle}`} />
       <Header title={keyword[keyword.length-1]}>
-        <StyledLink to="/category">分类</StyledLink>
+        <StyledLink to="/resource">资源</StyledLink>
       </Header>
       <ContentWrapper>
         <ContentContainer>

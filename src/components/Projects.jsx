@@ -151,15 +151,15 @@ const Projects = ({ data }) => {
   
   return (
     <Container>
-      <CardHeader title="资源" other="更多" path="/resource"></CardHeader>
+      <CardHeader title="资源" other="" icons={['fas', "th-large"]} path="/resource"></CardHeader>
       <Content>
-      {edges.map(({ node }, index) => {
+      {edges.map(({ node }) => {
         return (
-        <Wrapper>
+        <Wrapper key={node.id}>
           <Image>
             <Img fluid={node.frontmatter.cover.childImageSharp.fluid} />
           </Image>
-          <StyledLink key={node.id} to={`/${node.frontmatter.path}`}>
+          <StyledLink to={`/${node.frontmatter.path}`}>
           <Info>
             <Title>{node.frontmatter.title}</Title>
             <span>{node.excerpt}</span>

@@ -92,7 +92,7 @@ const PostList = ({ data }) => {
   return (
   <Container>
     <Wrapper>
-      <CardHeader title="文章" other="更多" path="/blog"></CardHeader>
+      <CardHeader title="文章" other="" icons={['fas', "angle-double-right"]} path="/blog"></CardHeader>
       <List>
       {edges.map(({ node }) => (
           <StyledLink key={node.id} to={node.frontmatter.path}>

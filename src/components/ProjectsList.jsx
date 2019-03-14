@@ -68,7 +68,7 @@ const Wrapper = styled.article`
   }
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -160,6 +160,8 @@ const Footer = styled.div`
     display: block;
     text-align: center;
     padding: 10px;
+  }
+  a{
     &:hover {
       color: ${props => props.theme.colors.white.light};
     }
@@ -175,7 +177,7 @@ const ProjectsList = ({ list, data }) => {
   
   return (
     <Project>
-      <CardHeader title="资源" other="更多" path="/blog"></CardHeader>
+      <CardHeader title="资源" other="" icons={['fas', "th-large"]} path="/resource"></CardHeader>
       <Content>
       {list && list.map((node, index) => {
         return (
@@ -190,8 +192,8 @@ const ProjectsList = ({ list, data }) => {
               <span>{node.excerpt}</span>
             </Descrip>
             <Footer>
-              <span><FontAwesomeIcon icon={['fab', 'github']} size="2x" /></span>
-              <span><FontAwesomeIcon icon={['fab', 'codepen']} size="2x" /></span>
+              <span><a href="https://codepen.io/yw-dev/pen/ZVGpzg"><FontAwesomeIcon icon={['fab', 'github']} size="2x" /></a></span>
+              <span><a href="https://codepen.io/yw-dev/pen/ZVGpzg"><FontAwesomeIcon icon={['fab', 'codepen']} size="2x" /></a></span>
             </Footer>
           </Info>
           </StyledLink>

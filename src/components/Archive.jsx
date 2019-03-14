@@ -69,7 +69,7 @@ const Archive = ({ data }) => {
     return (
       <Container>
         <Wrapper>
-          <CardHeader title="文章归档" other="" path=""></CardHeader>
+          <CardHeader title="文章归档" other="" icons="" path=""></CardHeader>
           <List>
               {archivs && archivs.map((archive, index) => (
               <StyledLink key={index} to={`/${archive}`}>
