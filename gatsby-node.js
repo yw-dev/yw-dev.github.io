@@ -11,6 +11,7 @@ exports.createPages = ({ graphql, actions }) => {
     const specialPosts = path.resolve('src/templates/special.jsx');
     const specialPage = path.resolve('src/pages/specials.jsx');
     const archivePage = path.resolve('src/pages/archives.jsx');
+    const resourcePage = path.resolve('src/pages/resource.jsx');
 
     resolve(
       graphql(
@@ -158,16 +159,29 @@ exports.createPages = ({ graphql, actions }) => {
         allTypes.forEach(stype => {
           const list = postsByType[stype];
           
-          //create tags list
-          createPage({
-            path: '/' + stype,
-            component: categorPosts,
-            context: {
-              spath: stype,
-              list,
-              tagName: stype,
-            },
-          });
+          if(stype == "resource"){
+            //create tags list
+            createPage({
+              path: '/' + stype,
+              component: resourcePage,
+              context: {
+                spath: stype,
+                list,
+                tagName: stype,
+              },
+            });
+          }else{
+            //create tags list
+            createPage({
+              path: '/' + stype,
+              component: categorPosts,
+              context: {
+                spath: stype,
+                list,
+                tagName: stype,
+              },
+            });
+          }
 
           //create blog list for all tags
           allTags.forEach(tagName => {
@@ -185,12 +199,13 @@ exports.createPages = ({ graphql, actions }) => {
           });
 
           const categories = Object.keys(typesCategores[stype]);
-          //create blog list by dev
+          //create blog list by type
           categories.forEach(catName => {
             const list = typesCategores[stype][catName];
             if (!categoryTags[catName]) {
               categoryTags[catName] = [];
             }
+            //create category's blog list by tag
             list.forEach(node => {
               node.frontmatter.tags.forEach(tagName => {
                 if (!categoryTags[catName][tagName]) {
@@ -214,15 +229,28 @@ exports.createPages = ({ graphql, actions }) => {
           //create blog list by dev
           allCategores.forEach(tagName => {
             const list = postsByCategory[tagName];
-            createPage({
-              path: `/${stype}/${tagName}`,
-              component: categorPosts,
-              context: {
-                spath: `${stype}/${tagName}`,
-                list,
-                tagName,
-              },
-            });
+            if(stype == "resource"){
+              //create tags list
+              createPage({
+                path: `/${stype}/${tagName}`,
+                component: resourcePage,
+                context: {
+                  spath: `${stype}/${tagName}`,
+                  list,
+                  tagName,
+                },
+              });
+            } else {
+              createPage({
+                path: `/${stype}/${tagName}`,
+                component: categorPosts,
+                context: {
+                  spath: `${stype}/${tagName}`,
+                  list,
+                  tagName,
+                },
+              });
+            }
           });
         });       
 
@@ -240,10 +268,11 @@ exports.createPages = ({ graphql, actions }) => {
             },
           });
         });
-        //create blog list by dev
+        //create blog list by Categores
         allCategores.forEach(tagName => {
           const list = postsByCategory[tagName];
 
+          //create category list
           createPage({
             path: `/${tagName}`,
             component: categorPosts,

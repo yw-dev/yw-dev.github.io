@@ -18,6 +18,7 @@ import ContentMeta from './ContentMeta';
 import GuessLikeMeta from './GuessLikeMeta';
 import Archive from './Archive';
 import Projects from './Projects';
+import ProjectsList from './ProjectsList';
 import GuessLike from './GuessLike';
 import TagCloud from './TagCloud';
 import SpecialsList from './SpecialsList';
@@ -42,6 +43,7 @@ export {
     GuessLikeMeta,
     Archive, 
     Projects, 
+    ProjectsList,
     GuessLike, 
     TagCloud, 
     SpecialsList,

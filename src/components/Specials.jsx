@@ -11,7 +11,7 @@ const Container = styled.div`
   margin: 0;
   font-size: 14px;
   @media (max-width: ${props => props.theme.breakpoints.l}) {
-    margin: 0rem 0rem 10px 0rem;
+    margin: 0rem 0rem 14px 0rem;
   }
 `;
 const Content = styled.div`
@@ -57,7 +57,7 @@ const Wrapper = styled.article`
     max-width: calc(99.9% * 1 / 2 - 7px);
     width: calc(99.9% * 1 / 2 - 7px);
     height: 17rem;
-    margin: 10px 0 0 0;
+    margin: 14px 0 0 0;
   }
 
   @media (max-width:  ${props => props.theme.breakpoints.m}) {

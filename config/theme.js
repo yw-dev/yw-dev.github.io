@@ -46,6 +46,7 @@ export const colors = {
   },
   opcity:{
     navbarbg: 'rgba(30,37,47, 0.7)',
+    linebg: 'rgba(255,255,255, 0.25)',
   },
   linearColor:{
     navbarbg: 'linear-gradient(to bottom,#1D2936,#20232A)',
@@ -137,6 +138,7 @@ export const theme = {
   },
   borderRadius: {
     default: '0.4rem',
+    little: '4px',
     round: '100rem',
   },
   transitions: {

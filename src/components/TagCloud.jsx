@@ -96,7 +96,7 @@ const TagCloud = ({ data }) => {
             {tags && tags.map((tag, index) => (
             <StyledLink key={index} to={`/${tag}`}>
               <Item>
-                <div className="title"><label>{tag}</label></div>
+                <div className="title">{tag}</div>
               </Item>
             </StyledLink>
             ))}

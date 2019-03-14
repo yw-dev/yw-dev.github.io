@@ -67,7 +67,7 @@ const Card = ({title, other, path, list, data }) => (
             {list && list.map((item, index) => (
             <StyledLink key={index} to={`${path}/${item}`}>
               <Item>
-                <div className="title"><label>{item}</label></div>
+                <div className="title">{item}</div>
               </Item>
             </StyledLink>
             ))}

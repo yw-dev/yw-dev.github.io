@@ -86,7 +86,7 @@ const HotTopic = ({ data }) => {
             {edges.map(({ node }, index) => (
                 <StyledLink key={node.id} to={`/${node.frontmatter.path}`}>
                   <Item>
-                    <div><span className={`label l-${++index}`}>{++index}</span></div>
+                    <div><span className={`label l-${++index}`}>{index}</span></div>
                     <div className="title">&nbsp;{node.frontmatter.title}</div>
                     <div><FontAwesomeIcon icon={['far', 'heart']} size="1x"/>&nbsp;
                     <span className="label-num">22233</span></div>

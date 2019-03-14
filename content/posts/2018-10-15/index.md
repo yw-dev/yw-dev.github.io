@@ -10,7 +10,7 @@ typeID: "3"
 typeTitle: "资源"
 special: ""
 categores: "游戏"
-tags: ['C++', '设计模式']
+tags: ['C++', 'Unreal Engine 4']
 ---
 
 Ghost comes with powerful features built directly into the core software which can be customised and configured based on the needs of each individual site.

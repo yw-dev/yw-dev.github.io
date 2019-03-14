@@ -8,28 +8,25 @@ import config from '../../config/site';
 import theme from '../../config/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Container = styled.div`
+const Project = styled.div`
   width: 100%;
   margin: 0;
   font-size: 14px;
-  margin: 0 0 0 1rem;
-  @media (max-width: ${props => props.theme.breakpoints.vl}) {
-    margin: 0 0 0 0;
-  }
 `;
+
 const Content = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  @media (max-width:  ${props => props.theme.breakpoints.l}) {
-    margin: 0;
+  @media (max-width:  ${props => props.theme.breakpoints.m}) {
+    margin: 0 0 1rem 0;
   }
 `;
 
 
 const Wrapper = styled.article`
-  margin: 6px 0 0 0;
+  margin: 14px 0 0 0;
   position: relative;
   z-index: 100;
   border-radius: ${props => props.theme.borderRadius.little};
@@ -37,10 +34,10 @@ const Wrapper = styled.article`
   box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   transition: ${props => props.theme.transitions.boom.transition};
   width:100%;
-  height: 135px;
-  flex-basis: calc(99.9% * 1 / 2 - 3px);
-  max-width: calc(99.9% * 1 / 2 - 3px);
-  width: calc(99.9% * 1 / 2 - 3px);
+  height: 16rem;
+  flex-basis: calc(99.9% * 1 / 4 - 10px);
+  max-width: calc(99.9% * 1 / 4 - 10px);
+  width: calc(99.9% * 1 / 4 - 10px);
 
   &:hover {
     box-shadow: ${props => props.theme.shadow.feature.small.little};
@@ -48,10 +45,10 @@ const Wrapper = styled.article`
   }
 
   @media (max-width:  ${props => props.theme.breakpoints.vl}) {
-    margin: 14px 0 0 0;
-    flex-basis: calc(99.9% * 1 / 2 - 7px);
-    max-width: calc(99.9% * 1 / 2 - 7px);
-    width: calc(99.9% * 1 / 2 - 7px);
+    margin: 15px 0 0 0;
+    flex-basis: calc(99.9% * 1 / 3 - 7px);
+    max-width: calc(99.9% * 1 / 3 - 7px);
+    width: calc(99.9% * 1 / 3 - 7px);
     height: 14rem;
   }
 
@@ -131,7 +128,8 @@ const Image = styled.div`
 
 const Info = styled.div`
   font-size: 14px;
-  padding: 1rem;
+  width:100%;
+  padding: 0;
   position: absolute;
   display: block;
   bottom: 0;
@@ -141,19 +139,45 @@ const Info = styled.div`
     color: ${props => props.theme.colors.white.grey};
   }
 `;
+const Descrip = styled.div`
+  padding: 5px 10px;
+`;
+
+const Footer = styled.div`
+  width:100%;
+  margin: 0;
+  padding: 0;
+  &:before{
+    content:"";
+    display:block;
+    clear: both;
+    height: 1px;
+    margin: 0;
+    border-top: 1px solid ${props => props.theme.colors.opcity.linebg};
+  }
+  span {
+    float: right;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    &:hover {
+      color: ${props => props.theme.colors.white.light};
+    }
+  }
+`;
 
 const Title = styled.h4`
   line-height:1.5rem;
 `;
 
-const Projects = ({ data }) => {
+const ProjectsList = ({ list, data }) => {
   const { edges } = data.allMarkdownRemark;
   
   return (
-    <Container>
-      <CardHeader title="资源" other="更多" path="/resource"></CardHeader>
+    <Project>
+      <CardHeader title="资源" other="更多" path="/blog"></CardHeader>
       <Content>
-      {edges.map(({ node }, index) => {
+      {list && list.map((node, index) => {
         return (
         <Wrapper>
           <Image>
@@ -161,15 +185,21 @@ const Projects = ({ data }) => {
           </Image>
           <StyledLink key={node.id} to={`/${node.frontmatter.path}`}>
           <Info>
-            <Title>{node.frontmatter.title}</Title>
-            <span>{node.excerpt}</span>
+            <Descrip>
+              <Title>{node.frontmatter.title}</Title>
+              <span>{node.excerpt}</span>
+            </Descrip>
+            <Footer>
+              <span><FontAwesomeIcon icon={['fab', 'github']} size="2x" /></span>
+              <span><FontAwesomeIcon icon={['fab', 'codepen']} size="2x" /></span>
+            </Footer>
           </Info>
           </StyledLink>
         </Wrapper>
         )}
       )}
       </Content>
-    </Container>
+    </Project>
 )};
 
 
@@ -178,13 +208,13 @@ export default props => (
     query={graphql`
       query {
         allMarkdownRemark(
-          limit: 4
+          limit: 8
           sort: { order: DESC, fields: [frontmatter___date] }
         ) {
           edges {
             node {
               id
-              excerpt(pruneLength: 30)
+              excerpt(pruneLength: 50)
               frontmatter {
                 title
                 path
@@ -208,11 +238,12 @@ export default props => (
         }
       }
     `}
-    render={data => <Projects data={data} {...props} />}
+    render={data => <ProjectsList data={data} {...props} />}
   />
 )
 
-Projects.propTypes = {
+ProjectsList.propTypes = {
+  list: PropTypes.array,
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.arrayOf(
