@@ -23,8 +23,8 @@ class Comments extends Component {
       clientID: '62e776a580c45d79929e',
       clientSecret: 'd68ef6f43f011fb96d4d0cb34165eab3ad706171',
       repo: ' https://yw-dev.github.io',
-      owner: 'yw-dev',
-      admin: ['hobbin'],
+      owner: '1775216@gmail.com',
+      admin: ['1775216@gmail.com'],
       id: this.props.path,      // Ensure uniqueness and length less than 50
       distractionFreeMode: false  // Facebook-like distraction free mode
     })
