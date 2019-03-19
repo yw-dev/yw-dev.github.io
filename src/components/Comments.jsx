@@ -27,7 +27,7 @@ class Comments extends Component {
       owner: 'yw-dev',
       admin: 'yw-dev',
       id: md5(this.props.path),      // Ensure uniqueness and length less than 50
-      distractionFreeMode: false  // Facebook-like distraction free mode
+      distractionFreeMode: true  // Facebook-like distraction free mode
     })
     gitalk.render("gitalk-container")
     this.setState({ isLoading: false })
