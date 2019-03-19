@@ -22,7 +22,7 @@ class Comments extends Component {
     const gitalk = new Gitalk({
       clientID: '62e776a580c45d79929e',
       clientSecret: 'd68ef6f43f011fb96d4d0cb34165eab3ad706171',
-      repo: 'https://yw-dev.github.io/Fan/',
+      repo: 'https://yw-dev.github.io',
       owner: 'yw-dev',
       admin: ['hobbin'],
       id: this.props.path,      // Ensure uniqueness and length less than 50
