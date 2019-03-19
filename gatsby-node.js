@@ -1,5 +1,18 @@
 const path = require('path');
 const createPaginatedPages = require('gatsby-paginate')
+const { createFilePath } = require('gatsby-source-filesystem')
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === 'MarkdownRemark') {
+    const slug = createFilePath({ node, getNode })
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    })
+  }
+}
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -24,11 +37,15 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   id
                   excerpt(pruneLength: 200)
-                  html
+                  html                  
+                  fields {
+                    slug
+                  }
                   frontmatter {
                     date(formatString: "YYYY-MM-DD")
                     path
                     title
+                    discussionId 
                     tags
                     type
                     typeID
@@ -45,7 +62,6 @@ exports.createPages = ({ graphql, actions }) => {
         if (result.errors) {
           return reject(result.errors);
         }
-
         const posts = result.data.allMarkdownRemark.edges;
 
         const postsByTag = {};

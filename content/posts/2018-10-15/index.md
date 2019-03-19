@@ -1,9 +1,12 @@
 ---
+subtitle: ""
+title: "Post Number One"
+author: ""
+description: ""
+discussionId: "2018-10-15-page-slug"
 path: "/post-one"
 cover: "./blocks.jpg"
 date: "2018-10-15"
-subtitle: ""
-title: "Post Number One"
 published: true
 type: "resource"
 typeID: "3"
@@ -13,6 +16,9 @@ categores: "游戏"
 tags: ['C++', 'Unreal Engine 4']
 ---
 
+你所掌握的技术体系应该服务于你的终极目标。
+靠山山会倒，靠人人会跑，走出自己的路，转过身对过去的自己说声谢谢；扬帆起航。
+                                                                            ————致自己
 Ghost comes with powerful features built directly into the core software which can be customised and configured based on the needs of each individual site.
 
 Here's a quick overview of the main features you'll probably be interested in as you're getting started. This isn't an exhaustive list, just some highlights.

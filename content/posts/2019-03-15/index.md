@@ -1,4 +1,7 @@
 ---
+author: ""
+description: ""
+discussionId: "2019-03-15-page-slug"
 path: "/Nginx-01"
 cover: "../2019-03-15/20190225003545.jpg"
 date: "2019-03-15"

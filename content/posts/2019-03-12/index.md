@@ -1,4 +1,7 @@
 ---
+author: ""
+description: ""
+discussionId: "2019-03-12-page-slug"
 path: "/JavaScript-01"
 cover: "../2019-03-12/20190312144533.jpg"
 date: "2019-03-12"

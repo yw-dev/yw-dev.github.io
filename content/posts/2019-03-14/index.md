@@ -1,4 +1,7 @@
 ---
+author: ""
+description: ""
+discussionId: "2019-03-14-page-slug"
 path: "/Html5-01"
 cover: "../2019-03-14/20190225003336.jpg"
 date: "2019-03-14"

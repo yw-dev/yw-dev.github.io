@@ -1,4 +1,15 @@
+
 const config = require('./config/site');
+
+const myPlugin = (lunr) => (builder) => {
+  // removing stemmer
+  builder.pipeline.remove(lunr.stemmer)
+  builder.searchPipeline.remove(lunr.stemmer)
+  // or similarity tuning
+  builder.k1(1.3)
+  builder.b(0)
+}
+
 module.exports = {
   siteMetadata: {
     ...config,
@@ -13,6 +24,15 @@ module.exports = {
         name: 'posts',
         path: `${__dirname}/content/posts`,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-zopfli'
+    },
+    {
+      resolve: `@debiki/gatsby-plugin-talkyard`,
+      options: {
+        talkyardServerUrl: 'https://yangfan.talkyard.net'
+      }
     },
     'gatsby-transformer-sharp',
     {

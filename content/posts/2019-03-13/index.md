@@ -1,4 +1,7 @@
 ---
+author: ""
+description: ""
+discussionId: "2019-03-13-page-slug"
 path: "/WebGL-01"
 cover: "../2019-03-13/20190312223238.jpg"
 date: "2019-03-13"

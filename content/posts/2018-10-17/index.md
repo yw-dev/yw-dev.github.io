@@ -1,4 +1,7 @@
 ---
+author: ""
+description: ""
+discussionId: "2018-10-17-page-slug"
 path: "/post-three"
 cover: "./finance.jpg"
 date: "2018-10-17"

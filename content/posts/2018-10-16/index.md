@@ -1,10 +1,13 @@
 ---
+subtitle: ""
+title: "Post Number Two"
+author: ""
+description: ""
+discussionId: "2018-10-16-page-slug"
 path: "/post-two"
 cover: "./speed.jpg"
 date: "2018-10-16"
-title: "Post Number Two"
 published: true
-subtitle: ""
 type: "resource"
 typeID: "3"
 typeTitle: "资源"

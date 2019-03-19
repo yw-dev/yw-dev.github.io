@@ -1,4 +1,7 @@
 ---
+author: ""
+description: ""
+discussionId: "2018-10-22-page-slug"
 path: "/post-eight"
 cover: "../2018-10-22/20190225002752.jpg"
 date: "2018-10-22"

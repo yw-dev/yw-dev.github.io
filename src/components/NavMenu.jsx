@@ -3,6 +3,7 @@ import { StaticQuery, graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { locale } from 'core-js';
+import { Search } from 'components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -11,7 +12,7 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 library.add(fas, fab, far)
 
 const Nav = styled.nav`
-  margin: 0px;
+  margin: 0;
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -147,13 +148,14 @@ const NavMenu = ({ data}) => {
                 {postsByCategory && (Object.keys(postsByCategory[stype])).map((category, index)=> {
                     return (
                       <li key={index*1000+1}><Link to={`/${Object.keys(postsByType[stype])}/${category}`}>{category}</Link></li>
-                    );
+                    )
                 })}
                 </ul>
               </li>
             )
-        })};
+        })}
         <li><Link to="/about">关于</Link></li>
+        <li><Search /></li>
         <li><div className="line"></div></li>
         <li><Link to="/about"><FontAwesomeIcon icon={['fas', 'user']} size="1x" /></Link></li>
     </ul>

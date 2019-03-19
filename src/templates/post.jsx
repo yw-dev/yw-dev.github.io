@@ -4,15 +4,9 @@ import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { Layout, Container, Content } from 'layouts';
-import { TagsBlock, Header, SEO, ContentHeader, ContentNav } from 'components';
+import { TagsBlock, Header, SEO,Archive, Comments, GuessLike, ContentHeader, ContentNav } from 'components';
 import config from '../../config/site';
 import '../styles/prism';
-import { 
-  SlideBar, 
-  Archive, 
-  GuessLike, 
-  CardHeader, 
-} from 'components';
 
 const ContentWrapper = styled.div`
   margin: 2rem 8rem 2rem 8rem;
@@ -59,6 +53,11 @@ const ContentPost = styled.div`
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     padding-right: 0rem;
   }
+  #gitalk-container{
+    padding:1rem;
+    background: ${props => props.theme.colors.white.light};
+    box-shadow: ${props => props.theme.shadow.feature.small.little};
+  }
 `;
 
 const AsideWrapper = styled.div`
@@ -75,8 +74,9 @@ const AsideWrapper = styled.div`
 
 const SuggestionBar = styled.div`
   display: flex;
+  font-size: 14px;
   flex-wrap: nowrap;
-  margin: 0rem 2rem;
+  margin: 0;
   justify-content: space-between;
   //background: ${props => props.theme.colors.white.light};
   //box-shadow: ${props => props.theme.shadow.suggestion};
@@ -85,16 +85,23 @@ const Excerpt = styled.div`
   display: block;
   width: 100%;
   padding: 0 3rem;
+  #gitalk-container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 700px;
+  }
 `;
 
 const PostSuggestion = styled.div`
   display: flex;
   align-items: center;
+  text-align: center;
   margin: 1rem;
   .Suggestion-up{
-      padding:1rem;
+      width: 200px;
+      padding: 0.3rem 1rem;
       //-webkit-clip-path: polygon(100% 0, 10% 0, 0 50%, 10% 100%, 100% 100%);
-      clip-path: polygon(100% 0, 10% 0, 0 50%, 10% 100%, 100% 100%);
+      clip-path: polygon(100% 0, 5% 0, 0 50%, 5% 100%, 100% 100%);
       @media (max-width: ${props => props.theme.breakpoints.s}) {
         -webkit-clip-path: polygon(100% 0, 10% 0, 0 50%, 10% 100%, 100% 100%);
         clip-path: polygon(100% 0, 10% 0, 0 50%, 10% 100%, 100% 100%);
@@ -103,9 +110,10 @@ const PostSuggestion = styled.div`
       box-shadow: ${props => props.theme.shadow.feature.small.default};
   }
   .Suggestion-next{
-      padding:1rem;
+      width: 200px;
+      padding: 0.3rem 1rem;
       //-webkit-clip-path: polygon(90% 100%, 100% 50%, 90% 0, 0 0, 0 100%);
-      clip-path: polygon(90% 100%, 100% 50%, 90% 0, 0 0, 0 100%);
+      clip-path: polygon(95% 100%, 100% 50%, 95% 0, 0 0, 0 100%);
       @media (max-width: ${props => props.theme.breakpoints.s}) {
         -webkit-clip-path: polygon(90% 100%, 100% 50%, 90% 0, 0 0, 0 100%);
         clip-path: polygon(90% 100%, 100% 50%, 90% 0, 0 0, 0 100%);
@@ -139,6 +147,7 @@ const Post = ({ data, pageContext }) => {
   const date = post.frontmatter.date;
   const html = post.html;
   var keyword = [...title];
+
   return (
     <Layout>
       <SEO
@@ -159,26 +168,26 @@ const Post = ({ data, pageContext }) => {
                   <h2>{title}</h2>
                 </HeadTitle>
                 <ContentHeader tags={post.frontmatter.tags} path={post.frontmatter.path} stype={post.frontmatter.type}></ContentHeader>
-                <Content input={html} />
-                <TagsBlock spath={post.frontmatter.type}  list={post.frontmatter.tags || []} />
+                <Content input={html}/>
               </Excerpt>
             </Container>
             <SuggestionBar>
               <PostSuggestion>
                 {prev && (
                   <Link className="Suggestion-up" to={prev.frontmatter.path}>
-                      <h4>{prev.frontmatter.title}</h4>
+                      <span>{prev.frontmatter.title}</span>
                   </Link>
                 )}
               </PostSuggestion>
               <PostSuggestion>
                 {next && (
                   <Link className="Suggestion-next" to={next.frontmatter.path}>
-                      <h4>{next.frontmatter.title}</h4>
+                      <span>{next.frontmatter.title}</span>
                   </Link>
                 )}
               </PostSuggestion>
-            </SuggestionBar>
+            </SuggestionBar> 
+            <Comments path={post.frontmatter.path}/>      
           </ContentPost>
           <AsideWrapper>
             <Archive />
@@ -188,6 +197,7 @@ const Post = ({ data, pageContext }) => {
       </ContentWrapper>
     </Layout>
   );
+          
 };
 
 export default Post;
@@ -210,6 +220,7 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        discussionId 
         tags
         type
         categores

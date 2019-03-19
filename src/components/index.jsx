@@ -5,9 +5,11 @@ import SEO from './SEO';
 import TagsBlock from './TagsBlock';
 import HotTopic from './HotTopic';
 import SearchBar from './SearchBar';
+import Search from './SearchContainer';
 import Specials from './Specials';
 import CardHeader from './CardHeader';
 import Card from './Card';
+import Comments from './Comments';
 import ImgTag from './ImgTag';
 import NavMenu from './NavMenu';
 import AppNav from './AppNav';
@@ -29,6 +31,8 @@ export {
     PostList, 
     SEO, 
     Card,
+    Comments,
+    Search,
     ImgTag,
     TagsBlock, 
     AppNav,

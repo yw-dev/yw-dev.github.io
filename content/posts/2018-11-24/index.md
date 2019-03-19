@@ -1,4 +1,7 @@
 ---
+author: ""
+description: ""
+discussionId: "2018-11-24-page-slug"
 path: "/post-11-24"
 cover: "../2018-11-24/20190225002814.jpg"
 date: "2018-11-24"
