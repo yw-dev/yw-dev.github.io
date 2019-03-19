@@ -25,7 +25,7 @@ class Comments extends Component {
       clientSecret: 'd68ef6f43f011fb96d4d0cb34165eab3ad706171',
       repo: 'yw-dev.github.io',
       owner: 'yw-dev',
-      admin: ['yw-dev',],
+      admin: 'yw-dev',
       id: md5(this.props.path),      // Ensure uniqueness and length less than 50
       distractionFreeMode: false  // Facebook-like distraction free mode
     })
