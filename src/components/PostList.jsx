@@ -132,7 +132,7 @@ export default props => (
           edges {
             node {
               id
-              excerpt(pruneLength: 110)
+              excerpt(pruneLength: 100)
               frontmatter {
                 title
                 path
