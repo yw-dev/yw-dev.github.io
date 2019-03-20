@@ -46,13 +46,12 @@ const ContentPost = styled.div`
   }
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     width: 100%;
+    padding-right: 0rem;
+    margin-bottom: 1rem;
   }
   display: flex;
   flex-direction: column;
   padding-right: 1rem;
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
-    padding-right: 0rem;
-  }
   #gitalk-container{
     padding:1rem;
     background: ${props => props.theme.colors.white.light};
@@ -100,11 +99,11 @@ const PostSuggestion = styled.div`
   .Suggestion-up{
       width: 200px;
       padding: 0.3rem 1rem;
-      //-webkit-clip-path: polygon(100% 0, 10% 0, 0 50%, 10% 100%, 100% 100%);
+      -webkit-clip-path: polygon(100% 0, 5% 0, 0 50%, 5% 100%, 100% 100%);
       clip-path: polygon(100% 0, 5% 0, 0 50%, 5% 100%, 100% 100%);
       @media (max-width: ${props => props.theme.breakpoints.s}) {
-        -webkit-clip-path: polygon(100% 0, 10% 0, 0 50%, 10% 100%, 100% 100%);
-        clip-path: polygon(100% 0, 10% 0, 0 50%, 10% 100%, 100% 100%);
+        -webkit-clip-path: polygon(100% 0, 5% 0, 0 50%, 5% 100%, 100% 100%);
+        clip-path: polygon(100% 0, 5% 0, 0 50%, 5% 100%, 100% 100%);
       }
       background: ${props => props.theme.colors.card.light};
       box-shadow: ${props => props.theme.shadow.feature.small.default};
@@ -112,11 +111,11 @@ const PostSuggestion = styled.div`
   .Suggestion-next{
       width: 200px;
       padding: 0.3rem 1rem;
-      //-webkit-clip-path: polygon(90% 100%, 100% 50%, 90% 0, 0 0, 0 100%);
+      //-webkit-clip-path: polygon(95% 100%, 100% 50%, 95% 0, 0 0, 0 100%);
       clip-path: polygon(95% 100%, 100% 50%, 95% 0, 0 0, 0 100%);
       @media (max-width: ${props => props.theme.breakpoints.s}) {
-        -webkit-clip-path: polygon(90% 100%, 100% 50%, 90% 0, 0 0, 0 100%);
-        clip-path: polygon(90% 100%, 100% 50%, 90% 0, 0 0, 0 100%);
+        -webkit-clip-path: polygon(95% 100%, 100% 50%, 95% 0, 0 0, 0 100%);
+        clip-path: polygon(95% 100%, 100% 50%, 95% 0, 0 0, 0 100%);
       }
       background: ${props => props.theme.colors.card.light};
       box-shadow: ${props => props.theme.shadow.feature.small.default};
