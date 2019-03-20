@@ -124,7 +124,7 @@ export default props => (
     query={graphql`
       query {
         allMarkdownRemark(
-          limit: 5
+          limit: 10
           skip: 0
           sort: { order: DESC, fields: [frontmatter___date] }
         ) {
@@ -132,7 +132,7 @@ export default props => (
           edges {
             node {
               id
-              excerpt(pruneLength: 150)
+              excerpt(pruneLength: 110)
               frontmatter {
                 title
                 path
