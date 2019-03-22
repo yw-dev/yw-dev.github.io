@@ -199,21 +199,22 @@ const Index = ({ data }) => {
 export default Index;
 //$repo: repo = "yw-dev.github.io"
 
+/*
 export const query = graphql`
 
   query (
     $owner: String = "yw-dev",
     $repo: String = "yw-dev.github.io",
-    $id: ID = "MDU6SXNzdWU0MjMwNzI2Mzk="
+    $issue_id: ID = "MDU6SXNzdWU0MjMwNzI2Mzk="
     ) {
     github {
-      node(id:$id) {
+      node(id:$issue_id) {
         ... on GitHub_Issue {
           __typename
           id
           title
           number
-          comments(first: 0) {
+          comments(first: 1) {
             totalCount
           }
         }
@@ -223,7 +224,7 @@ export const query = graphql`
         id
         name
         createdAt 
-        issues(first: 100) {
+        issues(first: 1) {
           __typename
           totalCount
           edges {
@@ -233,7 +234,7 @@ export const query = graphql`
               number 
               title
               url 
-              comments(first: 0) {
+              comments(first: 1) {
                 totalCount
                 edges {
                   comment:node {
@@ -248,6 +249,8 @@ export const query = graphql`
     }
   }
 `
+*/
+
 /*
 export const query = graphql`
   query {

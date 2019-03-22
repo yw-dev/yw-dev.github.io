@@ -112,7 +112,7 @@ module.exports = {
       resolve: `gatsby-plugin-baidu-analytics`,
       options: {
         // baidu analytics siteId
-        siteId: process.env.BAI_DU_ID || `b24651d44c55170bdf40b3679e094914`,
+        siteId: `${process.env.BAI_DU_ID}` || `b24651d44c55170bdf40b3679e094914`,
         // Put analytics script in the head instead of the body [default:false]
         head: true,
       },
@@ -124,9 +124,9 @@ module.exports = {
         typeName: `GitHub`,
         createLink: () =>
           createHttpLink({
-            uri: process.env.GIT_API_URL || `https://api.github.com/graphql`,
+            uri: `https://api.github.com/graphql`,
             headers: {
-              Authorization: `bearer 56ed25b211a4bb2c194276e4a96a6378ed1bf601`,
+              Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
             },
             fetch,
           }),
