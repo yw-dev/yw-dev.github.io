@@ -106,6 +106,8 @@ const PostWrapper = styled.div`
 `;
 
 const Index = ({ data }) => {
+  const posts = data;
+  /*
   const posts = data.allMarkdownRemark.edges;
 
   const postsByTag = {};
@@ -163,7 +165,7 @@ const Index = ({ data }) => {
 
       })
     })
-  })
+  })*/
   return (  
     <Layout>
       <Helmet title={`首页 | ${config.siteTitle}`} />
@@ -195,32 +197,58 @@ const Index = ({ data }) => {
 };
 
 export default Index;
+//$repo: repo = "yw-dev.github.io"
 
-Index.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            excerpt: PropTypes.string,
-            frontmatter: PropTypes.shape({
-              cover: PropTypes.object.isRequired,
-              path: PropTypes.string.isRequired,
-              title: PropTypes.string.isRequired,
-              type: PropTypes.string.isRequired,
-              typeID: PropTypes.string.isRequired,
-              typeTitle: PropTypes.string.isRequired,
-              date: PropTypes.string.isRequired,
-              tags: PropTypes.array,
-              categores: PropTypes.string.isRequired,
-            }),
-          }),
-        }).isRequired
-      ),
-    }),
-  }),
-};
+export const query = graphql`
 
+  query (
+    $owner: String = "yw-dev",
+    $repo: String = "yw-dev.github.io",
+    $id: ID = "MDU6SXNzdWU0MjMwNzI2Mzk="
+    ) {
+    github {
+      node(id:$id) {
+        ... on GitHub_Issue {
+          __typename
+          id
+          title
+          number
+          comments(first: 0) {
+            totalCount
+          }
+        }
+      }
+      repository(owner:$owner, name:$repo) {
+        __typename
+        id
+        name
+        createdAt 
+        issues(first: 100) {
+          __typename
+          totalCount
+          edges {
+            issue:node {
+              __typename
+              id
+              number 
+              title
+              url 
+              comments(first: 0) {
+                totalCount
+                edges {
+                  comment:node {
+                    bodyHTML
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+/*
 export const query = graphql`
   query {
     allMarkdownRemark(
@@ -256,3 +284,4 @@ export const query = graphql`
     }
   }
 `;
+*/

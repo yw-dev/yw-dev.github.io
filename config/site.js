@@ -3,7 +3,7 @@ module.exports = {
   siteTitle: '扬帆 - 个人博客',
   title: '扬帆', // Navigation and Site Title
   titleAlt: '扬帆', // Title for JSONLD
-  description: 'My Gatsby-React Blog Site.',
+  description: 'Gatsby-React Blog Site.',
   url: 'https://yf.netlify.com/', // Domain of your site. No trailing slash!
   siteUrl: 'https://yf.netlify.com/', // url + pathPrefix
   siteLanguage: 'en', // Language Tag on <html> element

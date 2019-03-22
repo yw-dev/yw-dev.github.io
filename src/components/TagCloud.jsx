@@ -91,7 +91,7 @@ const TagCloud = ({ data }) => {
   return (
     <Container>
       <Wrapper>
-        <CardHeader title="标签云" other="" path=""></CardHeader>
+        <CardHeader title="标签云" icons="" other="" path=""></CardHeader>
         <List>
             {tags && tags.map((tag, index) => (
             <StyledLink key={index} to={`/${tag}`}>

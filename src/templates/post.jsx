@@ -185,8 +185,8 @@ const Post = ({ data, pageContext }) => {
                   </Link>
                 )}
               </PostSuggestion>
-            </SuggestionBar> 
-            <Comments path={post.frontmatter.path}/>      
+            </SuggestionBar>
+            <Comments path={post.frontmatter.path}/>
           </ContentPost>
           <AsideWrapper>
             <Archive />

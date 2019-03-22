@@ -21,11 +21,11 @@ class Comments extends Component {
    */
   rebuildIndex = () => {
     const gitalk = new Gitalk({
-      clientID: '62e776a580c45d79929e',
-      clientSecret: 'd68ef6f43f011fb96d4d0cb34165eab3ad706171',
-      repo: 'yw-dev.github.io',
-      owner: 'yw-dev',
-      admin: 'yw-dev',
+      clientID: process.env.GIT_CLIENT_ID,
+      clientSecret: process.env.GIT_CLIENT_SECRET,
+      repo: process.env.GIT_REPO,
+      owner: process.env.GIT_OWNER,
+      admin: process.env.GIT_OWNER,
       id: md5(this.props.path),      // Ensure uniqueness and length less than 50
       distractionFreeMode: true  // Facebook-like distraction free mode
     })

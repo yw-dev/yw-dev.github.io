@@ -1,4 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import md5 from 'md5'
+import {
+  queryParse,
+  queryStringify,
+  axiosJSON,
+  axiosGithub,
+  getMetaContent,
+  formatErrorMsg,
+  hasClassInParent
+} from '../util/util'
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
@@ -36,61 +46,83 @@ const Item = styled.div`
     align-items: center;
 `;
 
-const ContentHeader = ({ name, tags, date, path, stype, title, blog }) => {
-    var tas = [name];
-    {tags.forEach((element) => {
-        if (!name&&name!=element) {
-            tas.push(element);
-        }
-    })};
-    return(  
-    <ContentHead>
-        <HeadMeta>
-            <Item>
-                <FontAwesomeIcon icon={['far', 'file-code']} size="1x" />
-                {tags && tags.map((tag, index) => (
-                    <span key={index}>
-                        <Link className="label" to={`${stype}/${tag}`}>&nbsp;{tag}&nbsp;</Link>
+class ContentHeader extends Component{
+    
+    state = {
+        commentNum: 0,
+        labels: ['Gitalk'],
+        isLoading: true,
+        isError: false,
+    }
+   
+    /**
+     * React lifecycle method to fetch the data
+     */
+    async componentDidMount() {
+        axiosGithub.get(process.env.GIT_ISSUS, {
+            params: {
+              client_id: process.env.GIT_CLIENT_ID,
+              client_secret: process.env.GIT_CLIENT_SECRET,
+              labels: this.state.labels.concat(md5(this.props.path)).join(','),
+              t: Date.now()
+            }
+          }).then(res => {
+            this.setState({ commentNum: res.data[0].comments })
+          })
+        .catch(err => {
+            this.setState({ isError: true })
+            console.log(`Something bad happened while fetching the data\n${err}`)
+        })
+    }
+    
+    render() {
+        
+        const { name, tags, date, path, stype, title, blog } = this.state
+        var tas = [name];
+        {this.props.tags.forEach((element) => {
+            if (!name&&name!=element) {
+                tas.push(element);
+            }
+        })};
+        return(  
+        <ContentHead>
+            <HeadMeta>
+                <Item>
+                    <FontAwesomeIcon icon={['far', 'file-code']} size="1x" />
+                    {tags && tags.map((tag, index) => (
+                        <span key={index}>
+                            <Link className="label" to={`${stype}/${tag}`}>&nbsp;{tag}&nbsp;</Link>
+                        </span>
+                    ))}
+                </Item>
+                <Item>
+                    <span>
+                    <FontAwesomeIcon icon={['far', 'user']} size="1x" />
+                        <Link className="label" to={path}>&nbsp;{`${config.author}`}</Link>
                     </span>
-                ))}
-            </Item>
-            <Item>
-                <span>
-                <FontAwesomeIcon icon={['far', 'user']} size="1x" />
-                    <Link className="label" to={path}>&nbsp;{`${config.author}`}</Link>
-                </span>
-            </Item>
-            <Item>
-                <span>
-                    <FontAwesomeIcon icon={['far', 'clock']} size="1x" />
-                    &nbsp;{date}
-                </span>
-            </Item>
-            <Item>
-                <span>
-                    <FontAwesomeIcon icon={['far', 'eye']} size="1x" />
-                    &nbsp;0浏览
-                </span>
-            </Item>
-            <Item>
-                <span>
-                    <FontAwesomeIcon icon={['far', 'comment-dots']} size="1x" />
-                    <Link className="label" to={path}>&nbsp;0评论</Link>
-                </span>
-            </Item>
-        </HeadMeta>
-    </ContentHead>
-    )
-};
+                </Item>
+                <Item>
+                    <span>
+                        <FontAwesomeIcon icon={['far', 'clock']} size="1x" />
+                        &nbsp;{date}
+                    </span>
+                </Item>
+                <Item>
+                    <span>
+                        <FontAwesomeIcon icon={['far', 'eye']} size="1x" />
+                        &nbsp;0浏览
+                    </span>
+                </Item>
+                <Item>
+                    <span>
+                        <FontAwesomeIcon icon={['far', 'comment-dots']} size="1x" />
+                        <Link className="label" to={path}>&nbsp;{this.state.commentNum}评论</Link>
+                    </span>
+                </Item>
+            </HeadMeta>
+        </ContentHead>
+        )
+    }
+}
 
-export default ContentHeader;
-
-ContentHeader.propTypes = {
-    name: PropTypes.string,
-    tags: PropTypes.array,
-    title: PropTypes.string,
-    blog: PropTypes.string,
-    date: PropTypes.string,
-    path: PropTypes.string.isRequired,
-    stype: PropTypes.string.isRequired,
-  };
+export default ContentHeader

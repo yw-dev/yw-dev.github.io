@@ -81,7 +81,7 @@ const HotTopic = ({ data }) => {
   return (
     <Container>
       <Wrapper>
-        <CardHeader title="热门排行" other="" icons={['fas', "angle-double-right"]} path="/blog"></CardHeader>
+        <CardHeader title="热门排行" other="" icons={`${'fas', "angle-double-right"}`} path="/blog"></CardHeader>
         <List>
             {edges.map(({ node }, index) => (
                 <StyledLink key={node.id} to={`/${node.frontmatter.path}`}>

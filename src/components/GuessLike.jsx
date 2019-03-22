@@ -89,7 +89,7 @@ const GuessLike = ({ data }) => {
   return (
     <Container>
       <Wrapper>
-        <CardHeader title="猜你喜欢" other="" icons={['fas', "redo"]} path="/blog"></CardHeader>
+        <CardHeader title="猜你喜欢" other="" icons={`${'fas', "redo"}`} path="/blog"></CardHeader>
         <List>
         {edges.map(({ node }) => (
           <StyledLink key={node.id} to={`/${node.frontmatter.path}`}>

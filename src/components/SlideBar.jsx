@@ -326,7 +326,7 @@ const SlideBar = ({ data }) => {
   return (
     <Container>
       <Wrapper>
-        <CardHeader title="热门专题" other="" icons={['fas', "angle-double-right"]} path="/specials"></CardHeader>
+        <CardHeader title="热门专题" other="" icons={`${'fas', "angle-double-right"}`} path="/specials"></CardHeader>
       </Wrapper>
       <Carousel>
         <div id="container" className="csslider infinity inside">

@@ -151,7 +151,7 @@ const Projects = ({ data }) => {
   
   return (
     <Container>
-      <CardHeader title="资源" other="" icons={['fas', "th-large"]} path="/resource"></CardHeader>
+      <CardHeader title="资源" other="" icons={`${'fas', "th-large"}`} path="/resource"></CardHeader>
       <Content>
       {edges.map(({ node }) => {
         return (

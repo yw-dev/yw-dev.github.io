@@ -160,7 +160,7 @@ const Specials = ({ data }) => {
   
   return (
   <Container>
-    <CardHeader title="专题" other="" icons={['fas', "angle-double-right"]} path="/specials"></CardHeader>
+    <CardHeader title="专题" other="" icons={`${'fas', "angle-double-right"}`} path="/specials"></CardHeader>
     <Content>
     {subtitles.map((subtitle, index) => {
       return (

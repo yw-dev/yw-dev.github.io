@@ -1,14 +1,17 @@
+const config = require('./config/site')
 
-const config = require('./config/site');
+const fs = require(`fs`)
+const fetch = require(`node-fetch`)
+const { buildClientSchema } = require(`graphql`)
+const { createHttpLink } = require(`apollo-link-http`)
 
-const myPlugin = (lunr) => (builder) => {
-  // removing stemmer
-  builder.pipeline.remove(lunr.stemmer)
-  builder.searchPipeline.remove(lunr.stemmer)
-  // or similarity tuning
-  builder.k1(1.3)
-  builder.b(0)
-}
+let activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+
+console.log(`Using environment config: '${activeEnv}'`)
+
+require("dotenv").config({
+  path: `.env.${activeEnv}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -54,7 +57,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-emotion',
       options: {
-        autoLabel: process.env.NODE_ENV !== 'production',
+        autoLabel: process.env.NODE_ENV || "production",
         // eslint-disable-next-line
         labelFormat: `[filename]--[local]`,
       },
@@ -84,7 +87,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "YOUR_GOOGLE_ANALYTICS_TRACKING_ID",
+        trackingId: `${process.env.GA_TRACKING_ID}`,
         // Puts tracking script in the head instead of the body
         head: false,
         // Setting this parameter is optional
@@ -109,9 +112,24 @@ module.exports = {
       resolve: `gatsby-plugin-baidu-analytics`,
       options: {
         // baidu analytics siteId
-        siteId: "b24651d44c55170bdf40b3679e094914",
+        siteId: process.env.BAI_DU_ID || `b24651d44c55170bdf40b3679e094914`,
         // Put analytics script in the head instead of the body [default:false]
         head: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        fieldName: `github`,
+        typeName: `GitHub`,
+        createLink: () =>
+          createHttpLink({
+            uri: process.env.GIT_API_URL || `https://api.github.com/graphql`,
+            headers: {
+              Authorization: `bearer 56ed25b211a4bb2c194276e4a96a6378ed1bf601`,
+            },
+            fetch,
+          }),
       },
     },
   ],
