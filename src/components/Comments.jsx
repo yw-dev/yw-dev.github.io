@@ -30,7 +30,6 @@ class Comments extends Component {
       distractionFreeMode: false  // Facebook-like distraction free mode
     })
     gitalk.render("gitalk-container")
-    console.log("title"+window.document.title)
     this.setState({ isLoading: false })
   }
 
