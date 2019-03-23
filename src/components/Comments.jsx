@@ -27,9 +27,10 @@ class Comments extends Component {
       owner: process.env.GATSBY_GIT_OWNER,
       admin: process.env.GATSBY_GIT_OWNER,
       id: md5(this.props.path),      // Ensure uniqueness and length less than 50
-      distractionFreeMode: true  // Facebook-like distraction free mode
+      distractionFreeMode: false  // Facebook-like distraction free mode
     })
     gitalk.render("gitalk-container")
+    console.log("title"+window.document.title)
     this.setState({ isLoading: false })
   }
 

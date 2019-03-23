@@ -124,7 +124,7 @@ export default props => (
     query={graphql`
       query {
         allMarkdownRemark(
-          limit: 10
+          limit: 100
           skip: 0
           sort: { order: DESC, fields: [frontmatter___date] }
         ) {
