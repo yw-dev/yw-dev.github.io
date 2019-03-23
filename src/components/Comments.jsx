@@ -21,11 +21,11 @@ class Comments extends Component {
    */
   rebuildIndex = () => {
     const gitalk = new Gitalk({
-      clientID: process.env.GIT_CLIENT_ID,
-      clientSecret: process.env.GIT_CLIENT_SECRET,
-      repo: process.env.GIT_REPO,
-      owner: process.env.GIT_OWNER,
-      admin: process.env.GIT_OWNER,
+      clientID: process.env.GATSBY_GIT_CLIENT_ID,
+      clientSecret: process.env.GATSBY_GIT_CLIENT_SECRET,
+      repo: process.env.GATSBY_GIT_REPO,
+      owner: process.env.GATSBY_GIT_OWNER,
+      admin: process.env.GATSBY_GIT_OWNER,
       id: md5(this.props.path),      // Ensure uniqueness and length less than 50
       distractionFreeMode: true  // Facebook-like distraction free mode
     })
@@ -40,5 +40,5 @@ class Comments extends Component {
   };
 }
 
-export default Comments;
+export default Comments
 

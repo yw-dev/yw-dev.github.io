@@ -87,7 +87,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `${process.env.GA_TRACKING_ID}`,
+        trackingId: `${process.env.GATSBY_GA_TRACKING_ID}`,
         // Puts tracking script in the head instead of the body
         head: false,
         // Setting this parameter is optional
@@ -112,9 +112,24 @@ module.exports = {
       resolve: `gatsby-plugin-baidu-analytics`,
       options: {
         // baidu analytics siteId
-        siteId: `${process.env.BAI_DU_ID}` || `b24651d44c55170bdf40b3679e094914`,
+        siteId: `${process.env.GATSBY_BAI_DU_ID}` || `b24651d44c55170bdf40b3679e094914`,
         // Put analytics script in the head instead of the body [default:false]
         head: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        fieldName: `github`,
+        typeName: `GitHub`,
+        createLink: () =>
+          createHttpLink({
+            uri: `https://api.github.com/graphql`,
+            headers: {
+              Authorization: `bearer ${process.env.GATSBY_GIT_TOKEN}`,
+            },
+            fetch,
+          }),
       },
     },
   ],

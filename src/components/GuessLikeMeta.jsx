@@ -79,10 +79,10 @@ class GuessLikeMeta extends Component{
      * React lifecycle method to fetch the data
      */
     async componentDidMount() {
-        axiosGithub.get(process.env.GIT_ISSUS, {
+        axiosGithub.get(process.env.GATSBY_GIT_ISSUS, {
             params: {
-              client_id: process.env.GIT_CLIENT_ID,
-              client_secret: process.env.GIT_CLIENT_SECRET,
+              client_id: process.env.GATSBY_GIT_CLIENT_ID,
+              client_secret: process.env.GATSBY_GIT_CLIENT_SECRET,
               labels: this.state.labels.concat(md5(this.props.path)).join(','),
               t: Date.now()
             }
