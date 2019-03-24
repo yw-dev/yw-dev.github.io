@@ -32,12 +32,12 @@ const StyledLink = styled(Link)`
   display: flex;
   flex-direction: row;
   padding: 0 1rem 0 1rem;
-  background: ${props => props.theme.colors.background.light};
+  //background: ${props => props.theme.colors.background.light};
   transition: ${props => props.theme.transitions.boom.transition};
-  box-shadow: ${props => props.theme.shadow.feature.small.l_little};
+  //box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   &:hover{
-    transform: scale(1.02);
-    box-shadow: ${props => props.theme.shadow.feature.small.little};
+    transform: scale(1.04);
+    box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   }
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     width: 20%;

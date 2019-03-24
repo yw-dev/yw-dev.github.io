@@ -32,12 +32,12 @@ const StyledLink = styled(Link)`
   flex-direction: column;
   margin-top: 1px;
   padding: 0 0.5rem;
-  background: ${props => props.theme.colors.background.light};
+  //background: ${props => props.theme.colors.background.light};
   transition: ${props => props.theme.transitions.boom.transition};
-  box-shadow: ${props => props.theme.shadow.feature.small.l_little};
+  //box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   &:hover{
       transform: scale(1.02);
-      box-shadow: ${props => props.theme.shadow.feature.small.little};
+      box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   }
 `;
 
@@ -69,14 +69,14 @@ const InfoDessc = styled.div`
 `;
 const Image = styled.div`
   width: 45%;
-  box-shadow: ${props => props.theme.shadow.feature.small.hover};
-  border-radius: ${props => props.theme.borderRadius.default};
+  //box-shadow: ${props => props.theme.shadow.feature.small.hover};
+  //border-radius: ${props => props.theme.borderRadius.default};
   img {
     border-radius: ${props => props.theme.borderRadius.default};
   }
   &:hover {
     box-shadow: ${props => props.theme.shadow.feature.small.default};
-    transform: scale(1.02);
+    transform: scale(1.04);
   }
   .gatsby-image-wrapper {
     height: 100%;

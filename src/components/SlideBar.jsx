@@ -89,6 +89,7 @@ const Carousel = styled.div`
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    border-radius: ${props => props.theme.borderRadius.little};
     @media (max-width: ${props => props.theme.breakpoints.vl}) {
       height: 13rem;
     }
@@ -304,6 +305,13 @@ const Images = styled.div`
   position: relative;
   max-width: 100%;
   height: 100%;
+  border-radius: ${props => props.theme.borderRadius.little};
+  img {
+    border-radius: ${props => props.theme.borderRadius.little};
+  }
+  .gatsby-image-wrapper {
+    border-radius: ${props => props.theme.borderRadius.little};
+  }
 `;
 
 const Title = styled.div`

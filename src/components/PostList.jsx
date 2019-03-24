@@ -31,12 +31,12 @@ const StyledLink = styled(Link)`
   flex-direction: column;
   margin-top: 5px;
   padding: 0 1rem;
-  background: ${props => props.theme.colors.background.light};
+  //background: ${props => props.theme.colors.background.light};
   transition: ${props => props.theme.transitions.boom.transition};
-  box-shadow: ${props => props.theme.shadow.feature.small.l_little};
+  //box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   &:hover{
       transform: scale(1.02);
-      box-shadow: ${props => props.theme.shadow.feature.small.little};
+      box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   }
 `;
 

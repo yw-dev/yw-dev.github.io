@@ -33,8 +33,8 @@ const Wrapper = styled.article`
   position: relative;
   z-index: 100;
   border-radius: ${props => props.theme.borderRadius.little};
-  border: ${props => props.theme.border.lowlight};
-  box-shadow: ${props => props.theme.shadow.feature.small.l_little};
+  //border: ${props => props.theme.border.lowlight};
+  //box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   transition: ${props => props.theme.transitions.boom.transition};
   width:100%;
   height: 135px;
@@ -83,6 +83,9 @@ const StyledLink = styled(Link)`
   padding: 1rem;
   z-index: 3;
   border-radius: ${props => props.theme.borderRadius.little};
+  &:hover {
+    box-shadow: ${props => props.theme.shadow.feature.small.hover};
+  }
   &:after {
     content: '';
     position: absolute;
@@ -117,10 +120,7 @@ const Image = styled.div`
   z-index: 1;
   object-fit: cover;
   border-radius: ${props => props.theme.borderRadius.little};
-  box-shadow: ${props => props.theme.shadow.feature.small.default};
-  img {
-    box-shadow: ${props => props.theme.shadow.feature.small.hover};
-  }
+  //box-shadow: ${props => props.theme.shadow.feature.small.default};
   > div {
     position: static !important;
   }

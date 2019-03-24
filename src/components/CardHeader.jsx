@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Topic = styled.div`
   width: 100%;
   font-size: 14px;
-  background: ${props => props.theme.colors.background.light};
+  //background: ${props => props.theme.colors.background.light};
   box-shadow: ${props => props.theme.shadow.feature.small.little};
 `;
 

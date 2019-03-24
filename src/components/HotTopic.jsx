@@ -40,13 +40,11 @@ const StyledLink = styled(Link)`
   width: 100%;
   display: flex;
   flex-direction: row;
-  padding: 0 1rem 0 1rem;
-  background: ${props => props.theme.colors.background.light};
+  padding: 0 1rem;
   transition: ${props => props.theme.transitions.boom.transition};
-  box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   &:hover{
     transform: scale(1.02);
-    box-shadow: ${props => props.theme.shadow.feature.small.little};
+    box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   }
 `;
 

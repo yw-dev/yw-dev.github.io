@@ -102,6 +102,9 @@ const StyledLink = styled(Link)`
     border-radius: ${theme.borderRadius.default};
     transition: opacity ${theme.transitions.default.duration};
   }
+  &:hover {
+    box-shadow: ${props => props.theme.shadow.feature.small.hover};
+  }
 `;
 
 const Image = styled.div`
@@ -114,10 +117,7 @@ const Image = styled.div`
   z-index: 1;
   object-fit: cover;
   border-radius: ${props => props.theme.borderRadius.default};
-  box-shadow: ${props => props.theme.shadow.feature.small.default};
-  img {
-    box-shadow: ${props => props.theme.shadow.feature.small.hover};
-  }
+  //box-shadow: ${props => props.theme.shadow.feature.small.default};
   > div {
     position: static !important;
   }
