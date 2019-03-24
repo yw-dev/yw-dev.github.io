@@ -19,30 +19,35 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const postTemplate = path.resolve('src/templates/post.jsx');
+
     const categorPage = path.resolve('src/pages/categories.jsx');
     const categorPosts = path.resolve('src/templates/category.jsx');
+
     const specialPosts = path.resolve('src/templates/special.jsx');
     const specialPage = path.resolve('src/pages/specials.jsx');
+
     const archivePage = path.resolve('src/pages/archives.jsx');
+
     const resourcePage = path.resolve('src/pages/resource.jsx');
+
+    const paginPosts = path.resolve('src/templates/paginate.jsx');
 
     resolve(
       graphql(
         `
           query {
             allMarkdownRemark(
-              sort: { order: ASC, fields: [frontmatter___date] }
+              sort: { order: DESC, fields: [frontmatter___date] }
             ) {
               edges {
                 node {
                   id
-                  excerpt(pruneLength: 200)
+                  excerpt(pruneLength: 100)
                   html                  
                   fields {
                     slug
                   }
                   frontmatter {
-                    date(formatString: "YYYY-MM-DD")
                     path
                     title
                     discussionId 
@@ -52,6 +57,7 @@ exports.createPages = ({ graphql, actions }) => {
                     typeTitle
                     categores
                     special
+                    date(formatString: "YYYY-MM-DD")
                   }
                 }
               }
@@ -69,6 +75,16 @@ exports.createPages = ({ graphql, actions }) => {
         const postsByCategory = {};
         const postsByType = {};
         const archives = {};
+
+        createPaginatedPages({
+          edges: posts,
+          createPage: createPage,
+          pageTemplate: paginPosts,
+          pageLength: 3,
+          pathPrefix: 'pagin',
+          buildPath: (index, pathPrefix) =>
+            index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`, // This is optional and this is the default
+        })
         // create tags page
         posts.forEach(({ node }) => {
           if (node.frontmatter.date) {
@@ -246,7 +262,7 @@ exports.createPages = ({ graphql, actions }) => {
           allCategores.forEach(tagName => {
             const list = postsByCategory[tagName];
             if(stype == "resource"){
-              //create tags list
+              //create tags lists
               createPage({
                 path: `/${stype}/${tagName}`,
                 component: resourcePage,

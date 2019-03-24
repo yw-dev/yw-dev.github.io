@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import Img from 'gatsby-image';
 import { CardHeader, ContentMeta } from 'components';
-import config from '../../config/site';
-import theme from '../../config/theme';
 
 const Container = styled.div`
   width: 100%;
@@ -85,16 +83,75 @@ const Image = styled.div`
   }
 `;
 
+  const getScrollTop = ()=>{
+  　　var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+  　　if(document.body){
+  　　　　bodyScrollTop = document.body.scrollTop;
+  　　}
+  　　if(document.documentElement){
+  　　　　documentScrollTop = document.documentElement.scrollTop;
+  　　}
+  　　scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+  　　return scrollTop;
+  }
+  //文档的总高度
+  const getScrollHeight = ()=>{
+  　　var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+  　　if(document.body){
+  　　　　bodyScrollHeight = document.body.scrollHeight;
+  　　}
+  　　if(document.documentElement){
+  　　　　documentScrollHeight = document.documentElement.scrollHeight;
+  　　}
+  　　scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+  　　return scrollHeight;
+  }
+  const getWindowHeight = ()=>{
+  　　var windowHeight = 0;
+  　　if(document.compatMode == "CSS1Compat"){
+  　　　　windowHeight = document.documentElement.clientHeight;
+  　　}else{
+  　　　　windowHeight = document.body.clientHeight;
+  　　}
+  　　return windowHeight;
+  }
 
-const PostList = ({ data }) => {
-  const { edges } = data.allMarkdownRemark;
+class PostList extends Component {
+  state = {
+    data: [],
+    totalCount: 0,
+    cursor: 0,
+    pageSize: 5,
+    isLoading: true,
+  }
   
-  return (
-  <Container>
-    <Wrapper>
-      <CardHeader title="文章" other="" icons={`${'fas', "angle-double-right"}`} path="/blog"></CardHeader>
-      <List>
-      {edges.map(({ node }) => (
+  async componentDidMount() {
+    this.rebuild();
+    this.loadData();
+  }
+  
+  rebuild = () => {
+    const { edges, totalCount } = this.props.data;
+    this.setState({ data: this.state.data.concat(edges), totalCount: totalCount, isLoading: false })
+  }
+  
+  loadData = e => {
+    window.addEventListener('scroll', () => {
+      if(getScrollTop() + getWindowHeight() == getScrollHeight()){
+
+  　　　　//console.log("已经到最底部了！!");
+  　　}
+    })
+  }
+
+  render() {
+  
+    return (
+    <Container>
+      <Wrapper>
+        <CardHeader title="文章" other="" icons={`${'fas', "angle-double-right"}`} path="/blog"></CardHeader>
+        <List>
+        {this.props.data&&this.props.data.allMarkdownRemark.edges.map(({ node }) => (
           <StyledLink key={node.id} to={node.frontmatter.path}>
             <Item>
                 <Image>
@@ -113,19 +170,21 @@ const PostList = ({ data }) => {
                 </InfoDessc>
             </Item>
           </StyledLink>
-      ))}
-      </List>
-    </Wrapper>
-  </Container>
-)};
+        ))}
+        </List>
+      </Wrapper>
+    </Container>
+  )};
+
+}
 
 export default props => (
   <StaticQuery
     query={graphql`
-      query {
+      query ($cursor: Int!=0, $pageSize: Int!=5) {
         allMarkdownRemark(
-          limit: 100
-          skip: 0
+          skip: $cursor
+          limit: $pageSize
           sort: { order: DESC, fields: [frontmatter___date] }
         ) {
           totalCount

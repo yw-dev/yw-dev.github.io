@@ -166,8 +166,18 @@ const HeadTitle = styled.div`
     color: ${props => props.theme.colors.white.light};
 `;
 
+const NavLink = props => {
+  if (!props.test) {
+    return <Link to={props.url}>{props.text}</Link>
+  } else {
+    return <span>{props.text}</span>
+  }
+}
+
 const Category = ({ pageContext, data }) => {
-  const { spath, tagName } = pageContext;
+  
+  const {  list, spath, tagName } = pageContext;
+
   const postsByType = {};
   const postsByCategory = {};
   const postsByTag = {};

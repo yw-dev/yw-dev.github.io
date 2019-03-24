@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react'
 import { graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import styled from '@emotion/styled';
-import { Layout, NavBar } from 'layouts';
-import { locale } from 'core-js';
+import { Layout } from 'layouts';
 import config from '../../config/site';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -15,7 +13,6 @@ library.add(fas, fab, far)
 import { 
   Header, 
   PostList, 
-  SearchBar,
   HotTopic, 
   SlideBar, 
   Specials, 
@@ -23,7 +20,6 @@ import {
   Projects, 
   GuessLike, 
   TagCloud,
-  CardHeader, 
 } from 'components';
 
 const ContentWrapper = styled.div`
@@ -105,96 +101,165 @@ const PostWrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Index = ({ data }) => {
-  const posts = data;
-  /*
-  const posts = data.allMarkdownRemark.edges;
+/*  scroll bottom refresh
+const getScrollTop = ()=>{
+  　　var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+  　　if(document.body){
+  　　　　bodyScrollTop = document.body.scrollTop;
+  　　}
+  　　if(document.documentElement){
+  　　　　documentScrollTop = document.documentElement.scrollTop;
+  　　}
+  　　scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+  　　return scrollTop;
+  }
+  //文档的总高度
+  const getScrollHeight = ()=>{
+  　　var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+  　　if(document.body){
+  　　　　bodyScrollHeight = document.body.scrollHeight;
+  　　}
+  　　if(document.documentElement){
+  　　　　documentScrollHeight = document.documentElement.scrollHeight;
+  　　}
+  　　scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+  　　return scrollHeight;
+  }
+  const getWindowHeight = ()=>{
+  　　var windowHeight = 0;
+  　　if(document.compatMode == "CSS1Compat"){
+  　　　　windowHeight = document.documentElement.clientHeight;
+  　　}else{
+  　　　　windowHeight = document.body.clientHeight;
+  　　}
+  　　return windowHeight;
+  }
 
-  const postsByTag = {};
-  const postsBySpecial = {};
-  const postsByCategory = {};
-  const postsByType = {};
-  // create tags page
-  posts.forEach(({ node }) => {
-    if (node.frontmatter.type) {
-      if (!postsByType[node.frontmatter.type]) {
-        postsByType[node.frontmatter.type] = [];
-      }
-      postsByType[node.frontmatter.type].push(node);
-    }
-    if (node.frontmatter.special) {
-        if (!postsBySpecial[node.frontmatter.special]) {
-          postsBySpecial[node.frontmatter.special] = [];
-        }
-        postsBySpecial[node.frontmatter.special].push(node);
-    }
-    if (node.frontmatter.categores) {
-      if (!postsByCategory[node.frontmatter.categores]) {
-        postsByCategory[node.frontmatter.categores] = [];
-      }
-      postsByCategory[node.frontmatter.categores].push(node);
-    }
-    if (node.frontmatter.tags) {
-      node.frontmatter.tags.forEach(tag => {
-        if (!postsByTag[tag]) {
-          postsByTag[tag] = [];
-        }
-        postsByTag[tag].push(node);
-      });
-    }
-  });
-
-  const allTags = Object.keys(postsByTag).sort((m, n) => {  
-    return m.localeCompare(n);
-  });
-  const allCategores = Object.keys(postsByCategory).sort((m, n) => {  
-    return m.localeCompare(n);
-  });
-  const allTypes = Object.keys(postsByType).sort((m, n) => {  
-    return m.localeCompare(n);
-  });
-  const allSpecials = Object.keys(postsBySpecial).sort((m, n) => {  
-    return m.localeCompare(n);
-  });
-
-  allTypes.forEach(stype => {
-    postsByType[stype].map(node => {
-      
-      allTags.forEach(tagName => {
-        const list = postsByTag[tagName];
-
-      })
+class Index extends Component {
+  state = {
+    data: [],
+    scrollHeight: 0,
+    totalCount: 0,
+    cursor: 0,
+    pageSize: 5,
+    isLoading: true,
+  }
+  
+  async componentDidMount() {
+    this.setState({
+      scrollHeight: window.innerHeight
     })
-  })*/
-  return (  
-    <Layout>
-      <Helmet title={`首页 | ${config.siteTitle}`} />
-      <Header title={`${config.siteTitle}`}></Header>
-      <ContentWrapper>
-        <ContentContainer>
-          <ContentPost>
-            <ContentHeader>
-              <TopWrapper>
-                <HotTopic/>
-                <Projects/>
-              </TopWrapper>
-            </ContentHeader>       
-            <PostWrapper>
-              <Specials />  
-            </PostWrapper>
-            <PostList />
-          </ContentPost>
-          <AsideWrapper>
-            <SlideBar />
-            <Archive />
-            <GuessLike />
-            <TagCloud />
-          </AsideWrapper>
-        </ContentContainer>        
-      </ContentWrapper>
-    </Layout>
-  );
-};
+    this.rebuildIndex();
+    this.loadData();
+  }
+  
+  rebuildIndex = () => {
+    const { edges, totalCount } = this.props.data;
+    this.setState({ data: this.state.data.concat(edges), totalCount: totalCount, isLoading: false })
+  }
+  
+  loadData = e => {
+    var documentHeight = document.documentElement.offsetHeight;
+    var scrollHeight = window.pageYOffset || document.documentElement.scrollTop || 0;
+    window.addEventListener('scroll', () => {
+      if(getScrollTop() + getWindowHeight() == getScrollHeight()){
+
+  　　　　console.log("已经到最底部了！!");
+  　　}
+    })
+  }
+
+  */
+  const Index = ({data}) => {
+  
+    /*
+    const posts = data.allMarkdownRemark.edges;
+
+    const postsByTag = {};
+    const postsBySpecial = {};
+    const postsByCategory = {};
+    const postsByType = {};
+    // create tags page
+    posts.forEach(({ node }) => {
+      if (node.frontmatter.type) {
+        if (!postsByType[node.frontmatter.type]) {
+          postsByType[node.frontmatter.type] = [];
+        }
+        postsByType[node.frontmatter.type].push(node);
+      }
+      if (node.frontmatter.special) {
+          if (!postsBySpecial[node.frontmatter.special]) {
+            postsBySpecial[node.frontmatter.special] = [];
+          }
+          postsBySpecial[node.frontmatter.special].push(node);
+      }
+      if (node.frontmatter.categores) {
+        if (!postsByCategory[node.frontmatter.categores]) {
+          postsByCategory[node.frontmatter.categores] = [];
+        }
+        postsByCategory[node.frontmatter.categores].push(node);
+      }
+      if (node.frontmatter.tags) {
+        node.frontmatter.tags.forEach(tag => {
+          if (!postsByTag[tag]) {
+            postsByTag[tag] = [];
+          }
+          postsByTag[tag].push(node);
+        });
+      }
+    });
+
+    const allTags = Object.keys(postsByTag).sort((m, n) => {  
+      return m.localeCompare(n);
+    });
+    const allCategores = Object.keys(postsByCategory).sort((m, n) => {  
+      return m.localeCompare(n);
+    });
+    const allTypes = Object.keys(postsByType).sort((m, n) => {  
+      return m.localeCompare(n);
+    });
+    const allSpecials = Object.keys(postsBySpecial).sort((m, n) => {  
+      return m.localeCompare(n);
+    });
+
+    allTypes.forEach(stype => {
+      postsByType[stype].map(node => {
+        
+        allTags.forEach(tagName => {
+          const list = postsByTag[tagName];
+
+        })
+      })
+    })*/
+    return (  
+      <Layout>
+        <Helmet title={`首页 | ${config.siteTitle}`} />
+        <Header title={`${config.siteTitle}`}></Header>
+        <ContentWrapper>
+          <ContentContainer>
+            <ContentPost>
+              <ContentHeader>
+                <TopWrapper>
+                  <HotTopic/>
+                  <Projects/>
+                </TopWrapper>
+              </ContentHeader>       
+              <PostWrapper>
+                <Specials />  
+              </PostWrapper>
+              <PostList />
+            </ContentPost>
+            <AsideWrapper>
+              <SlideBar />
+              <Archive />
+              <GuessLike />
+              <TagCloud />
+            </AsideWrapper>
+          </ContentContainer>        
+        </ContentWrapper>
+      </Layout>
+    );
+  };
 
 export default Index;
 //$repo: repo = "yw-dev.github.io"
@@ -251,10 +316,12 @@ export const query = graphql`
 `
 */
 
-/*
+
 export const query = graphql`
-  query {
+  query ($cursor: Int!=0, $pageSize: Int!=5) {
     allMarkdownRemark(
+      skip: $cursor
+      limit: $pageSize
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
@@ -287,4 +354,3 @@ export const query = graphql`
     }
   }
 `;
-*/

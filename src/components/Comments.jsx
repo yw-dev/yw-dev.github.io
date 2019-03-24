@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import styled from '@emotion/styled'
-import { Link } from 'gatsby'
 import md5 from 'md5'
-import PropTypes from 'prop-types'
 import 'gitalk/dist/gitalk.css'
 import Gitalk from 'gitalk'
 

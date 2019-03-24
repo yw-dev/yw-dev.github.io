@@ -1,13 +1,6 @@
 const config = require('./config/site')
 
-const fs = require(`fs`)
-const fetch = require(`node-fetch`)
-const { buildClientSchema } = require(`graphql`)
-const { createHttpLink } = require(`apollo-link-http`)
-
 let activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
-
-console.log(`Using environment config: '${activeEnv}'`)
 
 require("dotenv").config({
   path: `.env.${activeEnv}`,
@@ -27,15 +20,9 @@ module.exports = {
         name: 'posts',
         path: `${__dirname}/content/posts`,
       },
-    },
+    },   
     {
       resolve: 'gatsby-plugin-zopfli'
-    },
-    {
-      resolve: `@debiki/gatsby-plugin-talkyard`,
-      options: {
-        talkyardServerUrl: 'https://yangfan.talkyard.net'
-      }
     },
     'gatsby-transformer-sharp',
     {

@@ -1,5 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
+import md5 from 'md5'
+import {
+  queryParse,
+  queryStringify,
+  axiosJSON,
+  axiosGithub,
+  getMetaContent,
+  formatErrorMsg,
+  hasClassInParent
+} from '../util/util'
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import Img from 'gatsby-image';
@@ -75,28 +85,51 @@ const Item = styled.div`
   }
 `;
 
-const HotTopic = ({ data }) => {
-  const { edges } = data.allMarkdownRemark;
+class HotTopic extends Component{
+    
+    state = {
+      data: [],
+      totalCount: 0,
+      commentNum: 0,
+      labels: ['Gitalk'],
+      isLoading: true,
+      isError: false,
+    }
+ 
+    /**
+     * React lifecycle method to fetch the data
+     */
+    async componentDidMount() {
+      this.rebuild();
+    }
   
-  return (
-    <Container>
-      <Wrapper>
-        <CardHeader title="热门排行" other="" icons={`${'fas', "angle-double-right"}`} path="/blog"></CardHeader>
-        <List>
-            {edges.map(({ node }, index) => (
-                <StyledLink key={node.id} to={`/${node.frontmatter.path}`}>
-                  <Item>
-                    <div><span className={`label l-${++index}`}>{index}</span></div>
-                    <div className="title">&nbsp;{node.frontmatter.title}</div>
-                    <div><FontAwesomeIcon icon={['far', 'heart']} size="1x"/>&nbsp;
-                    <span className="label-num">22233</span></div>
-                  </Item>
-                </StyledLink>
-            ))}
-        </List>
-      </Wrapper>
-    </Container>
-)};
+    rebuild = () => {
+      const { edges, totalCount } = this.props.data.allMarkdownRemark;
+      this.setState({ data: this.state.data.concat(edges), totalCount: totalCount, isLoading: false })
+    }
+    
+    render() {  
+      return (
+        <Container>
+          <Wrapper>
+            <CardHeader title="热门排行" other="" icons={`${'fas', "angle-double-right"}`} path="/blog"></CardHeader>
+            <List>
+                {this.state.data.map(({ node }, index) => (
+                    <StyledLink key={node.id} to={`/${node.frontmatter.path}`}>
+                      <Item>
+                        <div><span className={`label l-${++index}`}>{index}</span></div>
+                        <div className="title">&nbsp;{node.frontmatter.title}</div>
+                        <div><FontAwesomeIcon icon={['far', 'heart']} size="1x"/>&nbsp;
+                        <span className="label-num">22233</span></div>
+                      </Item>
+                    </StyledLink>
+                ))}
+            </List>
+          </Wrapper>
+        </Container>
+      )
+    }
+}
 
 
 export default props => (

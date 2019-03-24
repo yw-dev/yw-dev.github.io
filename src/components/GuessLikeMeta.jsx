@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
 import md5 from 'md5'
-import {
-  queryParse,
-  queryStringify,
-  axiosJSON,
-  axiosGithub,
-  getMetaContent,
-  formatErrorMsg,
-  hasClassInParent
-} from '../util/util'
-import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
+import { axiosGithub } from '../util/util'
 import styled from '@emotion/styled';
-import config from '../../config/site';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ContentHead = styled.div`
@@ -53,9 +42,7 @@ class GuessLikeMeta extends Component{
         isError: false,
     }
 
-    render() {        
-        const { name, tags, date, path, stype, title, blog } = this.state
-        var tas = [name];
+    render() {
         return(  
         <ContentHead>
             <HeadMeta>

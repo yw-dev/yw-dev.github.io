@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'gatsby';
 import md5 from 'md5'
-import {
-  queryParse,
-  queryStringify,
-  axiosJSON,
-  axiosGithub,
-  getMetaContent,
-  formatErrorMsg,
-  hasClassInParent
-} from '../util/util'
-import PropTypes from 'prop-types'
+import { axiosGithub } from '../util/util'
 import styled from '@emotion/styled';
 import config from '../../config/site';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
