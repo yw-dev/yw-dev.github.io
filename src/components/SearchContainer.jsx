@@ -128,15 +128,19 @@ const Panel = styled.div`
 `;
 
 class Search extends Component {
-  state = {
-    bookList: [],
-    search: [],
-    searchResults: [],
-    isLoading: true,
-    isError: false,
-    searchQuery: "",
-    display: "none",
-  }
+    constructor(props){
+        super(props)
+        this.mounted = true
+        this.state = {
+            bookList: [],
+            search: [],
+            searchResults: [],
+            isLoading: true,
+            isError: false,
+            searchQuery: "",
+            display: "none",
+        }
+    }
   /**
    * React lifecycle method to fetch the data
    */
@@ -144,7 +148,7 @@ class Search extends Component {
     Axios.get("https://bvaughn.github.io/js-search/books.json")
       .then(result => {
         const bookData = result.data
-        this.setState({ bookList: bookData.books })
+        this.setState({ bookList: bookData.books, mounted:false})
         this.rebuildIndex()
       })
       .catch(err => {
@@ -153,6 +157,14 @@ class Search extends Component {
         console.log(`Something bad happened while fetching the data\n${err}`)
         console.log("====================================")
       })
+  }
+
+  componentWillUnmount(){
+    //this.cancelable.cancel()
+    if(this.unmount) return  // 已经卸载的话就不执行
+    this.setState = (state, callback) => {
+        return
+    }         
   }
 
   /**

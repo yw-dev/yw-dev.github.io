@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import md5 from 'md5'
-import { axiosGithub } from '../util/util'
+import { axiosGithub, inject_unmount } from '../util/util'
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -32,14 +32,16 @@ const Item = styled.div`
     align-items: center;
 `;
 
-
 class GuessLikeMeta extends Component{
-    
-    state = {
-        commentNum: 0,
-        labels: ['Gitalk'],
-        isLoading: true,
-        isError: false,
+    constructor(props){
+        super(props)
+        this.mounted = true
+        this.state = {
+            commentNum: 0,
+            labels: ['Gitalk'],
+            isLoading: true,
+            isError: false,
+        }
     }
 
     render() {
@@ -66,6 +68,7 @@ class GuessLikeMeta extends Component{
      * React lifecycle method to fetch the data
      */
     async componentDidMount() {
+        if(this.unmount) return;
         axiosGithub.get(process.env.GATSBY_GIT_ISSUS, {
             params: {
               client_id: process.env.GATSBY_GIT_CLIENT_ID,
@@ -74,7 +77,7 @@ class GuessLikeMeta extends Component{
               t: Date.now()
             }
           }).then(res => {
-            this.setState({ commentNum: res.data[0].comments })
+            this.setState({ commentNum: res.data[0].comments ,mounted:false })
           })
         .catch(err => {
             this.setState({ isError: true })
@@ -82,6 +85,48 @@ class GuessLikeMeta extends Component{
         })
         //this.getComments(this.state.labels.concat(md5(this.props.path)).join(','));
     }
+/*
+    componentWillMount(){
+        const miniFetch = (resolve, reject) => {
+            setTimeout(()=>{
+                resolve('Vectory')
+            }, 1000)
+        }
+        const promise = new Promise(miniFetch)
+
+        this.cancelable = makeCancelable(promise)
+        this.cancelable.promise.then(name=>{
+            this.setState({
+                name
+            })
+        }, (e) => {
+            console.log(e)
+        })
+    }
+*/ 
+    componentWillUnmount(){
+        //this.cancelable.cancel()
+        if(this.unmount) return  // 已经卸载的话就不执行
+        this.setState = (state, callback) => {
+            return
+        }         
+    }
+
+    makeCancelable = (promise)=>{
+        let hasCanceled_ = false;
+
+        const wrappedPromise = new Promise((resolve, reject)=>{
+            promise.then((val) => hasCanceled_ ? reject({ isCanceled: true}) : resolve(val));
+            promise.catch((error) => hasCanceled_ ? reject({ isCanceled: true}) : resolve(error));
+        });
+
+        return {
+            promise: wrappedPromise,
+            cancel(){
+                hasCanceled_ = true;
+            },
+        }
+    };
 }
 
 export default GuessLikeMeta

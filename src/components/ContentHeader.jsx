@@ -47,12 +47,15 @@ const Item = styled.div`
 `;
 
 class ContentHeader extends Component{
-    
-    state = {
-        commentNum: 0,
-        labels: ['Gitalk'],
-        isLoading: true,
-        isError: false,
+    constructor(props){
+        super(props)
+        this.mounted = true   
+        this.state = {
+            commentNum: 0,
+            labels: ['Gitalk'],
+            isLoading: true,
+            isError: false,
+        }
     }
    
     /**
@@ -67,7 +70,7 @@ class ContentHeader extends Component{
               t: Date.now()
             }
           }).then(res => {
-            this.setState({ commentNum: res.data[0].comments })
+            this.setState({ commentNum: res.data[0].comments, mounted:false })
           })
         .catch(err => {
             this.setState({ isError: true })
@@ -75,6 +78,14 @@ class ContentHeader extends Component{
         })
     }
     
+    componentWillUnmount(){
+        //this.cancelable.cancel()
+        if(this.unmount) return  // 已经卸载的话就不执行
+        this.setState = (state, callback) => {
+            return
+        }         
+    }
+
     render() {
         
         const { name, tags, date, path, stype, title, blog } = this.state

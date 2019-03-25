@@ -181,7 +181,7 @@ const ProjectsList = ({ list, data }) => {
       <Content>
       {list && list.map((node, index) => {
         return (
-        <Wrapper>
+        <Wrapper key={index}>
           <Image>
             <Img fluid={node.frontmatter.cover.childImageSharp.fluid} />
           </Image>

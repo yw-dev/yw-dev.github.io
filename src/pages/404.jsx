@@ -10,11 +10,11 @@ const ErrorPage = center => (
     <Helmet title={'404'} />
     <Header title="404" />
     <Container center={center}>
-      <h1>Woops, something went wrong.</h1>
-      <h3>This page does not exist or is no longer reachable.</h3>
-      <h3>
+      <span>Woops, Not found.</span>
+      <span>This page does not exist or is no longer reachable.</span>
+      <span>
         You can return to the <Link to="/">Homepage</Link>.
-      </h3>
+      </span>
     </Container>
   </Layout>
 );

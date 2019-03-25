@@ -65,7 +65,7 @@ const AsideWrapper = styled.div`
 `;
 
 const Archives = ({ pageContext, data }) => {
-  const { group, index, first, last, pageCount, pathPrefix, additionalContext } = pageContext;
+  const { group, index, first, last, spath, pageCount, pathPrefix, additionalContext } = pageContext;
   const { edges } = data.allMarkdownRemark;
   const postsPage = [];
   const edl = edges?edges.length:0;
@@ -78,8 +78,7 @@ const Archives = ({ pageContext, data }) => {
       }
     }
   }
- 
-  const keyword = [...additionalContext.slug];
+  const keyword = [...spath];
 
   return (
     <Layout>
@@ -127,7 +126,6 @@ export default Archives;
 Archives.propTypes = {
   pageContext: PropTypes.shape({
     spath: PropTypes.string.isRequired,
-    archive: PropTypes.string.isRequired,
   }),
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({

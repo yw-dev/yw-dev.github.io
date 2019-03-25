@@ -69,7 +69,7 @@ exports.createPages = ({ graphql, actions }) => {
           return reject(result.errors);
         }
         const posts = result.data.allMarkdownRemark.edges;
-        const pageSize = 2;
+        const pageSize = 5;
         const postsByTag = {};
         const postsBySpecial = {};
         const postsByCategory = {};

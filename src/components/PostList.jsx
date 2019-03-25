@@ -117,22 +117,34 @@ const Image = styled.div`
   }
 
 class PostList extends Component {
-  state = {
-    data: [],
-    totalCount: 0,
-    cursor: 0,
-    pageSize: 5,
-    isLoading: true,
-  }
+  constructor(props){
+      super(props)
+      this.mounted = true
+      this.state = {
+        data: [],
+        totalCount: 0,
+        cursor: 0,
+        pageSize: 5,
+        isLoading: true,
+      }
+    }
   
   async componentDidMount() {
     this.rebuild();
     this.loadData();
   }
   
+  componentWillUnmount(){
+    //this.cancelable.cancel()
+    if(this.unmount) return  // 已经卸载的话就不执行
+    this.setState = (state, callback) => {
+        return
+    }         
+  }
+
   rebuild = () => {
     const { edges, totalCount } = this.props.data;
-    this.setState({ data: this.state.data.concat(edges), totalCount: totalCount, isLoading: false })
+    this.setState({ data: this.state.data.concat(edges), totalCount: totalCount, isLoading: false, mounted: false })
   }
   
   loadData = e => {
@@ -181,7 +193,7 @@ class PostList extends Component {
 export default props => (
   <StaticQuery
     query={graphql`
-      query ($cursor: Int!=0, $pageSize: Int!=5) {
+      query ($cursor: Int!=0, $pageSize: Int!=10) {
         allMarkdownRemark(
           skip: $cursor
           limit: $pageSize

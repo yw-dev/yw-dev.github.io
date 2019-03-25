@@ -43,7 +43,7 @@ export default CardHeader;
 
 CardHeader.propTypes = {
     title: PropTypes.string.isRequired,
-    icons: PropTypes.string.isRequired,
+    icons: PropTypes.string,
     other: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
   };

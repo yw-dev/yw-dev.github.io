@@ -34,12 +34,15 @@ const Item = styled.div`
 `;
 
 class ContentMeta extends Component{
-    
-    state = {
-        commentNum: 0,
-        labels: ['Gitalk'],
-        isLoading: true,
-        isError: false,
+    constructor(props){
+        super(props)
+        this.mounted = true    
+        this.state = {
+            commentNum: 0,
+            labels: ['Gitalk'],
+            isLoading: true,
+            isError: false,
+        }
     }
    
     /**
@@ -54,13 +57,22 @@ class ContentMeta extends Component{
               t: Date.now()
             }
           }).then(res => {
-            this.setState({ commentNum: res.data[0].comments })
+            this.setState({ commentNum: res.data[0].comments, mounted:false })
           })
         .catch(err => {
             this.setState({ isError: true })
             console.log(`Something bad happened while fetching the data\n${err}`)
         })
     }
+
+    componentWillUnmount(){
+        //this.cancelable.cancel()
+        if(this.unmount) return  // 已经卸载的话就不执行
+        this.setState = (state, callback) => {
+            return
+        }         
+    }
+
     
     render() {
         

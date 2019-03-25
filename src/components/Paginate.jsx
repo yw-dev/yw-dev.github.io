@@ -97,7 +97,7 @@ const Paginate = ({ index, first, last, pageCount, pathPrefix  }) => {
             }
             {urls&&urls.map((element, index)=>{
               return(
-                <li>
+                <li key={index}>
                   <Link to={element}>{index}</Link>
                 </li>
                 )
