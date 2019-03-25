@@ -24,6 +24,7 @@ import ProjectsList from './ProjectsList';
 import GuessLike from './GuessLike';
 import TagCloud from './TagCloud';
 import SpecialsList from './SpecialsList';
+import Paginate from './Paginate';
 
 export { 
     BlogList, 
@@ -51,4 +52,5 @@ export {
     GuessLike, 
     TagCloud, 
     SpecialsList,
+    Paginate,
 };

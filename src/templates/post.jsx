@@ -143,7 +143,6 @@ const Post = ({ data, pageContext }) => {
   const post = data.markdownRemark;
   const image = post.frontmatter.cover.childImageSharp.fluid;
   const title = post.frontmatter.title;
-  const date = post.frontmatter.date;
   const html = post.html;
   var keyword = [...title];
 
@@ -216,13 +215,15 @@ export const query = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
         title
-        discussionId 
+        path
         tags
         type
+        typeID
+        typeTitle
         categores
+        discussionId
+        date(formatString: "MMMM DD, YYYY")
         cover {
           childImageSharp {
             fluid(

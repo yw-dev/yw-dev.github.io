@@ -30,7 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     const resourcePage = path.resolve('src/pages/resource.jsx');
 
-    const paginPosts = path.resolve('src/templates/paginate.jsx');
+    const blogPage = path.resolve('src/pages/blog.jsx');
 
     resolve(
       graphql(
@@ -69,7 +69,7 @@ exports.createPages = ({ graphql, actions }) => {
           return reject(result.errors);
         }
         const posts = result.data.allMarkdownRemark.edges;
-
+        const pageSize = 2;
         const postsByTag = {};
         const postsBySpecial = {};
         const postsByCategory = {};
@@ -79,11 +79,15 @@ exports.createPages = ({ graphql, actions }) => {
         createPaginatedPages({
           edges: posts,
           createPage: createPage,
-          pageTemplate: paginPosts,
-          pageLength: 3,
-          pathPrefix: 'pagin',
-          buildPath: (index, pathPrefix) =>
-            index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`, // This is optional and this is the default
+          pageTemplate: blogPage,
+          pageLength: pageSize,
+          pathPrefix: '/blog',
+          buildPath: (index, pathPrefix) => index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`, // This is optional and this is the default
+          context: {
+            slug: 'blog',
+            spath: 'blog',
+            tagName: 'blog',
+          },
         })
         // create tags page
         posts.forEach(({ node }) => {
@@ -164,20 +168,26 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
-        //create archive list
+        //create archive list view
         allArchives.forEach(archive => {
-            const list = archives[archive];  
-            createPage({
-              path: `/${archive}`,
-              component: archivePage,
+            const list = archives[archive];
+            
+            createPaginatedPages({
+              edges: list,
+              createPage: createPage,
+              pageTemplate: archivePage,
+              pageLength: pageSize,
+              pathPrefix: `/${archive}`,
+              buildPath: (index, pathPrefix) => index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`, // This is optional and this is the default                
               context: {
-                spath: `${archive}`,
-                archive,
+                slug: archive,
+                spath: archive,
+                tagName: archive,
               },
-            });
+            })
           });
 
-        //create category list
+        //create category list view
         createPage({
           path: '/category',
           component: categorPage,
@@ -192,7 +202,8 @@ exports.createPages = ({ graphql, actions }) => {
           const list = postsByType[stype];
           
           if(stype == "resource"){
-            //create tags list
+            //create resource list view
+
             createPage({
               path: '/' + stype,
               component: resourcePage,
@@ -203,31 +214,41 @@ exports.createPages = ({ graphql, actions }) => {
               },
             });
           }else{
-            //create tags list
-            createPage({
-              path: '/' + stype,
-              component: categorPosts,
+            //create category blogs list view
+            
+            createPaginatedPages({
+              edges: list,
+              createPage: createPage,
+              pageTemplate: categorPosts,
+              pageLength: pageSize,
+              pathPrefix: `/${stype}`,
+              buildPath: (index, pathPrefix) => index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`, // This is optional and this is the default                
               context: {
+                slug: stype,
                 spath: stype,
-                list,
                 tagName: stype,
               },
-            });
+            })
           }
 
           //create blog list for all tags
           allTags.forEach(tagName => {
             const list = postsByTag[tagName];
   
-            createPage({
-              path: `/${stype}/${tagName}`,
-              component: categorPosts,
+            createPaginatedPages({
+              edges: list,
+              createPage: createPage,
+              pageTemplate: categorPosts,
+              pageLength: pageSize,
+              pathPrefix: `${stype}/${tagName}`,
+              buildPath: (index, pathPrefix) => index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`, // This is optional and this is the default                
               context: {
+                slug: tagName,
                 spath: `${stype}/${tagName}`,
-                list,
-                tagName,
+                tagName: tagName,
               },
-            });
+            })
+
           });
 
           const categories = Object.keys(typesCategores[stype]);
@@ -245,15 +266,19 @@ exports.createPages = ({ graphql, actions }) => {
                 }
                 categoryTags[catName][tagName].push(node);
 
-                createPage({
-                  path: `/${stype}/${catName}/${tagName}`,
-                  component: categorPosts,
+                createPaginatedPages({
+                  edges: list,
+                  createPage: createPage,
+                  pageTemplate: categorPosts,
+                  pageLength: pageSize,
+                  pathPrefix: `${stype}/${catName}/${tagName}`,
+                  buildPath: (index, pathPrefix) => index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`, // This is optional and this is the default                
                   context: {
+                    slug: stype,
                     spath: `${stype}/${catName}/${tagName}`,
-                    list,
-                    tagName,
+                    tagName: tagName,
                   },
-                });
+                })
               });
             });
           });
@@ -273,15 +298,19 @@ exports.createPages = ({ graphql, actions }) => {
                 },
               });
             } else {
-              createPage({
-                path: `/${stype}/${tagName}`,
-                component: categorPosts,
+              createPaginatedPages({
+                edges: list,
+                createPage: createPage,
+                pageTemplate: categorPosts,
+                pageLength: pageSize,
+                pathPrefix: `${stype}/${tagName}`,
+                buildPath: (index, pathPrefix) => index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`, // This is optional and this is the default                
                 context: {
+                  slug: stype,
                   spath: `${stype}/${tagName}`,
-                  list,
-                  tagName,
+                  tagName: tagName,
                 },
-              });
+              })
             }
           });
         });       
@@ -290,30 +319,39 @@ exports.createPages = ({ graphql, actions }) => {
         allTags.forEach(tagName => {
           const list = postsByTag[tagName];
 
-          createPage({
-            path: `/${tagName}`,
-            component: categorPosts,
-            context: {
-              spath: tagName,
-              list,
-              tagName,
-            },
-          });
+              createPaginatedPages({
+                edges: list,
+                createPage: createPage,
+                pageTemplate: categorPosts,
+                pageLength: pageSize,
+                pathPrefix: `${tagName}`,
+                buildPath: (index, pathPrefix) => index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`, // This is optional and this is the default                
+                context: {
+                  slug: tagName,
+                  spath: tagName,
+                  tagName: tagName,
+                },
+              })
+
         });
         //create blog list by Categores
         allCategores.forEach(tagName => {
           const list = postsByCategory[tagName];
-
           //create category list
-          createPage({
-            path: `/${tagName}`,
-            component: categorPosts,
+
+          createPaginatedPages({
+            edges: list,
+            createPage: createPage,
+            pageTemplate: categorPosts,
+            pageLength: pageSize,
+            pathPrefix: `${tagName}`,
+            buildPath: (index, pathPrefix) => index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`, // This is optional and this is the default                
             context: {
+              slug: tagName,
               spath: tagName,
-              list,
-              tagName,
+              tagName: tagName,
             },
-          });
+          })
         });
 
         //create Specials list

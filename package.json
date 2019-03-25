@@ -10,6 +10,16 @@
     "type": "git",
     "url": "git@github.com:yw-dev/yw-dev.github.io.git"
   },
+  "proxy": {
+    "/api/v3": {
+      "target": "https://api.github.com",
+      "changeOrigin":true
+    },
+    "/api/v4":{
+      "target":"https://api.github.com/graphql",
+      "changeOrigin":true
+    }
+  },
   "scripts": {
     "test": "jest",
     "develop": "gatsby develop",

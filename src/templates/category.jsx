@@ -12,6 +12,7 @@ import {
   Card,
   BlogList, 
   ContentNav,
+  Paginate,
 } from 'components';
 
 const ContentWrapper = styled.div`
@@ -175,16 +176,27 @@ const NavLink = props => {
 }
 
 const Category = ({ pageContext, data }) => {
-  
-  const {  list, spath, tagName } = pageContext;
+  const { edges } = data.allMarkdownRemark;
+  const { group, index, first, last, pageCount, pathPrefix, additionalContext } = pageContext;
 
   const postsByType = {};
   const postsByCategory = {};
   const postsByTag = {};
   var title = [];
   var categories = [];
-  var posts = [];
+  var postsPage = [];
   var keyword = [];
+  const edl = edges?edges.length:0;
+  const grl = group?group.length:0;
+
+  for(var g=0; g < grl; g++){
+    for(var e=0; e < edl; e++){
+      if(edges[e].node.id == group[g].id){
+        postsPage[g] = edges[e].node;
+      }
+    }
+  }
+
   data.allMarkdownRemark.edges.map(({ node }) => {  
     if (node.frontmatter.type) {
       if (!postsByType[node.frontmatter.type]) {
@@ -223,14 +235,13 @@ const Category = ({ pageContext, data }) => {
       }
     })
   });
-  var uri = spath.split("/");
+  var uri = additionalContext.spath.split("/");
   switch (uri.length) {
     case 2:
       if(postsByType[uri[0]]){
         keyword.push(Object.keys(postsByType[uri[0]]));
-        keyword.push(tagName);
+        keyword.push(additionalContext.tagName);
         title = [(uri[0]), Object.keys(postsByType[uri[0]])+" · 标签"];
-        posts = postsByCategory[uri[0]][uri[1]]?postsByCategory[uri[0]][uri[1]]:postsByTag[uri[0]][uri[1]];
         categories = Object.keys(postsByTag[uri[0]]);
       }
       break;
@@ -242,7 +253,6 @@ const Category = ({ pageContext, data }) => {
       if(postsByType[uri[0]]){
         keyword.push(Object.keys(postsByType[uri[0]]));
         title = [uri[0], Object.keys(postsByType[uri[0]])+" · 分类"];
-        posts = postsByType[uri[0]][Object.keys(postsByType[uri[0]])];
         categories = Object.keys(postsByCategory[uri[0]]);
       }
       break;
@@ -251,15 +261,15 @@ const Category = ({ pageContext, data }) => {
   return (
     <Layout>
       <Helmet title={`${keyword[keyword.length-1]} | ${config.siteTitle}`} />
-      <Header title={keyword[keyword.length-1]}>
+      <Header title={keyword[0]}>
         <StyledLink to="/category">分类</StyledLink>
       </Header>
       <ContentWrapper>
         <ContentContainer>
           <ContentPost>
             <Container className="list">
-              <ContentNav path={spath} title="分类" keyword={keyword}></ContentNav>
-              {posts && posts.map(node => (
+              <ContentNav path={additionalContext.spath} title="分类" keyword={keyword}></ContentNav>
+              {postsPage && postsPage.map(node => (
                 <BlogList
                   key={node.id}
                   cover={node.frontmatter.cover.childImageSharp.fluid}
@@ -272,6 +282,14 @@ const Category = ({ pageContext, data }) => {
                   excerpt={node.excerpt}
                 />
               ))}
+              
+              <Paginate 
+                index={index}
+                first={first}
+                last = {last}
+                pageCount={pageCount}
+                pathPrefix={pathPrefix}
+              />
             </Container>
           </ContentPost>
           <AsideWrapper>
@@ -293,7 +311,6 @@ export default Category;
 Category.propTypes = {
   pageContext: PropTypes.shape({
     spath: PropTypes.string,
-    tagname: PropTypes.string,
   }),
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
@@ -325,7 +342,11 @@ export const query = graphql`
       edges {
         node {
           id
-          excerpt(pruneLength: 200)
+          excerpt(pruneLength: 200)    
+          html                       
+          fields {
+            slug
+          }
           frontmatter {
             title
             path
@@ -334,6 +355,7 @@ export const query = graphql`
             typeID
             typeTitle
             categores
+            discussionId
             date(formatString: "MM.DD.YYYY")
             cover {
               childImageSharp {

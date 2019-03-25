@@ -3,18 +3,13 @@ import { graphql, Link } from 'gatsby';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { Header, BlogList, ContentNav } from 'components';
+import { Header, Archive, BlogList, GuessLike, Paginate, ContentNav } from 'components';
 import { Layout, Container } from 'layouts';
 import config from '../../config/site';
-import { 
-  SlideBar, 
-  Archive, 
-  GuessLike, 
-  CardHeader, 
-} from 'components';
+
 
 const ContentWrapper = styled.div`
-margin: 2rem 8rem 2rem 8rem;
+  margin: 2rem 8rem 2rem 8rem;
   width: auto;
   @media (max-width: ${props => props.theme.breakpoints.l}) {
     margin: 1rem 6rem 1rem 6rem;
@@ -70,19 +65,22 @@ const AsideWrapper = styled.div`
 `;
 
 const Archives = ({ pageContext, data }) => {
-  const { spath, archive } = pageContext;  
-  const archives = {};
-  var keyword = [...archive];
-  data.allMarkdownRemark.edges.map(({ node }) => {
-    if (node.frontmatter.date) {
-      var dates = node.frontmatter.date.split('-');
-      if (!archives[dates[0]+'-'+dates[1]]) {
-        archives[dates[0]+'-'+dates[1]] = [];
+  const { group, index, first, last, pageCount, pathPrefix, additionalContext } = pageContext;
+  const { edges } = data.allMarkdownRemark;
+  const postsPage = [];
+  const edl = edges?edges.length:0;
+  const grl = group?group.length:0;
+  
+  for(var g=0; g < grl; g++){
+    for(var e=0; e < edl; e++){
+      if(edges[e].node.id == group[g].id){
+        postsPage[g] = edges[e].node;
       }
-      archives[dates[0]+'-'+dates[1]].push(node);
     }
-  });
-  const posts = archives[archive];
+  }
+ 
+  const keyword = [...additionalContext.slug];
+
   return (
     <Layout>
       <Helmet title={`归档 | ${config.siteTitle}`} />
@@ -92,7 +90,7 @@ const Archives = ({ pageContext, data }) => {
           <ContentPost>
             <Container className="list">
               <ContentNav path="blog" title="归档" keyword={keyword}></ContentNav>
-              {posts && posts.map(node => (
+              {postsPage && postsPage.map(node => (
                 <BlogList
                   key={node.id}
                   cover={node.frontmatter.cover.childImageSharp.fluid}
@@ -105,6 +103,13 @@ const Archives = ({ pageContext, data }) => {
                   excerpt={node.excerpt}
                 />
               ))}
+              <Paginate 
+                index={index}
+                first={first}
+                last = {last}
+                pageCount={pageCount}
+                pathPrefix={pathPrefix}
+              />
             </Container>
           </ContentPost>
           <AsideWrapper>

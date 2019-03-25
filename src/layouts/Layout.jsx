@@ -53,7 +53,7 @@ const Layout = ({ children }) => (
           }
           a:hover {
             text-decoration: none;
-            color: ${theme.colors.hot.red};
+            color: ${theme.colors.label.blue};
           }
           h1,h2,h3,h4,h5,h6 {     
             margin: 0;

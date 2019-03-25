@@ -78,7 +78,7 @@ class ContentHeader extends Component{
     render() {
         
         const { name, tags, date, path, stype, title, blog } = this.state
-        var tas = [name];
+        var tas = [this.props.name];
         {this.props.tags.forEach((element) => {
             if (!name&&name!=element) {
                 tas.push(element);
@@ -89,22 +89,22 @@ class ContentHeader extends Component{
             <HeadMeta>
                 <Item>
                     <FontAwesomeIcon icon={['far', 'file-code']} size="1x" />
-                    {tags && tags.map((tag, index) => (
+                    {this.props.tags && this.props.tags.map((tag, index) => (
                         <span key={index}>
-                            <Link className="label" to={`${stype}/${tag}`}>&nbsp;{tag}&nbsp;</Link>
+                            <Link className="label" to={`${this.props.stype}/${tag}`}>&nbsp;{tag}&nbsp;</Link>
                         </span>
                     ))}
                 </Item>
                 <Item>
                     <span>
                     <FontAwesomeIcon icon={['far', 'user']} size="1x" />
-                        <Link className="label" to={path}>&nbsp;{`${config.author}`}</Link>
+                        <Link className="label" to={this.props.path}>&nbsp;{`${config.author}`}</Link>
                     </span>
                 </Item>
                 <Item>
                     <span>
                         <FontAwesomeIcon icon={['far', 'clock']} size="1x" />
-                        &nbsp;{date}
+                        &nbsp;{this.props.date}
                     </span>
                 </Item>
                 <Item>
@@ -116,7 +116,7 @@ class ContentHeader extends Component{
                 <Item>
                     <span>
                         <FontAwesomeIcon icon={['far', 'comment-dots']} size="1x" />
-                        <Link className="label" to={path}>&nbsp;{this.state.commentNum}评论</Link>
+                        <Link className="label" to={this.props.path}>&nbsp;{this.state.commentNum}评论</Link>
                     </span>
                 </Item>
             </HeadMeta>

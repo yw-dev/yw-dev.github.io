@@ -1,8 +1,7 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
-
 import styled from '@emotion/styled';
 import { Layout, Container } from 'layouts';
 import config from '../../config/site';
@@ -12,6 +11,7 @@ import {
   GuessLike, 
   BlogList, 
   ContentNav,
+  Paginate,
 } from 'components';
 
 const ContentWrapper = styled.div`
@@ -70,10 +70,22 @@ const AsideWrapper = styled.div`
   }
 `;
 
-
-const Blog = ({ data }) => {
+const Blog = ({ data, pageContext}) => {
+  const { group, index, first, last, pageCount, pathPrefix } = pageContext;
   const { edges } = data.allMarkdownRemark;
-  var keyword = [..."全部文章"];
+  const postsPage = [];
+  const edl = edges?edges.length:0;
+  const grl = group?group.length:0;
+  
+  for(var g=0; g < grl; g++){
+    for(var e=0; e < edl; e++){
+      if(edges[e].node.id == group[g].node.id){
+        postsPage[g] = edges[e].node;
+      }
+    }
+  }
+
+  const keyword = [..."全部文章"];
   return (
     <Layout>
       <Helmet title={`文章 | ${config.siteTitle}`} />
@@ -83,7 +95,7 @@ const Blog = ({ data }) => {
           <ContentPost>
             <Container className="list">
               <ContentNav path="blog" title="文章" keyword={keyword}></ContentNav>
-              {edges.map(({ node }) => (
+              {postsPage.map(node => (
                 <BlogList
                   key={node.id}
                   cover={node.frontmatter.cover.childImageSharp.fluid}
@@ -96,6 +108,13 @@ const Blog = ({ data }) => {
                   excerpt={node.excerpt}
                 />
               ))}
+              <Paginate 
+                index={index}
+                first={first}
+                last = {last}
+                pageCount={pageCount}
+                pathPrefix={pathPrefix}
+              />
             </Container>
           </ContentPost>
           <AsideWrapper>
@@ -111,6 +130,11 @@ const Blog = ({ data }) => {
 export default Blog;
 
 Blog.propTypes = {
+  pageContext: PropTypes.shape({
+    spath: PropTypes.string,
+    tagname: PropTypes.string,
+    list: PropTypes.array,
+  }),
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.arrayOf(

@@ -76,7 +76,7 @@ class ContentMeta extends Component{
             <HeadMeta>
                 <Item>
                     <FontAwesomeIcon icon={['far', 'file-code']} size="1x" />
-                    {tags && tags.map((tag, index) => (
+                    {this.props.tags && this.props.tags.map((tag, index) => (
                         <span key={index} className="label">{tag}</span>
                     ))}
                 </Item>

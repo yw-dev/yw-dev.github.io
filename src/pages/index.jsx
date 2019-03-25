@@ -170,7 +170,11 @@ class Index extends Component {
   }
 
   */
-  const Index = ({data}) => {
+  const Index = ({data, pageContext}) => {
+    const post = data.markdownRemark;
+    const { group, index, first, last, pageCount, pathPrefix } = pageContext
+    const previousUrl = index - 1 == 1 ? pathPrefix : pathPrefix + "/" + (index - 1).toString()
+    const nextUrl = pathPrefix + "/" + (index + 1).toString()
   
     /*
     const posts = data.allMarkdownRemark.edges;
