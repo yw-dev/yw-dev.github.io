@@ -202,7 +202,7 @@ const Special = ({data, pageContext }) => {
                     {Posts.map(element =>{
                       posts = element;
                     return (
-                        <li key={element.id} className="file"><Link className="title" to={element.frontmatter.path}>{element.frontmatter.title}</Link></li>
+                        <li key={element.id} className="file"><Link className="title" to={element.frontmatter.path} title={element.frontmatter.title}>{element.frontmatter.title}</Link></li>
                     )} 
                     )}
                     </ul>

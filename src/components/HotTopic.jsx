@@ -8,7 +8,8 @@ import {
   axiosGithub,
   getMetaContent,
   formatErrorMsg,
-  hasClassInParent
+  hasClassInParent,
+  strLength,
 } from '../util/util'
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
@@ -76,7 +77,7 @@ const Item = styled.div`
   }
   .title{
     text-align:left;
-    width: calc(99.9% * 1 / 2 - 1rem);
+    width: calc(70% - 1rem);
   }
   svg, .label-num{
     color: ${props => props.theme.colors.hot.light};
@@ -113,10 +114,10 @@ class HotTopic extends Component{
             <CardHeader title="热门排行" other="" icons={`${'fas', "angle-double-right"}`} path="/blog"></CardHeader>
             <List>
                 {this.state.data.map(({ node }, index) => (
-                    <StyledLink key={node.id} to={`/${node.frontmatter.path}`}>
+                    <StyledLink key={node.id} to={`/${node.frontmatter.path}`} >
                       <Item>
                         <div><span className={`label l-${++index}`}>{index}</span></div>
-                        <div className="title">&nbsp;{node.frontmatter.title}</div>
+                        <div className="title">{strLength(node.frontmatter.title)}</div>
                         <div><FontAwesomeIcon icon={['far', 'heart']} size="1x"/>&nbsp;
                         <span className="label-num">22233</span></div>
                       </Item>

@@ -20,7 +20,6 @@ const HeadMeta = styled.div`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 15px;
     padding: 0.25rem 0rem;
     color: ${props => props.theme.colors.black.base};
 `;

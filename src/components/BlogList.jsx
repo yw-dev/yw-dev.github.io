@@ -96,7 +96,7 @@ const BlogList = ({ stype, path, cover, title, date, excerpt, category, tags }) 
       </Image>
       <Information>
         <HeadTitle>
-          <Link to={path}>
+          <Link to={path} title={title}>
             <h4>{title}</h4>
           </Link>
         </HeadTitle>

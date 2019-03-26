@@ -52,20 +52,16 @@ const Item = styled.div`
   }
 `;
 
-const InfoHeader = styled.div`
-  width: auto;
-  h1,h2,h3,h4,h5,h6{
-    margin-bottom: 10px;
-  }
-`;
-
 const InfoDessc = styled.div`
   width: 100%;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  color: ${props => props.theme.colors.black.base};
+  color: ${props => props.theme.colors.black.base};  
+  h1,h2,h3,h4,h5,h6{
+    line-height: 20px;
+  }
 `;
 
 const Image = styled.div`
@@ -166,20 +162,18 @@ class PostList extends Component {
         {this.props.data&&this.props.data.allMarkdownRemark.edges.map(({ node }) => (
           <StyledLink key={node.id} to={node.frontmatter.path}>
             <Item>
-                <Image>
-                  <Img fluid={node.frontmatter.cover.childImageSharp.fluid || {} || [] || ''} />
-                </Image>
-                <InfoDessc>
-                  <InfoHeader>
-                    <h5>{node.frontmatter.title}</h5>
-                  </InfoHeader>
-                  <span>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</span>
-                  <ContentMeta 
-                    tags={node.frontmatter.tags} 
-                    date={node.frontmatter.date} 
-                    path={node.frontmatter.path}>
-                  </ContentMeta>
-                </InfoDessc>
+              <Image>
+                <Img fluid={node.frontmatter.cover.childImageSharp.fluid || {} || [] || ''} />
+              </Image>
+              <InfoDessc>
+                <h6>{node.frontmatter.title}</h6>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</span>
+                <ContentMeta 
+                  tags={node.frontmatter.tags} 
+                  date={node.frontmatter.date} 
+                  path={node.frontmatter.path}>
+                </ContentMeta>
+              </InfoDessc>
             </Item>
           </StyledLink>
         ))}
@@ -203,7 +197,7 @@ export default props => (
           edges {
             node {
               id
-              excerpt(pruneLength: 100)
+              excerpt(pruneLength: 150)
               frontmatter {
                 title
                 path

@@ -20,7 +20,6 @@ const ContentHead = styled.div`
 const HeadMeta = styled.div`
     display: flex;
     flex-direction: row;
-    font-size: 14px;
     padding: 0.25rem 0rem;
     flex-wrap: wrap;
     color: ${props => props.theme.colors.black.base};

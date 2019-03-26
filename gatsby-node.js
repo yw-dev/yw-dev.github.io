@@ -184,6 +184,7 @@ exports.createPages = ({ graphql, actions }) => {
                 spath: archive,
                 tagName: archive,
               },
+              slug: archive,
             })
           });
 

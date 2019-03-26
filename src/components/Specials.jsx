@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { CardHeader } from 'components';
 import theme from '../../config/theme';
+import { strLength } from '../util/util'
 
 const Container = styled.div`
   width: 100%;
@@ -68,7 +69,7 @@ const Wrapper = styled.article`
   }
 `;
 
-const StyledLink = styled(Link)`
+const InfoContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -139,7 +140,7 @@ const Info = styled.div`
   }
 `;
 
-const Title = styled.h4`
+const Title = styled.h6`
   line-height:1.5rem;
 `;
 
@@ -165,15 +166,17 @@ const Specials = ({ data }) => {
     {subtitles.map((subtitle, index) => {
       return (
         <Wrapper key={index}>
-          <Image>
-            <Img fluid={postsBySpecial[subtitle][0].frontmatter.cover.childImageSharp.fluid} />
-          </Image>
-          <StyledLink to={`/specials/${subtitle}`}>
-            <Info>
-              <Title>{subtitle}</Title>
-              <span>{postsBySpecial[subtitle][0].excerpt}</span>
-            </Info>
-          </StyledLink>
+          <Link to={`/specials/${subtitle}`} title={subtitle}>
+            <Image>
+              <Img fluid={postsBySpecial[subtitle][0].frontmatter.cover.childImageSharp.fluid} />
+            </Image>
+            <InfoContainer>
+              <Info>
+                <Title>{strLength(subtitle)}</Title>
+                <span>{postsBySpecial[subtitle][0].excerpt}</span>
+              </Info>
+            </InfoContainer>
+          </Link>
         </Wrapper>  
       )}
     )}

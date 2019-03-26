@@ -65,7 +65,7 @@ const AsideWrapper = styled.div`
 `;
 
 const Archives = ({ pageContext, data }) => {
-  const { group, index, first, last, spath, pageCount, pathPrefix, additionalContext } = pageContext;
+  const { group, index, first, last, slug, pageCount, pathPrefix, additionalContext } = pageContext;
   const { edges } = data.allMarkdownRemark;
   const postsPage = [];
   const edl = edges?edges.length:0;
@@ -78,7 +78,7 @@ const Archives = ({ pageContext, data }) => {
       }
     }
   }
-  const keyword = [...spath];
+  const keyword = [...additionalContext.slug];
 
   return (
     <Layout>

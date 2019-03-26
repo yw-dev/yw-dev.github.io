@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ContentHead = styled.div`
     display: block;
+    font-size: 14px;
     align-items: center;
     padding: 1rem 2rem;
     h1,h2,h3,h4,h5,h6{
@@ -17,7 +18,6 @@ const ContentHead = styled.div`
 const HeadNav = styled.div`
     display: flex;
     align-items: center;
-    font-size: 14px;
     padding: 0.5rem 0rem;
     box-shadow: ${props => props.theme.shadow.feature.title.bottom};
     .title{

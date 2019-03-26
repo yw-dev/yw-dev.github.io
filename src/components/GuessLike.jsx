@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import Img from 'gatsby-image';
 import { CardHeader, GuessLikeMeta } from 'components';
+import { strLength } from '../util/util'
 import config from '../../config/site';
 import theme from '../../config/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -54,9 +55,9 @@ p{
 `;
 
 const InfoHeader = styled.div`
-  width: auto;
+  width: auto;  
   h1,h2,h3,h4,h5,h6{
-    margin-bottom: 5px;
+    line-height: 20px;
   }
 `;
 
@@ -99,7 +100,7 @@ const GuessLike = ({ data }) => {
                 </Image>
                 <InfoDessc>
                   <InfoHeader>
-                    <h6>{node.frontmatter.title}</h6>
+                    <h6>{strLength(node.frontmatter.title)}</h6>
                   </InfoHeader>
                   <span>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</span>
                   <GuessLikeMeta 

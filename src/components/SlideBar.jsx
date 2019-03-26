@@ -317,14 +317,11 @@ const Images = styled.div`
 const Title = styled.div`
   position: absolute;
   display: block;
-  text-align: center;
   width: auto;
-  left: 1rem;
-  bottom: 2rem;
+  padding: 1rem;
+  bottom: 1rem;
   z-index: 2;
-  h1,h2,h3,h4,h5,h6{
-    color: ${props => props.theme.colors.white.grey};
-  }
+  color: ${props => props.theme.colors.white.grey};
 `;
 
 
@@ -348,7 +345,7 @@ const SlideBar = ({ data }) => {
               <li key={node.id}>
                 <Link to={node.frontmatter.path}>
                   <Images>
-                    <Title><h4>{node.frontmatter.title}</h4></Title>
+                    <Title>{node.frontmatter.title}</Title>
                     <Img fluid={node.frontmatter.cover.childImageSharp.fluid || {} || [] || ''} />
                   </Images>
                 </Link>

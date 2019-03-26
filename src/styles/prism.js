@@ -19,6 +19,7 @@ const prism = css`
     tab-size: 4;
     hyphens: none;
   }
+  
   code[class*='language-'],
   pre[class*='language-'] {
     color: #f8f8f2;
@@ -52,35 +53,23 @@ const prism = css`
     background: #131316;
   }
   
-  :not(pre) > code[class*="language-"],
-  pre[class*="language-"] {
-    border: none;
-    background: #2a3644;
-  }
-
-  /* Inline code */
-  :not(pre) > code[class*="language-"] {
-    padding: .3em .4em;
-    border-radius: .3em;
-    white-space: normal;
-    background: var(--whitegrey);
-    text-shadow: none;
-    color: var(--darkgrey);
-    font-size: 0.9em;
-  }
-
-  p > a{    
-    color:  ${theme.colors.label.blue};
+  p > a {    
+    border: none !important;
+    box-shadow: none !important;
+    color:  ${theme.colors.label.green};
+    background: none !important;
+    &:hover{
+      color:  ${theme.colors.label.blue} !important;
+    }
   }
   a > code[class*="language-"] {
-    color: var(--blue);
+    color: var(--green);
   }
   p > code[class*='language-'],
   li > code[class*='language-'] {
     border-radius: 0.5em;
     background:  ${theme.colors.card.light};
     color: ${theme.colors.white.grey};
-    bottom: 2px;
     position: relative;
   }
   .token.operator {

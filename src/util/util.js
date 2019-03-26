@@ -55,6 +55,12 @@ export const formatErrorMsg = err => {
   return msg
 }
 
+export const strLength = (str)=>{
+  if(str.length < 27) return str;
+  return str.slice(0, 27)+"...";  
+}
+
+
 export const hasClassInParent = (element, ...className) => {
   /* istanbul ignore next */
   let yes = false

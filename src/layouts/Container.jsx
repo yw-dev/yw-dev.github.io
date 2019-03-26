@@ -8,7 +8,7 @@ const Wrapper = styled.section`
   min-height: 22rem;
   //color: ${props => props.theme.colors.black.base};
   //background: ${props => props.theme.colors.background.light};
-  box-shadow: ${props => props.theme.shadow.feature.small.little};
+  box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   max-width: ${props => props.theme.layout[props.type]};
   flex: 1;
   @media (max-width: ${props => props.theme.breakpoints.m}) {

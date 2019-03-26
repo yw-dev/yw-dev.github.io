@@ -51,11 +51,12 @@ const ContentPost = styled.div`
   }
   display: flex;
   flex-direction: column;
-  padding-right: 1rem;
+  margin-right: 1rem;
+  box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   #gitalk-container{
     padding:1rem;
     background: ${props => props.theme.colors.white.light};
-    box-shadow: ${props => props.theme.shadow.feature.small.little};
+    box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   }
 `;
 
@@ -84,11 +85,6 @@ const Excerpt = styled.div`
   display: block;
   width: 100%;
   padding: 0 3rem;
-  #gitalk-container {
-    margin: 0 auto;
-    padding: 20px;
-    max-width: 700px;
-  }
 `;
 
 const PostSuggestion = styled.div`
@@ -120,7 +116,7 @@ const PostSuggestion = styled.div`
       background: ${props => props.theme.colors.card.light};
       box-shadow: ${props => props.theme.shadow.feature.small.default};
   }
-  a,h1,h2,h3,h4,h5,h6{
+  a {
     color: ${props => props.theme.colors.white.grey};
     &:hover {
       color: ${props => props.theme.colors.white.light};
@@ -134,6 +130,7 @@ const HeadTitle = styled.div`
     flex-direction: column;
     color: ${props => props.theme.colors.black.base};
     h1,h2,h3,h4,h5,h6{
+      line-height: 40px;
       padding: 1rem 0rem;
     }
 `;
@@ -163,11 +160,12 @@ const Post = ({ data, pageContext }) => {
               <ContentNav path={spath} title="文章" keyword={keyword}></ContentNav>
               <Excerpt>
                 <HeadTitle>
-                  <h2>{title}</h2>
+                  <h3>{title}</h3>
                 </HeadTitle>
                 <ContentHeader tags={post.frontmatter.tags} path={post.frontmatter.path} stype={post.frontmatter.type}></ContentHeader>
                 <Content input={html}/>
               </Excerpt>
+              <TagsBlock spath={spath} list={post.frontmatter.tags} />
             </Container>
             <SuggestionBar>
               <PostSuggestion>

@@ -7,6 +7,7 @@ import { CardHeader } from 'components';
 import config from '../../config/site';
 import theme from '../../config/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { strLength } from '../util/util'
 
 const Container = styled.div`
   width: 100%;
@@ -71,7 +72,7 @@ const Wrapper = styled.article`
   }
 `;
 
-const StyledLink = styled(Link)`
+const InfoContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -142,8 +143,8 @@ const Info = styled.div`
   }
 `;
 
-const Title = styled.h4`
-  line-height:1.5rem;
+const Title = styled.h6`
+  line-height:1rem;
 `;
 
 const Projects = ({ data }) => {
@@ -156,15 +157,17 @@ const Projects = ({ data }) => {
       {edges.map(({ node }) => {
         return (
         <Wrapper key={node.id}>
+          <Link to={`/${node.frontmatter.path}`} title={node.frontmatter.title}>
           <Image>
             <Img fluid={node.frontmatter.cover.childImageSharp.fluid} />
           </Image>
-          <StyledLink to={`/${node.frontmatter.path}`}>
-          <Info>
-            <Title>{node.frontmatter.title}</Title>
-            <span>{node.excerpt}</span>
-          </Info>
-          </StyledLink>
+          <InfoContainer>
+            <Info>
+              <Title>{strLength(node.frontmatter.title)}</Title>
+              <span>{node.excerpt}</span>
+            </Info>
+          </InfoContainer>
+          </Link>
         </Wrapper>
         )}
       )}
