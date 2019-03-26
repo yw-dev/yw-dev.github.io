@@ -62,7 +62,7 @@ const SearchWrapper = styled.div`
         padding: 0;
         display: none;
         width: 300px;
-        height: 400px;
+        max-height: 400px;
         overflow: auto;
     }    
     .display{
