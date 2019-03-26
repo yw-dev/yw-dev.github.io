@@ -165,7 +165,7 @@ const Post = ({ data, pageContext }) => {
                 <ContentHeader tags={post.frontmatter.tags} path={post.frontmatter.path} stype={post.frontmatter.type}></ContentHeader>
                 <Content input={html}/>
               </Excerpt>
-              <TagsBlock spath={spath} list={post.frontmatter.tags} />
+              <TagsBlock spath={post.frontmatter.type} list={post.frontmatter.tags} />
             </Container>
             <SuggestionBar>
               <PostSuggestion>
