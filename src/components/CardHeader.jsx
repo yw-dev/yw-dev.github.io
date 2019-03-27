@@ -25,8 +25,7 @@ const Wrapper = styled.div`
     border-left: 5px solid #3ca5f6;
   }
   div{
-    
-  padding: 1rem;
+    padding: 1rem;
   }
 `;
 
