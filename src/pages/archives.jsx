@@ -78,7 +78,7 @@ const Archives = ({ pageContext, data }) => {
       }
     }
   }
-  const keyword = [...additionalContext.slug];
+  const keyword = [];
 
   return (
     <Layout>
