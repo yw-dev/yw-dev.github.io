@@ -29,6 +29,12 @@ tags: ['Gatsby', 'React']
 <p>
   <a href="https://reactjs.org/">
     <img
+      src="https://yw-dev.github.io/static/svgs/Git.svg"
+      alt="Git"
+    />
+  </a>
+  <a href="https://reactjs.org/">
+    <img
       src="https://img.shields.io/badge/using-React-%2361dafb.svg"
       alt="using React"
     />
@@ -57,7 +63,7 @@ Gatsby是一个构建静态渐进式Web应用的一大利器，是基于React的
 
 ### Gatsby运作模式
 
-![Gatsby模式](./2019-03-27_023505.png)
+![Gatsby模式](2019-03-27_023505.png)
 
 以上Gatsby简单介绍完毕，让我们开始构建自己的无后端应用吧，该干活了兄dei😆.. 正所谓工欲善其事必先利其器，so...
 
@@ -261,12 +267,12 @@ Netlify是一个统一平台，可自动执行代码，以创建高性能，易�
 >首先你需要有一个[Netlify](https://www.netlify.com/)账号；
 
 >登录之后选择`New site from Git`之后：
-![部署1](./2019-03-27_netlify_1.png)
+![部署1](2019-03-27_netlify_1.png)
 
 >然后选择repository
 
 >然后配置build/deploy选项：
-![部署2](./2019-03-27_netlify_2.png)
+![部署2](2019-03-27_netlify_2.png)
 关于高级选项中`New variable`定义环境变量，可以自行选择，Gatsby本身也支持`Project Env Vars`和`OS Env Vars`以及不同环境中的自定义行为；所以我没有使用netlify.toml配置文件(详细请查看[Gatsby Environment](https://www.gatsbyjs.org/docs/environment-variables/))。
 
 最后选择`Deploy site`。
