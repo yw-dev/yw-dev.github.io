@@ -35,19 +35,19 @@ tags: ['Gatsby', 'React']
   </a>
   <a href="https://reactjs.org/">
     <img
-      src="https://img.shields.io/badge/using-React-%2361dafb.svg"
+      src="https://yw-dev.github.io/static/svgs/using-React.svg"
       alt="using React"
     />
   </a>
   <a href="https://www.gatsbyjs.org">
     <img
-      src="https://img.shields.io/badge/using-Gatsby-%23663399.svg"
+      src="https://yw-dev.github.io/static/svgs/using-Gatsby.svg"
       alt="using Gatsby"
     />
   </a>
   <a href="http://graphql.cn/">
     <img
-      src="https://img.shields.io/badge/using-GraphQL-%23E10098.svg"
+      src="https://yw-dev.github.io/static/svgs/using-GraphQL.svg"
       alt="using GraphQL"
     />
   </a>
@@ -73,31 +73,31 @@ Gatsby是一个构建静态渐进式Web应用的一大利器，是基于React的
 <p>
   <a href="https://code.visualstudio.com/">
     <img
-      src="https://img.shields.io/badge/-VSCode-007ACC.svg?logo=visual-studio-code"
+      src="https://yw-dev.github.io/static/svgs/VSCode.svg?logo=visual-studio-code"
       alt="visual-studio-code"
     />
   </a>
   <a href="https://git-scm.com/downloads">
     <img
-      src="https://img.shields.io/badge/-Git-%2300919B.svg?logo=git"
+      src="https://yw-dev.github.io/static/svgs/Git.svg?logo=git"
       alt="Git"
     />
   </a>
   <a href="https://github.com/">
     <img
-      src="https://img.shields.io/badge/-Github-%233C4146.svg?logo=github"
+      src="https://yw-dev.github.io/static/svgs/Github.svg?logo=github"
       alt="Github"
     />
   </a>(
   <a href="https://prettier.io/">
     <img
-      src="https://img.shields.io/badge/-Prettier-orange.svg"
+      src="https://yw-dev.github.io/static/svgs/Prettier.svg"
       alt="prettier"
     />
   </a>/
   <a href="https://cn.eslint.org/">
     <img
-      src="https://img.shields.io/badge/-ESLint-%23463FD4.svg?logo=eslint"
+      src="https://yw-dev.github.io/static/svgs/ESLint.svg?logo=eslint"
       alt="ESLint"
     />
   </a>)
