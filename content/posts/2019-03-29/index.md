@@ -226,7 +226,7 @@ gatsby-image还有很多其它可选属性设置比较常用的如：
 - **onError：**无法加载时的回调。
 - **critical：**退出延迟加载行为。默认为false。
 
-以上是这两天处理网站图片问题时候的全部解决方式，以此作为总结，下一步解决DOM、数据代码的问题，Google speed测评跑分Desktop版居然连80分都没上..可想而知，移动版就更不用说了...Gatsby建站教程要往后拖一拖了,解决问题去了。
+以上是这两天处理网站图片问题时候的全部解决方式，以此作为总结，下一步解决DOM、数据代码的问题，Google speed测评跑分Desktop版居然连80分都没上..可想而知，移动版就更不用说了...Gatsby建站教程要往后放一放了,解决问题去了。
 
 参考：
 <a href="https://www.w3schools.com/w3css/w3css_grid.asp">W3.CSS Responsive Fluid Grid</a>
