@@ -81,11 +81,12 @@ const TopWrapper = styled.div`
 `;
 
 const AsideWrapper = styled.div`
-  width: calc(99.9% * 1 / 3 - 1rem);
+  width: calc(99.9% * 1 / 4 - 1rem);
+  min-width: 330px;
   display: flex;
   flex-direction: column;
   @media (max-width: ${props => props.theme.breakpoints.vl}) {
-    width: calc(99.9% * 1 / 2 - 1rem);
+    width: calc(99.9% * 1 / 3 - 1rem);
   }
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     width: 100%;

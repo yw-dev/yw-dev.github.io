@@ -66,10 +66,13 @@ const InfoDessc = styled.div`
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   color: ${props => props.theme.colors.black.base};
 `;
+
 const Image = styled.div`
-  width: 45%;
+width: 280px;
+height: 140px;
   //box-shadow: ${props => props.theme.shadow.feature.small.hover};
   //border-radius: ${props => props.theme.borderRadius.default};
   img {
@@ -100,9 +103,9 @@ const GuessLike = ({ data }) => {
                 </Image>
                 <InfoDessc>
                   <InfoHeader>
-                    <h6>{strLength(node.frontmatter.title)}</h6>
+                    <h6>{strLength(node.frontmatter.title, 20)}</h6>
                   </InfoHeader>
-                  <span>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</span>
+                  <span>{node.excerpt}</span>
                   <GuessLikeMeta 
                     date={node.frontmatter.date} 
                     path={node.frontmatter.path}>
@@ -128,7 +131,7 @@ export default props => (
           edges {
             node {
               id
-              excerpt(pruneLength: 35)
+              excerpt(pruneLength: 45)
               frontmatter {
                 title
                 path

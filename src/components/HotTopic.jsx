@@ -117,7 +117,7 @@ class HotTopic extends Component{
                     <StyledLink key={node.id} to={`/${node.frontmatter.path}`} >
                       <Item>
                         <div><span className={`label l-${++index}`}>{index}</span></div>
-                        <div className="title">{strLength(node.frontmatter.title)}</div>
+                        <div className="title">{strLength(node.frontmatter.title, 25)}</div>
                         <div><FontAwesomeIcon icon={['far', 'heart']} size="1x"/>&nbsp;
                         <span className="label-num">22233</span></div>
                       </Item>

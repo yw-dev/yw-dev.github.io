@@ -123,7 +123,7 @@ export const theme = {
     m: '900px',
     hd: '1080px',
     l: '1200px',
-    vl: '1366px',
+    vl: '1500px',
   },
   fontFamily: {
     // eslint-disable-next-line

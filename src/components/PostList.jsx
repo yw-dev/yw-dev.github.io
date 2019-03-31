@@ -43,7 +43,7 @@ const StyledLink = styled(Link)`
 const Item = styled.div`
   position: relative;
   width: 100%;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   display: flex;
   flex-direction: row;
   p{
@@ -54,7 +54,7 @@ const Item = styled.div`
 
 const InfoDessc = styled.div`
   width: 100%;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -197,7 +197,7 @@ export default props => (
           edges {
             node {
               id
-              excerpt(pruneLength: 150)
+              excerpt(pruneLength: 120)
               frontmatter {
                 title
                 path
