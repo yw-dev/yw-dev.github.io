@@ -3,7 +3,7 @@ import { StaticQuery, graphql, Link } from 'gatsby';
 import styled from '@emotion/styled';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
-import logo from '../../static/logo/header.png';
+import logo from '../../static/logo/header.webp';
 
 const Wrapper = styled.header`
   margin: 0;

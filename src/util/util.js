@@ -1,5 +1,4 @@
 import axios from 'axios'
-import logo from '../../static/logo/jijian.png';
 
 export const queryParse = (search = window.location.search) => {
   if (!search) return {}

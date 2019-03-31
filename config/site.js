@@ -8,10 +8,10 @@ module.exports = {
   siteUrl: 'https://yf.netlify.com/', // url + pathPrefix
   siteLanguage: 'en', // Language Tag on <html> element
   siteCache: 'app.appcache',  //HTML5 Cache Manifest
-  logo: 'static/logo/jijian.png', // Used for SEO
-  banner: 'static/logo/jijian.png',
+  logo: 'static/logo/jijian.svg', // Used for SEO
+  banner: 'static/logo/jijian.svg',
   // JSONLD / Manifest
-  favicon: 'static/logo/jijian.png', // Used for manifest favicon generation
+  favicon: 'static/logo/jijian.svg', // Used for manifest favicon generation
   shortName: 'GatsbyTut', // shortname for manifest. MUST be shorter than 12 characters
   author: '扬帆', // Author for schemaORGJSONLD
   themeColor: '#3e7bf2',

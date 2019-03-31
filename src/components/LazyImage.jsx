@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import logo from '../../static/logo/jijian.png';
+import logo from '../../static/logo/jijian.webp';
 
 const LazyImage = ({ placeholder, imgs }) => {
-    const src = placeholder?placeholder:'https://res.cloudinary.com/drp9iwjqz/image/upload/e_blur:2000,f_auto,q_auto:eco/v1508291830/jeremywagner.me/using-webp-images/tacos-1x.jpg';
+    const src = placeholder?placeholder:logo;
     
   return (
       <img

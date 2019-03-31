@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import Headroom from 'react-headroom';
 import { AppNav, NavMenu } from 'components';
-import logo from '../../static/logo/jijian.png';
+import logo from '../../static/logo/jijian.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'

@@ -167,7 +167,7 @@ class PostList extends Component {
               </ImageView>
               <InfoDessc>
                 <h4>{node.frontmatter.title}</h4>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</span>
+                <span>{node.excerpt}</span>
                 <ContentMeta 
                   tags={node.frontmatter.tags} 
                   date={node.frontmatter.date} 

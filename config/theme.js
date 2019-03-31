@@ -93,7 +93,7 @@ export const border = {
 
 export const backgroundImage = {
   image: {
-    normal: 'url(' + 'static/logo/header.png' + ')',
+    normal: 'url(' + 'static/logo/header.webp' + ')',
   },
 }
 
