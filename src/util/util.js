@@ -1,4 +1,5 @@
 import axios from 'axios'
+import logo from '../../static/logo/jijian.png';
 
 export const queryParse = (search = window.location.search) => {
   if (!search) return {}
@@ -79,6 +80,7 @@ export const hasClassInParent = (element, ...className) => {
   return element.parentNode && hasClassInParent(element.parentNode, className)
 }
 
+// 防止react异步任务内存泄漏问题
 function inject_unmount (target) {
   // 改装componentWillUnmount,销毁的时候记录一下
   let next = target.prototype.componentWillUnmount
@@ -89,10 +91,62 @@ function inject_unmount (target) {
 
   let setState = target.prototype.setState
   // 每次在执行setState之前都查看该组件是否已经销毁
-  target.prototype.setState = function () { 
+  target.prototype.setState = function () {
       if(this.unmount) return  // 已经卸载的话就不执行
-      this.setState.call(this,...arguments)   
+      this.setState.call(this,...arguments)
   }
 }
 
 export default inject_unmount
+
+// react中图片延迟加载
+export const lazyLoad = () => {  
+  let lazyImages = Array.from(document.getElementsByClassName('lazy'));
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+        (items) => {
+          items.forEach((item) => {
+              if(item.intersectionRatio > 0){
+                  //console.log(item.target);
+                  var img = item.target;
+                  img.src = img.dataset.src;
+                  observer.unobserve(img);
+              }
+          })
+        }
+    )
+    lazyImages.forEach((item) => {
+        observer.observe(item);
+    })
+  } else {
+    let active = false;
+    const scrollLoad = function() {
+      if (active === false) {
+        active = true;
+
+        setTimeout(function() {
+          lazyImages.forEach(function(lazyImage) {
+            if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
+              lazyImage.src = lazyImage.dataset.src;
+              lazyImage.srcset = lazyImage.dataset.srcset;
+              lazyImage.classList.remove("lazy");
+
+              lazyImages = lazyImages.filter(function(image) {
+                return image !== lazyImage;
+              });
+              if (lazyImages.length === 0) {
+                document.removeEventListener("scroll", scrollLoad);
+                window.removeEventListener("resize", scrollLoad);
+                window.removeEventListener("orientationchange", scrollLoad);
+              }
+            }
+          });
+          active = false;
+        }, 200);
+      }
+    }
+    document.addEventListener("scroll", scrollLoad);
+    window.addEventListener("resize", scrollLoad);
+    window.addEventListener("orientationchange", scrollLoad);  
+  }
+}

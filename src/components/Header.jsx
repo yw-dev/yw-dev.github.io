@@ -338,6 +338,7 @@ export default props => (
     query={graphql`
       query {
         allMarkdownRemark(
+          limit: 5
           sort: { order: DESC, fields: [frontmatter___date] }
         ) {
           edges {
@@ -348,9 +349,8 @@ export default props => (
                 cover {
                   childImageSharp {
                     fluid(
-                      maxWidth: 1000
+                      maxWidth: 1500
                       quality: 90
-                      traceSVG: { color: "#2B2B2F" }
                     ) {
                       ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }

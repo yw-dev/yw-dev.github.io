@@ -162,7 +162,7 @@ const Post = ({ data, pageContext }) => {
                 <HeadTitle>
                   <h3>{title}</h3>
                 </HeadTitle>
-                <ContentHeader tags={post.frontmatter.tags} path={post.frontmatter.path} stype={post.frontmatter.type}></ContentHeader>
+                <ContentHeader tags={post.frontmatter.tags} path={post.frontmatter.path} date={post.frontmatter.date}  stype={post.frontmatter.type}></ContentHeader>
                 <Content input={html}/>
               </Excerpt>
               <TagsBlock spath={post.frontmatter.type} list={post.frontmatter.tags} />
@@ -221,7 +221,7 @@ export const query = graphql`
         typeTitle
         categores
         discussionId
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY-MM-DD")
         cover {
           childImageSharp {
             fluid(

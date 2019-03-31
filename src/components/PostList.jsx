@@ -64,8 +64,8 @@ const InfoDessc = styled.div`
   }
 `;
 
-const Image = styled.div`
-  width: 40%;
+const ImageView = styled.div`
+  width: 300px;
   border-radius: ${props => props.theme.borderRadius.default};
   img {
     border-radius: ${props => props.theme.borderRadius.default};
@@ -126,8 +126,9 @@ class PostList extends Component {
     }
   
   async componentDidMount() {
+    //lazyLoad();
+    //this.loadData();
     this.rebuild();
-    this.loadData();
   }
   
   componentWillUnmount(){
@@ -142,12 +143,11 @@ class PostList extends Component {
     const { edges, totalCount } = this.props.data;
     this.setState({ data: this.state.data.concat(edges), totalCount: totalCount, isLoading: false, mounted: false })
   }
-  
+
   loadData = e => {
     window.addEventListener('scroll', () => {
       if(getScrollTop() + getWindowHeight() == getScrollHeight()){
-
-  　　　　//console.log("已经到最底部了！!");
+  　　　　alert("已经到最底部了！!");
   　　}
     })
   }
@@ -162,11 +162,11 @@ class PostList extends Component {
         {this.props.data&&this.props.data.allMarkdownRemark.edges.map(({ node }) => (
           <StyledLink key={node.id} to={node.frontmatter.path}>
             <Item>
-              <Image>
+              <ImageView>
                 <Img fluid={node.frontmatter.cover.childImageSharp.fluid || {} || [] || ''} />
-              </Image>
+              </ImageView>
               <InfoDessc>
-                <h6>{node.frontmatter.title}</h6>
+                <h4>{node.frontmatter.title}</h4>
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;{node.excerpt}</span>
                 <ContentMeta 
                   tags={node.frontmatter.tags} 
@@ -208,9 +208,8 @@ export default props => (
                 cover {
                   childImageSharp {
                     fluid(
-                      maxWidth: 1000
+                      maxWidth: 240
                       quality: 90
-                      traceSVG: { color: "#2B2B2F" }
                     ) {
                       ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }

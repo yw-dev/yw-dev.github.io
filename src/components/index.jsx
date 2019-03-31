@@ -1,5 +1,6 @@
 import BlogList from './BlogList';
 import Header from './Header';
+import LazyImage from './LazyImage';
 import PostList from './PostList';
 import SEO from './SEO';
 import TagsBlock from './TagsBlock';
@@ -26,9 +27,11 @@ import TagCloud from './TagCloud';
 import SpecialsList from './SpecialsList';
 import Paginate from './Paginate';
 
+
 export { 
     BlogList, 
     Header, 
+    LazyImage,
     PostList, 
     SEO, 
     Card,

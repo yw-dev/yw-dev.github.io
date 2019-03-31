@@ -192,9 +192,9 @@ const ProjectsList = ({ list, data }) => {
               <span>{node.excerpt}</span>
             </Descrip>
             <Footer>
-              <span><a href="https://codepen.io/yw-dev/pen/ZVGpzg"><FontAwesomeIcon icon={['fab', 'github']} size="2x" /></a></span>
-              <span><a href="https://codepen.io/yw-dev/pen/ZVGpzg"><FontAwesomeIcon icon={['fab', 'codepen']} size="2x" /></a></span>
-              <span><a href="https://codesandbox.io/s/59p5w5n8x"><FontAwesomeIcon icon={['fas', 'code']} size="2x" /></a></span>
+              <span><a href="https://codesandbox.io/embed/489lrmv7o4?fontsize=14"><FontAwesomeIcon icon={['fab', 'github']} size="2x" /></a></span>
+              <span><a href="https://codesandbox.io/embed/489lrmv7o4?fontsize=14"><FontAwesomeIcon icon={['fab', 'codepen']} size="2x" /></a></span>
+              <span><a href="https://codesandbox.io/embed/489lrmv7o4?fontsize=14"><FontAwesomeIcon icon={['fas', 'code']} size="2x" /></a></span>
             </Footer>
           </Info>
           </StyledLink>

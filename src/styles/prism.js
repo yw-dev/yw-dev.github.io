@@ -53,7 +53,7 @@ const prism = css`
     background: #131316;
   }
   
-  p > a {    
+  p > a, a {    
     border: none !important;
     box-shadow: none !important;
     color:  ${theme.colors.label.green};

@@ -155,18 +155,18 @@ gatsby develop
 ## GitHub Source管理
 
 source关联GitHub方式有很多，自行选择，这里使用GitHub+SSH的方式：
-/source 目录下
+source 目录下
 #### 初始化
-```json
+```sh
 $ git init
 ```
 #### 检查本地是否已经存在密钥
-```json
+```sh
 $ cd ~/.ssh
 $ ls
 ```
 #### 创建一个 SSH key 
-```json
+```sh
 $ ssh-keygen -t rsa -C "your_email@example.com"
 ```
 代码参数含义：
@@ -177,13 +177,13 @@ $ ssh-keygen -t rsa -C "your_email@example.com"
 默认生成 id_rsa 和 id_rsa.pub 两个秘钥文件。
 
 接着会提示你输入两次密码：该密码是你push文件的时候要输入的密码，而不是github管理者的密码
-```json
+```sh
 Enter passphrase (empty for no passphrase): 
 # Enter same passphrase again:
 ```
 
 当你看到下面这段代码，就说明，SSH key 已经创建成功
-```json
+```sh
 Your identification has been saved in /c/Users/you/.ssh/id_rsa.
 # Your public key has been saved in /c/Users/you/.ssh/id_rsa.pub.
 # The key fingerprint is:
@@ -191,56 +191,56 @@ Your identification has been saved in /c/Users/you/.ssh/id_rsa.
 ```
 #### 添加 SSH key 到 github上面去
 git命令复制该文件的内容
-```json
+```sh
 $ clip < ~/.ssh/id_rsa.pub
 ```
 然后登录GitHub账户 → `Settings` → `SSH and GPG keys` → `New SSH key`。
 
 #### 测试一下连接
 
-```json
+```sh
 $ ssh -T git@github.com
 ```
 
 会有一段警告代码：
 
-```json
+```sh
 The authenticity of host 'github.com (207.97.227.239)' can't be established.
 # RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
 # Are you sure you want to continue connecting (yes/no)?
 ```
 
 输入 yes 回车既可。如果创建 SSH key 的时候设置了密码，就会提示你输入密码：
-```json
+```sh
 Enter passphrase for key '/c/Users/Administrator/.ssh/id_rsa':
 ```
 
 输入密码即可，如果出现下面提示：
-```json
+```sh
 Hi username! You've successfully authenticated, but GitHub does not
 # provide shell access.
 ```
 说明已经成功设置SSH密钥。
 
 #### 本地仓库关联到github上
-```json
+```sh
 $ git remote add origin <远程仓库链接>
 $ git status
 ```
 
 将source添加到仓库
-```json
+```sh
 $ git add --all 
 $ git status
 ```
 
 代码合并
-```json
+```sh
 $ git pull --rebase origin master
 ```
 
 上传代码
-```json
+```sh
 $ git push -u origin master
 ```
 至此，项目构建和source管理的问题得以解决,待项目功能完善之后我们可以选择发布、托管平台，我使用的`Netlify`，下面会介绍`Netlify`。（这里选择把`Netlify`放在这里介绍因为项目从构建→source管理→发布一整条线下来会比较清晰，放到最后面介绍会觉得拖拉；放在这里介绍的话，在后面的文章中只需要关注需要实现功能业务等就行.）
@@ -267,7 +267,7 @@ Netlify是一个统一平台，可自动执行代码，以创建高性能，易�
 
 >然后配置build/deploy选项：
 ![部署2](2019-03-27_netlify_2.webp)
-关于高级选项中`New variable`定义环境变量，可以自行选择，Gatsby本身也支持`Project Env Vars`和`OS Env Vars`以及不同环境中的自定义行为；所以我没有使用netlify.toml配置文件(详细请查看[Gatsby Environment](https://www.gatsbyjs.org/docs/environment-variables/))。
+关于高级选项中`New variable`定义环境变量，可以自行选择，Gatsby本身支持`Project Env Vars`和`OS Env Vars`以及不同环境中的自定义行为；所以我没有使用netlify.toml配置文件(详细请查看[Gatsby Environment](https://www.gatsbyjs.org/docs/environment-variables/))。
 
 最后选择`Deploy site`。
 

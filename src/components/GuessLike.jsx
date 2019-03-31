@@ -139,9 +139,8 @@ export default props => (
                 cover {
                   childImageSharp {
                     fluid(
-                      maxWidth: 1000
-                      quality: 90
-                      traceSVG: { color: "#2B2B2F" }
+                      maxWidth: 240
+                      quality: 20
                     ) {
                       ...GatsbyImageSharpFluid_withWebp_tracedSVG
                     }

@@ -2,7 +2,6 @@ import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { locale } from 'core-js';
 import { Search } from 'components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
