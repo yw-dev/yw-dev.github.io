@@ -49,7 +49,7 @@ tags: ['Gatsby', 'React']
 
 ## Gatsby介绍
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gatsby是一个构建静态渐进式Web应用的一大利器，是基于React的构建超快速的网站和应用程序的免费开源框架。它是一个静态PWA（Progressive Web App）生成器。它会生成网站的HTML页面，但也会创建一个JavaScript运行时，一旦加载了初始HTML，它就会在浏览器中接管。这使得其他页面可以即时加载；Gatsby只加载关键的HTML，CSS，数据和JavaScript，以便网站尽快加载。
+&nbsp;&nbsp;&nbsp;&nbsp;Gatsby是一个构建静态渐进式Web应用的一大利器，是基于React的构建超快速的网站和应用程序的免费开源框架。它是一个静态PWA（Progressive Web App）生成器。它会生成网站的HTML页面，但也会创建一个JavaScript运行时，一旦加载了初始HTML，它就会在浏览器中接管。这使得其他页面可以即时加载；Gatsby只加载关键的HTML，CSS，数据和JavaScript，以便网站尽快加载。
 
 - **构建 静态 渐进式Web应用程序:** 获得开箱即用的代码和数据；只加载关键的HTML，CSS，数据和JavaScript；加载后，会为其他页面预取资源。
 - **自带数据:** 丰富的数据插件生态系统,使用GraphQL将无头CMS，SaaS服务，API，数据库，文件系统等数据直接导入页面；站点所需数据来自一个或多个来源。
@@ -246,7 +246,7 @@ $ git push -u origin master
 至此，项目构建和source管理的问题得以解决,待项目功能完善之后我们可以选择发布、托管平台，我使用的`Netlify`，下面会介绍`Netlify`。（这里选择把`Netlify`放在这里介绍因为项目从构建→source管理→发布一整条线下来会比较清晰，放到最后面介绍会觉得拖拉；放在这里介绍的话，在后面的文章中只需要关注需要实现功能业务等就行.）
 
 ## Netlify 托管
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Netlify是一个统一平台，可自动执行代码，以创建高性能，易于维护的站点和Web应用程序。提供持续部署，智能的全局CDN，完整的DNS（包括自定义域），自动HTTPS，资产加速等等。Netlify的免费套餐包括无限的个人和商业项目，HTTPS，公共或私有repos的持续部署等。
+&nbsp;&nbsp;&nbsp;&nbsp;Netlify是一个统一平台，可自动执行代码，以创建高性能，易于维护的站点和Web应用程序。提供持续部署，智能的全局CDN，完整的DNS（包括自定义域），自动HTTPS，资产加速等等。Netlify的免费套餐包括无限的个人和商业项目，HTTPS，公共或私有repos的持续部署等。
 
 ### 托管设置
 

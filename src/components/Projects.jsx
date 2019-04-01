@@ -163,7 +163,7 @@ const Projects = ({ data }) => {
           </Image>
           <InfoContainer>
             <Info>
-              <Title>{strLength(node.frontmatter.title)}</Title>
+              <Title>{strLength(node.frontmatter.title, 0)}</Title>
               <span>{node.excerpt}</span>
             </Info>
           </InfoContainer>

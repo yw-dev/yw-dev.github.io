@@ -67,7 +67,6 @@ const Information = styled.div`
 p:hover {
   color: ${props => props.theme.colors.black.base};
 }
-text-align: center;
 flex-basis: 100%;
 max-width: 100%;
 width: 100%;
