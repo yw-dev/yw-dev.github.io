@@ -71,8 +71,8 @@ const InfoDessc = styled.div`
 `;
 
 const Image = styled.div`
-width: 280px;
-height: 140px;
+  width: 280px;
+  height: 140px;
   //box-shadow: ${props => props.theme.shadow.feature.small.hover};
   //border-radius: ${props => props.theme.borderRadius.default};
   img {
