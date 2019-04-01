@@ -54,7 +54,7 @@ const Item = styled.div`
     background-color: ${props => props.theme.colors.hot.orange};
   }
   .l-6{
-    background-color: ${props => props.theme.colors.hot.l_blue};
+    background-color: ${props => props.theme.colors.hot.l_coffee};
   }
   .title{
     text-align: left;
