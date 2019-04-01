@@ -122,7 +122,8 @@ export const theme = {
     md: '768px',
     m: '900px',
     hd: '1080px',
-    l: '1200px',
+    l: '1280px',
+    hl: '1366px',
     vl: '1500px',
   },
   fontFamily: {

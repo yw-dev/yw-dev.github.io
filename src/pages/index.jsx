@@ -25,6 +25,9 @@ import {
 const ContentWrapper = styled.div`
   margin: 2rem 8rem 2rem 8rem;
   width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   @media (max-width: ${props => props.theme.breakpoints.l}) {
     margin: 1rem 6rem 1rem 6rem;
   }
@@ -33,73 +36,36 @@ const ContentWrapper = styled.div`
   }
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     margin: 1rem 2rem 1rem 2rem;
+    flex-wrap: wrap;
   }
   @media (max-width:  ${props => props.theme.breakpoints.s}) {
     margin:  1rem;
   }
 `;
 
-const ContentContainer = styled.div`
-  width: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
-    flex-wrap: wrap;
-  }
-`; 
-
 const ContentPost = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding-right: 1rem;
+  justify-content: space-between;
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     padding-right: 0rem;
   }
 `;
 
-const ContentHeader = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  @media (max-width: ${props => props.theme.breakpoints.vl}) {
-    flex-wrap: wrap;
-  }
-`; 
-
-const TopWrapper = styled.div`
-  width: 100%;
-  max-height: 100%;
-  display: flex;
-  flex-direction: row;
-  margin: 0 0 1rem 0;
-  @media (max-width: ${props => props.theme.breakpoints.vl}) {
-    flex-wrap: wrap;
-  }
-`;
-
 const AsideWrapper = styled.div`
-  width: calc(99.9% * 1 / 4 - 1rem);
+  width: calc(99.9% * 1 / 4);
   min-width: 330px;
   display: flex;
   flex-direction: column;
   @media (max-width: ${props => props.theme.breakpoints.vl}) {
-    width: calc(99.9% * 1 / 3 - 1rem);
+    width: calc(99.9% * 1 / 3);
   }
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     width: 100%;
   }
-`;
-
-const PostWrapper = styled.div`
-  width: 100%;
-  float: left;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
 `;
 
 /*  scroll bottom refresh
@@ -245,17 +211,10 @@ class Index extends Component {
         <Helmet title={`首页 | ${config.siteTitle}`} />
         <Header title={`${config.siteTitle}`}></Header>
         <ContentWrapper>
-          <ContentContainer>
             <ContentPost>
-              <ContentHeader>
-                <TopWrapper>
-                  <HotTopic/>
-                  <Projects/>
-                </TopWrapper>
-              </ContentHeader>       
-              <PostWrapper>
-                <Specials />  
-              </PostWrapper>
+              <HotTopic/>
+              <Projects/>    
+              <Specials />  
               <PostList />
             </ContentPost>
             <AsideWrapper>
@@ -263,15 +222,13 @@ class Index extends Component {
               <Archive />
               <GuessLike />
               <TagCloud />
-            </AsideWrapper>
-          </ContentContainer>        
+            </AsideWrapper>     
         </ContentWrapper>
       </Layout>
     );
   };
 
 export default Index;
-//$repo: repo = "yw-dev.github.io"
 
 /*
 export const query = graphql`

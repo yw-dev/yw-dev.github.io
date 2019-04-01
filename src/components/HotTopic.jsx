@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import md5 from 'md5'
 import { strLength } from '../util/util'
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import Img from 'gatsby-image';
 import { CardHeader } from 'components';
-import config from '../../config/site';
-import theme from '../../config/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Container = styled.div`
-  width: 100%;
+  width: calc(99.9% * 1 / 2 - 0.5rem);
   font-size: 14px;
+  margin: 0 0 0.5rem 0;
   @media (max-width: ${props => props.theme.breakpoints.vl}) {
-    margin: 0rem 0rem 1rem 0rem;
+    width: 100%;
   }
 `;
 

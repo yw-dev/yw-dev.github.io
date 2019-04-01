@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Container = styled.div`
   width: 100%;
   font-size: 14px;
-  margin: 0rem 0rem 1rem 0rem;
+  margin: 0rem 0rem 0.5rem 0rem;
 `;
 
 const Wrapper = styled.div`

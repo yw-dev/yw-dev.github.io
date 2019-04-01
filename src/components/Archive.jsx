@@ -3,13 +3,12 @@ import { StaticQuery, graphql, Link } from 'gatsby';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { CardHeader } from 'components';
-import config from '../../config/site';
 
 
 const Container = styled.div`
   width: 100%;
   font-size: 14px;
-  margin: 0rem 0rem 1rem 0rem;
+  margin: 0rem 0rem 0.5rem 0rem;
 `;
 
 const Wrapper = styled.div`

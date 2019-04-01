@@ -7,11 +7,8 @@ import { CardHeader, ContentMeta } from 'components';
 
 const Container = styled.div`
   width: 100%;
-  margin: 0 0 1rem 0;
   font-size: 14px;
-  @media (max-width: ${props => props.theme.breakpoints.vl}) {
-    margin: 0rem 0rem 1rem 0rem;
-  }
+  margin: 0rem 0rem 0.5rem 0rem;
 `;
 
 const Wrapper = styled.div`
@@ -31,9 +28,7 @@ const StyledLink = styled(Link)`
   flex-direction: column;
   margin-top: 5px;
   padding: 0 1rem;
-  //background: ${props => props.theme.colors.background.light};
   transition: ${props => props.theme.transitions.boom.transition};
-  //box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   &:hover{
       transform: scale(1.02);
       box-shadow: ${props => props.theme.shadow.feature.small.l_little};

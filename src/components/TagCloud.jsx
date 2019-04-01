@@ -2,16 +2,13 @@ import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import Img from 'gatsby-image';
 import { CardHeader } from 'components';
-import config from '../../config/site';
-import theme from '../../config/theme';
 
 
 const Container = styled.div`
   width: 100%;
   font-size: 14px;
-  margin: 0rem 0rem 1rem 0rem;
+  margin: 0rem 0rem 0.5rem 0rem;
 `;
 
 const Wrapper = styled.div`

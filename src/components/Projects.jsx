@@ -4,18 +4,16 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import Img from 'gatsby-image';
 import { CardHeader } from 'components';
-import config from '../../config/site';
 import theme from '../../config/theme';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { strLength } from '../util/util'
 
 const Container = styled.div`
   width: 100%;
-  margin: 0;
+  width: calc(99.9% * 1 / 2 - 0.5rem);
   font-size: 14px;
-  margin: 0 0 0 1rem;
   @media (max-width: ${props => props.theme.breakpoints.vl}) {
-    margin: 0 0 0 0;
+    width: 100%;
+    margin: 0 0 0.5rem 0;
   }
 `;
 const Content = styled.div`
@@ -34,8 +32,6 @@ const Wrapper = styled.article`
   position: relative;
   z-index: 100;
   border-radius: ${props => props.theme.borderRadius.little};
-  //border: ${props => props.theme.border.lowlight};
-  //box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   transition: ${props => props.theme.transitions.boom.transition};
   width:100%;
   height: 135px;
