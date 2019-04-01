@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import { strLength } from '../util/util'
 import { Layout, Container, Content } from 'layouts';
 import { TagsBlock, Header, SEO,Archive, Comments, GuessLike, ContentHeader, ContentNav } from 'components';
 import config from '../../config/site';
@@ -170,15 +171,15 @@ const Post = ({ data, pageContext }) => {
             <SuggestionBar>
               <PostSuggestion>
                 {prev && (
-                  <Link className="Suggestion-up" to={prev.frontmatter.path}>
-                      <span>{prev.frontmatter.title}</span>
+                  <Link className="Suggestion-up" to={prev.frontmatter.path} title={prev.frontmatter.title}>
+                      <span>{strLength(prev.frontmatter.title, 12)}</span>
                   </Link>
                 )}
               </PostSuggestion>
               <PostSuggestion>
                 {next && (
-                  <Link className="Suggestion-next" to={next.frontmatter.path}>
-                      <span>{next.frontmatter.title}</span>
+                  <Link className="Suggestion-next" to={next.frontmatter.path} title={prev.frontmatter.title}>
+                      <span>{strLength(next.frontmatter.title, 12)}</span>
                   </Link>
                 )}
               </PostSuggestion>
