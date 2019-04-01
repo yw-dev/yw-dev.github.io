@@ -1,16 +1,7 @@
 import React, { Component } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import md5 from 'md5'
-import {
-  queryParse,
-  queryStringify,
-  axiosJSON,
-  axiosGithub,
-  getMetaContent,
-  formatErrorMsg,
-  hasClassInParent,
-  strLength,
-} from '../util/util'
+import { strLength } from '../util/util'
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import Img from 'gatsby-image';
