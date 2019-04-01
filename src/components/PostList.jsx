@@ -5,21 +5,12 @@ import styled from '@emotion/styled';
 import Img from 'gatsby-image';
 import { CardHeader, ContentMeta } from 'components';
 
-const Container = styled.div`
-  width: 100%;
-  font-size: 14px;
-  margin: 0rem 0rem 0.5rem 0rem;
-`;
-
 const Wrapper = styled.div`
   position: relative;
   max-width: 100%;
   width: 100%;
-`;
-
-const List = styled.div`
-  position: relative;
-  width: 100%;
+  font-size: 14px;
+  margin: 0rem 0rem 0.5rem 0rem;
 `;
 
 const StyledLink = styled(Link)`
@@ -53,7 +44,7 @@ const InfoDessc = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  color: ${props => props.theme.colors.black.base};  
+  color: ${props => props.theme.colors.black.base};
   h1,h2,h3,h4,h5,h6{
     line-height: 20px;
   }
@@ -150,10 +141,8 @@ class PostList extends Component {
   render() {
   
     return (
-    <Container>
       <Wrapper>
         <CardHeader title="文章" other="" icons={`${'fas', "angle-double-right"}`} path="/blog"></CardHeader>
-        <List>
         {this.props.data&&this.props.data.allMarkdownRemark.edges.map(({ node }) => (
           <StyledLink key={node.id} to={node.frontmatter.path} title={node.frontmatter.title}>
             <Item>
@@ -172,9 +161,7 @@ class PostList extends Component {
             </Item>
           </StyledLink>
         ))}
-        </List>
       </Wrapper>
-    </Container>
   )};
 
 }

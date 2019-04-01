@@ -11,31 +11,24 @@ const Container = styled.div`
   width: 100%;
   margin: 0;
   font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   @media (max-width: ${props => props.theme.breakpoints.l}) {
     margin: 0rem 0rem 14px 0rem;
   }
 `;
-const Content = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  justify-content: space-between;
-  @media (max-width:  ${props => props.theme.breakpoints.l}) {
-    margin: 0;
-  }
-`;
-
 
 const Wrapper = styled.article`
-  margin: 0 0 10px 0;
+  margin: 0.5rem 0 0 0;
   position: relative;
   z-index: 100;
   border-radius: ${props => props.theme.borderRadius.default};
   border: ${props => props.theme.border.lowlight};
   box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   transition: ${props => props.theme.transitions.boom.transition};
-  width:100%;
+  width: 100%;
   height: 15rem;
   flex-basis: calc(99.9% * 1 / 4 - 7px);
   max-width: calc(99.9% * 1 / 4 - 7px);
@@ -58,7 +51,6 @@ const Wrapper = styled.article`
     max-width: calc(99.9% * 1 / 2 - 7px);
     width: calc(99.9% * 1 / 2 - 7px);
     height: 17rem;
-    margin: 14px 0 0 0;
   }
 
   @media (max-width:  ${props => props.theme.breakpoints.m}) {
@@ -162,7 +154,6 @@ const Specials = ({ data }) => {
   return (
   <Container>
     <CardHeader title="专题" other="" icons={`${'fas', "angle-double-right"}`} path="/specials"></CardHeader>
-    <Content>
     {subtitles.map((subtitle, index) => {
       return (
         <Wrapper key={index}>
@@ -180,7 +171,6 @@ const Specials = ({ data }) => {
         </Wrapper>  
       )}
     )}
-    </Content>    
   </Container>
 )};
 

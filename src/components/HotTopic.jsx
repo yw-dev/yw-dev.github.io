@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import { strLength } from '../util/util'
+import { strLength } from '../util/util';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { CardHeader } from 'components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Container = styled.div`
   width: calc(99.9% * 1 / 2 - 0.5rem);
@@ -15,21 +15,11 @@ const Container = styled.div`
   }
 `;
 
-const Wrapper = styled.div`
-  position: relative;
-  max-width: 100%;
-  width: 100%;
-`;
-const List = styled.div`
-  position: relative;
-  width: 100%;
-`;
-
 const StyledLink = styled(Link)`
   width: 100%;
   display: flex;
   flex-direction: row;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   transition: ${props => props.theme.transitions.boom.transition};
   &:hover{
     transform: scale(1.02);
@@ -38,9 +28,9 @@ const StyledLink = styled(Link)`
 `;
 
 const Item = styled.div`
-  position: relative;
   width: 100%;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -64,10 +54,10 @@ const Item = styled.div`
     background-color: ${props => props.theme.colors.hot.orange};
   }
   .title{
-    text-align:left;
-    width: calc(70% - 1rem);
+    text-align: left;
+    width: calc(75% - 1rem);
   }
-  svg, .label-num{
+  svg, .like{
     color: ${props => props.theme.colors.hot.light};
   }
 `;
@@ -98,21 +88,16 @@ class HotTopic extends Component{
     render() {  
       return (
         <Container>
-          <Wrapper>
-            <CardHeader title="热门排行" other="" icons={`${'fas', "angle-double-right"}`} path="/blog"></CardHeader>
-            <List>
-                {this.state.data.map(({ node }, index) => (
-                    <StyledLink key={node.id} to={`/${node.frontmatter.path}`}  title={node.frontmatter.title}>
-                      <Item>
-                        <div><span className={`label l-${++index}`}>{index}</span></div>
-                        <div className="title">{strLength(node.frontmatter.title, 25)}</div>
-                        <div><FontAwesomeIcon icon={['far', 'heart']} size="1x"/>&nbsp;
-                        <span className="label-num">22233</span></div>
-                      </Item>
-                    </StyledLink>
-                ))}
-            </List>
-          </Wrapper>
+          <CardHeader title="热门排行" other="" icons={`${'fas', "angle-double-right"}`} path="/blog"></CardHeader>
+            {this.state.data.map(({ node }, index) => (
+              <StyledLink key={node.id} to={`/${node.frontmatter.path}`}  title={node.frontmatter.title}>
+                <Item>
+                  <span className={`label l-${++index}`}>{index}</span>
+                  <span className="title">{strLength(node.frontmatter.title, 25)}</span>
+                  <span className="like"><FontAwesomeIcon icon={['far', 'heart']} size="1x"/>&nbsp;22233</span>
+                </Item>
+              </StyledLink>
+            ))}
         </Container>
       )
     }
@@ -124,7 +109,7 @@ export default props => (
     query={graphql`
       query {
         allMarkdownRemark(
-          limit: 5
+          limit: 6
           sort: { order: DESC, fields: [frontmatter___date] }
         ) {
           edges {

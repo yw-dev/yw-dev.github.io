@@ -4,17 +4,11 @@ import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { CardHeader } from 'components';
 
-
-const Container = styled.div`
+const Wrapper = styled.div`
+  max-width: 100%;
   width: 100%;
   font-size: 14px;
   margin: 0rem 0rem 0.5rem 0rem;
-`;
-
-const Wrapper = styled.div`
-  position: relative;
-  max-width: 100%;
-  width: 100%;
 `;
 
 const List = styled.div`
@@ -29,11 +23,8 @@ const List = styled.div`
 const StyledLink = styled(Link)`
   width: 50%;
   display: flex;
-  flex-direction: row;
-  padding: 0 1rem 0 1rem;
-  //background: ${props => props.theme.colors.background.light};
+  text-align:center;
   transition: ${props => props.theme.transitions.boom.transition};
-  //box-shadow: ${props => props.theme.shadow.feature.small.l_little};
   &:hover{
     transform: scale(1.04);
     box-shadow: ${props => props.theme.shadow.feature.small.l_little};
@@ -41,13 +32,10 @@ const StyledLink = styled(Link)`
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     width: 20%;
   }
-`;
-
-const Item = styled.div`
-  width: 100%;
-  padding: 1rem 0;
-  position: relative;
-  text-align:center;
+  span {    
+    width: 100%;
+    padding: 1rem 0;
+  }
 `;
 
 
@@ -66,21 +54,17 @@ const Archive = ({ data }) => {
     
     const archivs = Object.keys(archives);
     return (
-      <Container>
-        <Wrapper>
-          <CardHeader title="文章归档" other="" icons="" path=""></CardHeader>
-          <List>
-              {archivs && archivs.map((archive, index) => (
-              <StyledLink key={index} to={`/${archive}`}>
-                <Item>
-                  <span>{archive}</span>
-                </Item>
-              </StyledLink>
-              ))}
-          </List>
-        </Wrapper>
-     </Container>
-)};
+      <Wrapper>
+        <CardHeader title="文章归档" other="" icons="" path=""></CardHeader>
+        <List>
+            {archivs && archivs.map((archive, index) => (
+            <StyledLink key={index} to={`/${archive}`}>
+                <span>{archive}</span>
+            </StyledLink>
+            ))}
+        </List>
+      </Wrapper>
+    )};
 
 export default props => (
     <StaticQuery

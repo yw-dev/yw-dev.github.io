@@ -4,9 +4,13 @@ import { axiosGithub, inject_unmount } from '../util/util'
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const ContentHead = styled.div`
-    display: block;
+const HeadMeta = styled.div`
+    width:100%;
+    display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    padding: 0.25rem 0rem;
+    color: ${props => props.theme.colors.black.base};
     .label{
       padding: 3px;
       color:  ${props => props.theme.colors.label.green};
@@ -14,21 +18,12 @@ const ContentHead = styled.div`
         color: ${props => props.theme.colors.hot.red};
       }
     }
-`;
-
-const HeadMeta = styled.div`
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0.25rem 0rem;
-    color: ${props => props.theme.colors.black.base};
-`;
-
-const Item = styled.div`
-    padding: 0 5px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    .item {        
+        padding: 0 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 `;
 
 class GuessLikeMeta extends Component{
@@ -45,22 +40,16 @@ class GuessLikeMeta extends Component{
 
     render() {
         return(  
-        <ContentHead>
             <HeadMeta>
-                <Item>
-                    <span>
-                        <FontAwesomeIcon icon={['far', 'clock']} size="1x" />
-                        <span className="label">&nbsp;{this.props.date}</span>
-                    </span>
-                </Item>
-                <Item>
-                    <span>
-                        <FontAwesomeIcon icon={['far', 'comment-dots']} size="1x" />
-                        <span className="label">&nbsp;{this.state.commentNum}评论</span>
-                    </span>
-                </Item>
+                <span className="item">
+                    <FontAwesomeIcon icon={['far', 'clock']} size="1x" />
+                    <span className="label">&nbsp;{this.props.date}</span>
+                </span>
+                <span className="item">
+                    <FontAwesomeIcon icon={['far', 'comment-dots']} size="1x" />
+                    <span className="label">&nbsp;{this.state.commentNum}评论</span>
+                </span>
             </HeadMeta>
-        </ContentHead>
         )
     }
     /**

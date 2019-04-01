@@ -4,20 +4,15 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Topic = styled.div`
-  width: 100%;
-  font-size: 14px;
-  //background: ${props => props.theme.colors.background.light};
-  box-shadow: ${props => props.theme.shadow.feature.small.little};
-`;
-
 const Wrapper = styled.div`
   width: 100%;
+  font-size: 14px;
   display: flex;
   justify-content: space-between;
   font-size: 8px;
   align-items: center;
   text-align: center;
+  box-shadow: ${props => props.theme.shadow.feature.small.little};
   h1,h2,h3,h4,h5{
     margin: 1rem;
     padding: 0 0 0 10px;
@@ -30,12 +25,10 @@ const Wrapper = styled.div`
 `;
 
 const CardHeader = ( {title, icons, other, path} ) => (
-  <Topic>
     <Wrapper>
         <h5>{title}</h5>
         {(other||icons)?(<Link className="nav-ul-li-a" to={path}>{other===""?(<div><FontAwesomeIcon icon={icons} size="2x" /></div>):other}</Link>):""}        
     </Wrapper>
-  </Topic>
 );
 
 export default CardHeader;

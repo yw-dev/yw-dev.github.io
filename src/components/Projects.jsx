@@ -8,36 +8,29 @@ import theme from '../../config/theme';
 import { strLength } from '../util/util'
 
 const Container = styled.div`
-  width: 100%;
   width: calc(99.9% * 1 / 2 - 0.5rem);
+  margin: 0 0 0.5rem 0;
   font-size: 14px;
-  @media (max-width: ${props => props.theme.breakpoints.vl}) {
-    width: 100%;
-    margin: 0 0 0.5rem 0;
-  }
-`;
-const Content = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  @media (max-width:  ${props => props.theme.breakpoints.l}) {
-    margin: 0;
+  @media (max-width: ${props => props.theme.breakpoints.vl}) {
+    width: 100%;
   }
 `;
 
-
 const Wrapper = styled.article`
-  margin: 6px 0 0 0;
   position: relative;
   z-index: 100;
+  margin: 10px 0 0 0;
   border-radius: ${props => props.theme.borderRadius.little};
   transition: ${props => props.theme.transitions.boom.transition};
   width:100%;
-  height: 135px;
-  flex-basis: calc(99.9% * 1 / 2 - 3px);
-  max-width: calc(99.9% * 1 / 2 - 3px);
-  width: calc(99.9% * 1 / 2 - 3px);
+  height: 136px;
+  flex-basis: calc(99.9% * 1 / 2 - 4px);
+  max-width: calc(99.9% * 1 / 2 - 4px);
+  width: calc(99.9% * 1 / 2 - 4px);
 
   &:hover {
     box-shadow: ${props => props.theme.shadow.feature.small.little};
@@ -45,25 +38,17 @@ const Wrapper = styled.article`
   }
 
   @media (max-width:  ${props => props.theme.breakpoints.vl}) {
-    margin: 14px 0 0 0;
-    flex-basis: calc(99.9% * 1 / 2 - 7px);
-    max-width: calc(99.9% * 1 / 2 - 7px);
-    width: calc(99.9% * 1 / 2 - 7px);
+    flex-basis: calc(99.9% * 1 / 2 - 5px);
+    max-width: calc(99.9% * 1 / 2 - 5px);
+    width: calc(99.9% * 1 / 2 - 5px);
     height: 14rem;
-  }
-
-  @media (max-width:  ${props => props.theme.breakpoints.l}) {
-    flex-basis: calc(99.9% * 1 / 2 - 7px);
-    max-width: calc(99.9% * 1 / 2 - 7px);
-    width: calc(99.9% * 1 / 2 - 7px);
-    height: 17rem;
-    margin: 10px 0 0 0;
   }
 
   @media (max-width:  ${props => props.theme.breakpoints.m}) {
     flex-basis: 100%;
     max-width: 100%;
     width: 100%;
+    margin: 0.5rem 0 0 0;
     height: 15rem;
   }
 `;
@@ -127,6 +112,7 @@ const Image = styled.div`
 `;
 
 const Info = styled.div`
+  width:100%;
   font-size: 14px;
   padding: 1rem;
   position: absolute;
@@ -149,9 +135,7 @@ const Projects = ({ data }) => {
   return (
     <Container>
       <CardHeader title="资源" other="" icons={`${'fas', "th-large"}`} path="/resource"></CardHeader>
-      <Content>
-      {edges.map(({ node }) => {
-        return (
+      {edges.map(({ node }) => (
         <Wrapper key={node.id}>
           <Link to={`/${node.frontmatter.path}`} title={node.frontmatter.title}>
           <Image>
@@ -165,9 +149,8 @@ const Projects = ({ data }) => {
           </InfoContainer>
           </Link>
         </Wrapper>
-        )}
+        )
       )}
-      </Content>
     </Container>
 )};
 

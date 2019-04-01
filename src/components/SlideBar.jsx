@@ -5,21 +5,18 @@ import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import { CardHeader } from 'components';
 
-const Container = styled.div`
+const Wrapper = styled.div`
+  position: relative;
+  max-width: 100%;
   width: 100%;
   font-size: 14px;
   margin: 0rem 0rem 0.5rem 0rem;
 `;
 
-const Wrapper = styled.div`
-  position: relative;
-  max-width: 100%;
-  width: 100%;
-`;
-
 const Carousel = styled.div`
   width:100%;
   height: 16rem;
+  margin: 0.5rem 0 0 0;
   @media (max-width: ${props => props.theme.breakpoints.vl}) {
     height: 13rem;
   }
@@ -316,10 +313,9 @@ const Images = styled.div`
 
 const Title = styled.div`
   position: absolute;
-  display: block;
-  width: auto;
+  width: 100%;
   padding: 1rem;
-  bottom: 1rem;
+  bottom: 0;
   z-index: 2;
   color: ${props => props.theme.colors.white.grey};
 `;
@@ -329,12 +325,10 @@ const SlideBar = ({ data }) => {
   const { edges } = data.allMarkdownRemark;
 
   return (
-    <Container>
-      <Wrapper>
-        <CardHeader title="热门专题" other="" icons={`${'fas', "angle-double-right"}`} path="/specials"></CardHeader>
-      </Wrapper>
+    <Wrapper>
+      <CardHeader title="热门专题" other="" icons={`${'fas', "angle-double-right"}`} path="/specials"></CardHeader>
       <Carousel>
-        <div id="container" className="csslider infinity inside">
+        <div className="csslider infinity inside">
           <input type="radio" name="navs" id="hot_1" defaultChecked />
           <input type="radio" name="navs" id="hot_2" />
           <input type="radio" name="navs" id="hot_3" />
@@ -361,7 +355,7 @@ const SlideBar = ({ data }) => {
           </div>
         </div>
       </Carousel>
-    </Container>
+    </Wrapper>
 )};
 
 export default props => (

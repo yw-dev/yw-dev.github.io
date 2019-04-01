@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
 import md5 from 'md5'
-import {
-  queryParse,
-  queryStringify,
-  axiosJSON,
-  axiosGithub,
-  getMetaContent,
-  formatErrorMsg,
-  hasClassInParent
-} from '../util/util'
+import { axiosGithub } from '../util/util'
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import config from '../../config/site';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-const ContentHead = styled.div`
+
+const HeadMeta = styled.div`
     width:100%;
-    display: block;
-    align-items: center;
-    margin: 0.5rem 0;
-    box-shadow: ${props => props.theme.shadow.feature.title.bottom};
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    padding: 0.25rem 0rem;
+    flex-wrap: wrap;
+    color: ${props => props.theme.colors.black.base};
     .label{
       padding: 3px;
       color:  ${props => props.theme.colors.label.green};
@@ -27,23 +22,9 @@ const ContentHead = styled.div`
         color: ${props => props.theme.colors.hot.red};
       }
     }
-`;
-
-const HeadMeta = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 14px;
-    padding: 0.25rem 0rem;
-    flex-wrap: wrap;
-    color: ${props => props.theme.colors.black.base};
-`;
-
-const Item = styled.div`
-    padding: 0 5px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    .item {        
+        padding: 0 5px;
+    }
 `;
 
 class ContentHeader extends Component{
@@ -96,42 +77,28 @@ class ContentHeader extends Component{
             }
         })};
         return(  
-        <ContentHead>
-            <HeadMeta>
-                <Item>
-                    <FontAwesomeIcon icon={['far', 'file-code']} size="1x" />
-                    {this.props.tags && this.props.tags.map((tag, index) => (
-                        <span key={index}>
-                            <Link className="label" to={`${this.props.stype}/${tag}`}>&nbsp;{tag}&nbsp;</Link>
-                        </span>
-                    ))}
-                </Item>
-                <Item>
-                    <span>
-                    <FontAwesomeIcon icon={['far', 'user']} size="1x" />
-                        <Link className="label" to={this.props.path}>&nbsp;{`${config.author}`}</Link>
-                    </span>
-                </Item>
-                <Item>
-                    <span>
-                        <FontAwesomeIcon icon={['far', 'clock']} size="1x" />
-                        &nbsp;{this.props.date}
-                    </span>
-                </Item>
-                <Item>
-                    <span>
-                        <FontAwesomeIcon icon={['far', 'eye']} size="1x" />
-                        &nbsp;0浏览
-                    </span>
-                </Item>
-                <Item>
-                    <span>
-                        <FontAwesomeIcon icon={['far', 'comment-dots']} size="1x" />
-                        <Link className="label" to={this.props.path}>&nbsp;{this.state.commentNum}评论</Link>
-                    </span>
-                </Item>
-            </HeadMeta>
-        </ContentHead>
+        <HeadMeta>
+            <span className="item">
+                <FontAwesomeIcon icon={['far', 'file-code']} size="1x" />
+                {this.props.tags && this.props.tags.map((tag, index) => (
+                    <Link key={index} className="label" to={`${this.props.stype}/${tag}`}>&nbsp;{tag}&nbsp;</Link>
+                ))}
+            </span>
+            <span className="item">
+                <FontAwesomeIcon icon={['far', 'user']} size="1x" />
+                <Link className="label" to={this.props.path}>&nbsp;{`${config.author}`}</Link>
+            </span>
+            <span className="item">
+                <FontAwesomeIcon icon={['far', 'clock']} size="1x" /> &nbsp;{this.props.date}
+            </span>
+            <span className="item">
+                <FontAwesomeIcon icon={['far', 'eye']} size="1x" />&nbsp;0浏览
+            </span>
+            <span className="item">
+                <FontAwesomeIcon icon={['far', 'comment-dots']} size="1x" />
+                <Link className="label" to={this.props.path}>&nbsp;{this.state.commentNum}评论</Link>
+            </span>
+        </HeadMeta>
         )
     }
 }
