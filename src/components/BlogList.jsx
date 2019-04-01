@@ -79,6 +79,7 @@ border-bottom: ${props => props.theme.border.posts};
 `;
 
 const HeadTitle = styled.div`
+    text-align: center;
     display: flex;
     padding: 1rem;
     flex-direction: column;
