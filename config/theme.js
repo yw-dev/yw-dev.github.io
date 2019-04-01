@@ -43,6 +43,7 @@ export const colors = {
     yellow: '#ffa94d',
     blue: '#7EC0EE',
     orange: '#FF7256',
+    l_blue: '#BC8F8F',
   },
   opcity:{
     navbarbg: 'rgba(30,37,47, 0.7)',
