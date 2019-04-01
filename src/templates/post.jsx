@@ -178,7 +178,7 @@ const Post = ({ data, pageContext }) => {
               </PostSuggestion>
               <PostSuggestion>
                 {next && (
-                  <Link className="Suggestion-next" to={next.frontmatter.path} title={prev.frontmatter.title}>
+                  <Link className="Suggestion-next" to={next.frontmatter.path} title={next.frontmatter.title}>
                       <span>{strLength(next.frontmatter.title, 12)}</span>
                   </Link>
                 )}
