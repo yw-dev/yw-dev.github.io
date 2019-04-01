@@ -32,10 +32,6 @@ const Item = styled.div`
   padding: 0.5rem 0;
   display: flex;
   flex-direction: row;
-  p{
-    margin:0;
-    padding:0;
-  }
 `;
 
 const InfoDessc = styled.div`
@@ -46,7 +42,7 @@ const InfoDessc = styled.div`
   justify-content: space-around;
   color: ${props => props.theme.colors.black.base};
   h1,h2,h3,h4,h5,h6{
-    line-height: 20px;
+    line-height: 30px;
   }
 `;
 
@@ -150,7 +146,7 @@ class PostList extends Component {
                 <Img fluid={node.frontmatter.cover.childImageSharp.fluid || {} || [] || ''} />
               </ImageView>
               <InfoDessc>
-                <h4>{node.frontmatter.title}</h4>
+                <h5>{node.frontmatter.title}</h5>
                 <span>{node.excerpt}</span>
                 <ContentMeta 
                   tags={node.frontmatter.tags} 
