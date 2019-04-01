@@ -96,14 +96,14 @@ const GuessLike = ({ data }) => {
         <CardHeader title="猜你喜欢" other="" icons={`${'fas', "redo"}`} path="/blog"></CardHeader>
         <List>
         {edges.map(({ node }) => (
-          <StyledLink key={node.id} to={`/${node.frontmatter.path}`}>
+          <StyledLink key={node.id} to={`/${node.frontmatter.path}`} title={node.frontmatter.title}>
             <Item>
                 <Image>
                   <Img fluid={node.frontmatter.cover.childImageSharp.fluid || {} || [] || ''} />
                 </Image>
                 <InfoDessc>
                   <InfoHeader>
-                    <h6>{strLength(node.frontmatter.title, 20)}</h6>
+                    <h6>{strLength(node.frontmatter.title, 16)}</h6>
                   </InfoHeader>
                   <span>{node.excerpt}</span>
                   <GuessLikeMeta 

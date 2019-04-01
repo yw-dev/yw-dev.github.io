@@ -160,7 +160,7 @@ class PostList extends Component {
         <CardHeader title="文章" other="" icons={`${'fas', "angle-double-right"}`} path="/blog"></CardHeader>
         <List>
         {this.props.data&&this.props.data.allMarkdownRemark.edges.map(({ node }) => (
-          <StyledLink key={node.id} to={node.frontmatter.path}>
+          <StyledLink key={node.id} to={node.frontmatter.path} title={node.frontmatter.title}>
             <Item>
               <ImageView>
                 <Img fluid={node.frontmatter.cover.childImageSharp.fluid || {} || [] || ''} />

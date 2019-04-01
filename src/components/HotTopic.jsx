@@ -105,7 +105,7 @@ class HotTopic extends Component{
             <CardHeader title="热门排行" other="" icons={`${'fas', "angle-double-right"}`} path="/blog"></CardHeader>
             <List>
                 {this.state.data.map(({ node }, index) => (
-                    <StyledLink key={node.id} to={`/${node.frontmatter.path}`} >
+                    <StyledLink key={node.id} to={`/${node.frontmatter.path}`}  title={node.frontmatter.title}>
                       <Item>
                         <div><span className={`label l-${++index}`}>{index}</span></div>
                         <div className="title">{strLength(node.frontmatter.title, 25)}</div>
