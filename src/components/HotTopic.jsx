@@ -85,7 +85,7 @@ class HotTopic extends Component{
   
     rebuild = () => {
       const { edges, totalCount } = this.props.data.allMarkdownRemark;
-      this.setState({ data: this.state.data.concat(edges), totalCount: totalCount, isLoading: false })
+      this.setState({ data: this.state.data.concat(edges), totalCount: totalCount, isLoading: false });
     }
     
     render() {  

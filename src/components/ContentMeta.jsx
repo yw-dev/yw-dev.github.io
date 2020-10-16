@@ -26,7 +26,7 @@ const HeadMeta = styled.div`
 class ContentMeta extends Component{
     constructor(props){
         super(props)
-        this.mounted = true    
+        this.mounted = true
         this.state = {
             commentNum: 0,
             labels: ['Gitalk'],
