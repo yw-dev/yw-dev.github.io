@@ -135,7 +135,7 @@ gatsby develop
 |-- gatsby-ssr.js
 |-- gatsby-browser.js
 ```
-
+ 
 #### 关键目录说明
 
 - **.cache:** 自动生成。此文件夹是Gatsby自动创建的内部缓存。webpack所需的所有文件都在.cache目录中，此目录中的文件不用修改。.gitignore如果尚未添加，应添加到文件中
