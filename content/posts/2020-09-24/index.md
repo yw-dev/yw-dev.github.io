@@ -5,7 +5,7 @@ discussionId: "2020-09-24-page-slug"
 path: "/2020-09-24-page-slug-01"
 cover: "../2020-09-24/20190225003347.jpg"
 date: "2020-09-24"
-title: "UnrealEngine 4 基础-HUD/UMG"
+title: "UnrealEngine4 - HUD/UMG"
 published: true
 subtitle: ""
 type: "dev"

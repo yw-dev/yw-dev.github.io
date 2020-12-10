@@ -5,7 +5,7 @@ discussionId: "2020-09-25-page-slug"
 path: "/2020-09-25-page-slug-01"
 cover: "../2020-09-25/20190225003347.jpg"
 date: "2020-09-25"
-title: "UnrealEngine 4 基础-Slate与HUD/UMG"
+title: "UnrealEngine4 - Slate与HUD/UMG"
 published: true
 subtitle: ""
 type: "dev"

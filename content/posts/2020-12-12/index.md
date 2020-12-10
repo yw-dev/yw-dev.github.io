@@ -1,11 +1,11 @@
 ---
 author: ""
 description: ""
-discussionId: "2020-09-23-page-slug"
-path: "/2020-09-23-page-slug-01"
-cover: "../2020-09-23/finance.webp"
-date: "2020-09-23"
-title: "UnrealEngine4 - 资源管理"
+discussionId: "2020-12-12-page-slug"
+path: "/2020-12-12-page-slug-01"
+cover: "../2020-12-12/20190225003347.jpg"
+date: "2020-12-12"
+title: "UnrealEngine4 - Replication之ReplicationDriver"
 published: true
 subtitle: ""
 type: "dev"
