@@ -194,10 +194,10 @@ const Special = ({data, pageContext }) => {
         <Wrapper>
           <Nav>
             <ul className="tree">
-              {subtitles.map((subtitle, index) => {
-                const Posts = specialPosts[subtitle];
+              {specialPosts.map(({ subNode }, index) => {
+                const Posts = specialPosts[subNode.frontmatter.subtitle];
                 return(
-                  <li key={index}><label htmlFor={`item-${index}`}>{subtitle}</label><input type="checkbox" defaultChecked id={`item-${index}`}/>
+                  <li key={index}><label htmlFor={`item-${index}`}>{subNode.frontmatter.subtitle}</label><input type="checkbox" defaultChecked id={`item-${index}`}/>
                     <ul>
                     {Posts.map(element =>{
                       posts = element;

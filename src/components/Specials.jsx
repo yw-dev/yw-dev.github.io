@@ -137,10 +137,10 @@ const Title = styled.h6`
 `;
 
 const Specials = ({ data }) => {
-  const { edges } = data.allMarkdownRemark;
+  //const { edges } = data.allMarkdownRemark;
   const postsBySpecial = {};
   // create tags page
-  edges.forEach(({ node }) => {
+  data.allMarkdownRemark.edges.forEach(({ node }) => {
     if (node.frontmatter.special) {
         if (!postsBySpecial[node.frontmatter.special]) {
           postsBySpecial[node.frontmatter.special] = [];
