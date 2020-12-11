@@ -1,11 +1,11 @@
 ---
 author: ""
 description: ""
-discussionId: "2018-12-27-page-slug"
-path: "/post-12-27"
-cover: "../2018-12-27/20190225003433.jpg"
-date: "2018-12-27"
-title: "Post 12 27"
+discussionId: "2018-12-28-page-slug"
+path: "/post-12-28"
+cover: "../2018-12-28/20190225003433.jpg"
+date: "2018-12-28"
+title: "Post 12 28"
 published: true
 subtitle: "Getting Start"
 type: "resource"
