@@ -199,7 +199,7 @@ const Special = ({data, pageContext }) => {
                 return(
                   <li key={index}><label htmlFor={`item-${index}`}>{subtitle}</label><input type="checkbox" defaultChecked id={`item-${index}`}/>
                     <ul>
-                    {Posts.map(element =>{
+                    {posts.map(element =>{
                     return (
                         <li key={element.id} className="file"><Link className="title" to={element.frontmatter.path} title={element.frontmatter.title}>{element.frontmatter.title}</Link></li>
                     )} 
