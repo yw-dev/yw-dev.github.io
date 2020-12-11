@@ -7,7 +7,7 @@ cover: "../2020-09-23/20190225003044.jpg"
 date: "2020-09-23"
 title: "UnrealEngine4 - 资源管理"
 published: true
-subtitle: ""
+subtitle: "Configuration3"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"

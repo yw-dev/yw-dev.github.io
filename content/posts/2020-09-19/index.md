@@ -7,7 +7,7 @@ cover: "../2020-09-19/20190225003153.jpg"
 date: "2020-09-19"
 title: "UnrealEngine4 - 智能指针库(一)"
 published: true
-subtitle: ""
+subtitle: "Configuration1"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"

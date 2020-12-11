@@ -7,7 +7,7 @@ cover: "../2020-09-20/20190225003347.jpg"
 date: "2020-09-20"
 title: "UnrealEngine4 - Delegate"
 published: true
-subtitle: ""
+subtitle: "Configuration2"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"

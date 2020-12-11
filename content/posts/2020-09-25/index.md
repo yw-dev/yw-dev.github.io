@@ -7,7 +7,7 @@ cover: "../2020-09-25/20190225003347.jpg"
 date: "2020-09-25"
 title: "UnrealEngine4 - Slate与HUD/UMG"
 published: true
-subtitle: ""
+subtitle: "Configuration5"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"

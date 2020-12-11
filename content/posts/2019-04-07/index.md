@@ -7,7 +7,7 @@ cover: "../2019-04-07/20190225002804.jpg"
 date: "2019-04-07"
 title: "JavaScript基础回顾-函数、对象、类、原型链和继承"
 published: true
-subtitle: ""
+subtitle: "Getting Start"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"

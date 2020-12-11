@@ -161,7 +161,7 @@ const Special = ({data, pageContext }) => {
   const upperSpecial = specialName.charAt(0).toUpperCase() + specialName.slice(1);
   const postsBySpecial = {};
   const specialPosts = {};
-  const posts = {};
+  var posts = {};
   var keyword=  [...upperSpecial];
   // create tags page
   data.allMarkdownRemark.edges.map(({ node }) => {

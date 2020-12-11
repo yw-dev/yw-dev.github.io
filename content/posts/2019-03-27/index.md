@@ -7,7 +7,7 @@ cover: "../2019-03-27/20190225003336.jpg"
 date: "2019-03-27"
 title: "Gatsby搭建个人博客"
 published: true
-subtitle: ""
+subtitle: "Getting Start"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"

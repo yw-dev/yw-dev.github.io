@@ -7,7 +7,7 @@ cover: "../2019-04-12/20190225003347.jpg"
 date: "2019-04-12"
 title: "JavaScript基础回顾-DOM、BOM对象与事件"
 published: true
-subtitle: ""
+subtitle: "Configuration"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"

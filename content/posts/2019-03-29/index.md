@@ -7,7 +7,7 @@ cover: "../2019-03-29/20190225003347.jpg"
 date: "2019-03-29"
 title: "图片优化、SVG与基于流体容器的图片"
 published: true
-subtitle: ""
+subtitle: "Architecture"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"

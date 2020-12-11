@@ -7,7 +7,7 @@ cover: "../2019-04-09/20190225003347.jpg"
 date: "2019-04-09"
 title: "JavaScript基础回顾-作用域、this、 call/apply/bind方法与闭包"
 published: true
-subtitle: ""
+subtitle: "Configuration2"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"
