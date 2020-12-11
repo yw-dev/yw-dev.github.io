@@ -3,7 +3,7 @@ author: ""
 description: ""
 discussionId: "2018-10-22-page-slug"
 path: "/post-eight"
-cover: "../2018-10-22/20190225002752.jpg"
+cover: "../2018-10-22/finance.webp"
 date: "2018-10-22"
 title: "Post Number Eight"
 published: true

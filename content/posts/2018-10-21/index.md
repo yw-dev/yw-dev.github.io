@@ -3,7 +3,7 @@ author: ""
 description: ""
 discussionId: "2018-10-21-page-slug"
 path: "/post-seven"
-cover: "../2018-10-21/azzhk-k6kz1.jpg"
+cover: "../2018-10-21/azzhk-k6kz1.webp"
 date: "2018-10-21"
 title: "Post Number Seven"
 published: true

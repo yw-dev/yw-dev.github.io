@@ -3,7 +3,7 @@ author: ""
 description: ""
 discussionId: "2018-10-20-page-slug"
 path: "/post-six"
-cover: "../2018-10-20/atch1-gskhz.jpg"
+cover: "../2018-10-20/atch1-gskhz.webp"
 date: "2018-10-20"
 title: "Post Number Six"
 published: true
