@@ -11,7 +11,7 @@ subtitle: ""
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"
-special: "Web开发"
+special: "Java Script"
 categores: "Web"
 tags: ['Gatsby', 'Html5', 'JavaScript']
 ---
