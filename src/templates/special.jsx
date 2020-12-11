@@ -195,11 +195,12 @@ const Special = ({data, pageContext }) => {
           <Nav>
             <ul className="tree">
               {subtitles.map((subtitle, index) => {
-                posts = specialPosts[subtitle];
+                const Post = specialPosts[subtitle];
                 return(
                   <li key={index}><label htmlFor={`item-${index}`}>{subtitle}</label><input type="checkbox" defaultChecked id={`item-${index}`}/>
                     <ul>
-                    {posts.map(element =>{
+                    {Post.map(element =>{
+                      posts = element;
                     return (
                         <li key={element.id} className="file"><Link className="title" to={element.frontmatter.path} title={element.frontmatter.title}>{element.frontmatter.title}</Link></li>
                     )} 
