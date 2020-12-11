@@ -3,7 +3,7 @@ author: ""
 description: ""
 discussionId: "2020-12-10-page-slug"
 path: "/2020-12-10-page-slug-01"
-cover: "../2020-12-10/20190225003347.jpg"
+cover: "../2020-12-10/20190225002814.jpg"
 date: "2020-12-10"
 title: "UnrealEngine4 - Replication"
 published: true

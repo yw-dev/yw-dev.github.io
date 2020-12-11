@@ -3,7 +3,7 @@ author: ""
 description: ""
 discussionId: "2019-04-17-page-slug"
 path: "/2019-04-17-page-slug-01"
-cover: "../2019-04-17/20190225003347.jpg"
+cover: "../2019-04-17/20190225002632.jpg"
 date: "2019-04-17"
 title: "Unreal Engine 4基础(一)"
 published: true

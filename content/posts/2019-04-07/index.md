@@ -3,7 +3,7 @@ author: ""
 description: ""
 discussionId: "2019-04-07-page-slug"
 path: "/2019-04-07-page-slug-01"
-cover: "../2019-04-07/20190225003347.jpg"
+cover: "../2019-04-07/20190225002804.jpg"
 date: "2019-04-07"
 title: "JavaScript基础回顾-函数、对象、类、原型链和继承"
 published: true
