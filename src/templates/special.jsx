@@ -161,7 +161,7 @@ const Special = ({data, pageContext }) => {
   const upperSpecial = specialName.charAt(0).toUpperCase() + specialName.slice(1);
   const postsBySpecial = {};
   const specialPosts = {};
-  var posts = {};
+  const posts = {};
   var keyword=  [...upperSpecial];
   // create tags page
   data.allMarkdownRemark.edges.map(({ node }) => {
@@ -181,7 +181,7 @@ const Special = ({data, pageContext }) => {
       specialPosts[element.frontmatter.subtitle].push(element);
     }
   });
-  const subtitles = Object.keys(specialPosts);
+  //const subtitles = Object.keys(specialPosts);
   
   return (
     <Layout>
@@ -194,7 +194,7 @@ const Special = ({data, pageContext }) => {
         <Wrapper>
           <Nav>
             <ul className="tree">
-              {specialPosts.map(({ subNode }, index) => {
+              {specialPosts.map((subNode, index) => {
                 const Posts = specialPosts[subNode.frontmatter.subtitle];
                 return(
                   <li key={index}><label htmlFor={`item-${index}`}>{subNode.frontmatter.subtitle}</label><input type="checkbox" defaultChecked id={`item-${index}`}/>
