@@ -181,7 +181,7 @@ const Special = ({data, pageContext }) => {
       specialPosts[element.frontmatter.subtitle].push(element);
     }
   });
-  //const subtitles = Object.keys(specialPosts);
+  const subtitles = Object.keys(specialPosts);
   
   return (
     <Layout>
@@ -194,13 +194,12 @@ const Special = ({data, pageContext }) => {
         <Wrapper>
           <Nav>
             <ul className="tree">
-              {specialPosts.map((subNode, index) => {
-                const Posts = specialPosts[subNode.frontmatter.subtitle];
+              {subtitles.map((subtitle, index) => {
+                posts = specialPosts[subtitle];
                 return(
-                  <li key={index}><label htmlFor={`item-${index}`}>{subNode.frontmatter.subtitle}</label><input type="checkbox" defaultChecked id={`item-${index}`}/>
+                  <li key={index}><label htmlFor={`item-${index}`}>{subtitle}</label><input type="checkbox" defaultChecked id={`item-${index}`}/>
                     <ul>
                     {Posts.map(element =>{
-                      posts = element;
                     return (
                         <li key={element.id} className="file"><Link className="title" to={element.frontmatter.path} title={element.frontmatter.title}>{element.frontmatter.title}</Link></li>
                     )} 
