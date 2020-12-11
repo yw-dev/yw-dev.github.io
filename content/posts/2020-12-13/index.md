@@ -1,11 +1,11 @@
 ---
 author: ""
 description: ""
-discussionId: "2020-12-10-page-slug"
-path: "/2020-12-10-page-slug-01"
-cover: "../2020-12-10/20190225002814.jpg"
-date: "2020-12-10"
-title: "UnrealEngine4 - Replication"
+discussionId: "2020-12-13-page-slug"
+path: "/2020-12-13-page-slug-01"
+cover: "../2020-12-13/20190225002814.jpg"
+date: "2020-12-13"
+title: "UnrealEngine4 - NetWork"
 published: true
 subtitle: "Configuration"
 type: "dev"
@@ -17,6 +17,5 @@ tags: ['UnrealEngine 4', 'C++']
 ---
     
 ### 
-&nbsp;&nbsp;&nbsp;&nbsp;
 
 
