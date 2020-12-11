@@ -72,15 +72,15 @@ const AsideWrapper = styled.div`
 
 const Blog = ({ data, pageContext}) => {
   const { group, index, first, last, pageCount, pathPrefix } = pageContext;
-  //const { edges } = data.allMarkdownRemark;
+  const { edges } = data.allMarkdownRemark;
   const postsPage = [];
-  const edl = data.allMarkdownRemark.edges?data.allMarkdownRemark.edges.length:0;
+  const edl = edges?edges.length:0;
   const grl = group?group.length:0;
   
   for(var g=0; g < grl; g++){
     for(var e=0; e < edl; e++){
-      if(data.allMarkdownRemark.edges[e].node.id == group[g].node.id){
-        postsPage[g] = data.allMarkdownRemark.edges[e].node;
+      if(edges[e].node.id == group[g].node.id){
+        postsPage[g] = edges[e].node;
       }
     }
   }
