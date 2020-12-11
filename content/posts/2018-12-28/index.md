@@ -1,20 +1,21 @@
 ---
 author: ""
 description: ""
-discussionId: "2018-11-24-page-slug"
-path: "/post-11-24"
-cover: "../2018-11-24/20190225002814.jpg"
-date: "2018-11-24"
-title: "Post 11 24"
+discussionId: "2018-12-27-page-slug"
+path: "/post-12-27"
+cover: "../2018-12-27/20190225003433.jpg"
+date: "2018-12-27"
+title: "Post 12 27"
 published: true
-subtitle: "Architecture"
-type: "dev"
-typeID: "2"
-typeTitle: "技术杂谈"
-special: "Unreal Engine 4"
-categores: "UnrealEngine 4"
-tags: ['UnrealEngine 4', 'C++']
+subtitle: ""
+type: "resource"
+typeID: "3"
+typeTitle: "案例"
+special: "工具示例"
+categores: "工具"
+tags: ['Pyside2', 'Python']
 ---
+
 
 ## Overview
 

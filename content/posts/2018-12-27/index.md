@@ -10,10 +10,10 @@ published: true
 subtitle: ""
 type: "resource"
 typeID: "3"
-typeTitle: "资源"
-special: ""
+typeTitle: "案例"
+special: "游戏示例"
 categores: "游戏"
-tags: ['DirectX 12', 'C++']
+tags: ['UnrealEngine 4', 'C++']
 ---
 
 

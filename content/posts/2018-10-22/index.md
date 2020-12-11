@@ -11,9 +11,9 @@ subtitle: "Getting Start"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"
-special: "Unreal Engine 4系列"
-categores: "C++"
-tags: ['C++', 'Unreal Engine 4']
+special: "Unreal Engine 4"
+categores: "UnrealEngine 4"
+tags: ['C++', 'UnrealEngine 4']
 ---
 
 Ghost comes with powerful features built directly into the core software which can be customised and configured based on the needs of each individual site.

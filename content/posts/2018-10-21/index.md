@@ -11,9 +11,9 @@ subtitle: "Getting Start"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"
-special: "Unreal Engine 4系列"
-categores: "Unreal Engine 4"
-tags: ['Unreal Engine 4', 'C++']
+special: "Unreal Engine 4"
+categores: "UnrealEngine 4"
+tags: ['UnrealEngine 4', 'C++']
 ---
 
 Ghost is an open source, professional publishing platform built on a modern Node.js technology stack — designed for teams who need power, flexibility and performance.

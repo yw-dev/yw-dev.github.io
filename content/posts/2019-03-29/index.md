@@ -11,8 +11,8 @@ subtitle: ""
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"
-special: ""
-categores: "Gatsby"
+special: "Web"
+categores: "Web"
 tags: ['Gatsby', 'Html5']
 ---
 

@@ -10,7 +10,7 @@ published: true
 type: "self"
 typeID: "1"
 typeTitle: "个人随笔"
-special: ""
+special: "随笔"
 categores: "个人日记"
 tags: ['C++']
 ---
