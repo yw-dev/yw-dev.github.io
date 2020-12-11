@@ -7,7 +7,7 @@ cover: "../2020-09-24/20190225002732.jpg"
 date: "2020-09-24"
 title: "UnrealEngine4 - HUD/UMG"
 published: true
-subtitle: "Configuration4"
+subtitle: "Configuration"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"

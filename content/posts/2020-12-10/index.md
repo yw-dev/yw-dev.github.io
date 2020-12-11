@@ -7,7 +7,7 @@ cover: "../2020-12-10/20190225002814.jpg"
 date: "2020-12-10"
 title: "UnrealEngine4 - Replication"
 published: true
-subtitle: "Configuration7"
+subtitle: "Configuration"
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"
