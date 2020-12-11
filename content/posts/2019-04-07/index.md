@@ -11,7 +11,7 @@ subtitle: ""
 type: "dev"
 typeID: "2"
 typeTitle: "技术杂谈"
-special: "Web"
+special: "Web开发"
 categores: "Web"
 tags: ['JavaScript']
 ---
