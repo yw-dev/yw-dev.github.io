@@ -134,7 +134,7 @@ const Projects = ({ data }) => {
   
   return (
     <Container>
-      <CardHeader title="资源" other="" icons={`${'fas', "th-large"}`} path="/resource"></CardHeader>
+      <CardHeader title="案例" other="" icons={`${'fas', "th-large"}`} path="/resource"></CardHeader>
       {edges.map(({ node }) => (
         <Wrapper key={node.id}>
           <Link to={`/${node.frontmatter.path}`} title={node.frontmatter.title}>

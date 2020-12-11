@@ -177,7 +177,7 @@ const ProjectsList = ({ list, data }) => {
   
   return (
     <Project>
-      <CardHeader title="资源" other="" icons={`${['fas', "th-large"]}`} path="/resource"></CardHeader>
+      <CardHeader title="案例" other="" icons={`${['fas', "th-large"]}`} path="/resource"></CardHeader>
       <Content>
       {list && list.map((node, index) => {
         return (

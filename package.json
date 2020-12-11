@@ -13,11 +13,11 @@
   "proxy": {
     "/api/v3": {
       "target": "https://api.github.com",
-      "changeOrigin":true
+      "changeOrigin": true
     },
-    "/api/v4":{
-      "target":"https://api.github.com/graphql",
-      "changeOrigin":true
+    "/api/v4": {
+      "target": "https://api.github.com/graphql",
+      "changeOrigin": true
     }
   },
   "scripts": {

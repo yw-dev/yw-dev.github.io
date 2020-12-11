@@ -91,7 +91,7 @@ class HotTopic extends Component{
     render() {  
       return (
         <Container>
-          <CardHeader title="热门排行" other="" icons={`${'fas', "angle-double-right"}`} path="/blog"></CardHeader>
+          <CardHeader title="最新文章" other="" icons={`${'fas', "angle-double-right"}`} path="/blog"></CardHeader>
             {this.state.data.map(({ node }, index) => (
               <StyledLink key={node.id} to={`/${node.frontmatter.path}`}  title={node.frontmatter.title}>
                 <Item>

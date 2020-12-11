@@ -156,7 +156,7 @@ const SubDirect = styled.div`
 `;
 
 const Special = ({data, pageContext }) => {
-  const { edges } = data.allMarkdownRemark;
+  //const { edges } = data.allMarkdownRemark;
   const { specialName } = pageContext;
   const upperSpecial = specialName.charAt(0).toUpperCase() + specialName.slice(1);
   const postsBySpecial = {};
@@ -164,7 +164,7 @@ const Special = ({data, pageContext }) => {
   var posts = {};
   var keyword=  [...upperSpecial];
   // create tags page
-  edges.forEach(({ node }) => {
+  data.allMarkdownRemark.edges.map(({ node }) => {
     if (node.frontmatter.special) {
         if (!postsBySpecial[node.frontmatter.special]) {
           postsBySpecial[node.frontmatter.special] = [];
